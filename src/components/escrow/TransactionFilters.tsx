@@ -52,14 +52,14 @@ const TransactionFilters = ({
 
   const statusOptions = [
     { value: 'all', label: 'All Statuses' },
-    { value: TRANSACTION_STATUS_LABELS.PENDING_PAYMENT, label: 'Pending Payment' },
-    { value: TRANSACTION_STATUS_LABELS.PAYMENT_COMPLETED, label: 'Payment Completed' },
-    { value: TRANSACTION_STATUS_LABELS.IN_ESCROW, label: 'In Escrow' },
-    { value: TRANSACTION_STATUS_LABELS.IN_DELIVERY, label: 'In Delivery' },
-    { value: TRANSACTION_STATUS_LABELS.UNDER_REVIEW, label: 'Under Review' },
-    { value: TRANSACTION_STATUS_LABELS.DISPUTE, label: 'Disputed' },
-    { value: TRANSACTION_STATUS_LABELS.COMPLETED, label: 'Completed' },
-    { value: TRANSACTION_STATUS_LABELS.CANCELLED, label: 'Cancelled' }
+    { value: TRANSACTION_STATUS_LABELS.pending_payment, label: 'Pending Payment' },
+    { value: TRANSACTION_STATUS_LABELS.payment_completed, label: 'Payment Completed' },
+    { value: TRANSACTION_STATUS_LABELS.in_escrow, label: 'In Escrow' },
+    { value: TRANSACTION_STATUS_LABELS.in_delivery, label: 'In Delivery' },
+    { value: TRANSACTION_STATUS_LABELS.under_review, label: 'Under Review' },
+    { value: TRANSACTION_STATUS_LABELS.dispute, label: 'Disputed' },
+    { value: TRANSACTION_STATUS_LABELS.completed, label: 'Completed' },
+    { value: TRANSACTION_STATUS_LABELS.cancelled, label: 'Cancelled' }
   ];
 
   return (

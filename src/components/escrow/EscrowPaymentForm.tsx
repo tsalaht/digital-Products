@@ -38,6 +38,7 @@ const EscrowPaymentForm = ({
     accountNumber: '',
     routingNumber: '',
     accountType: 'checking' as const,
+    accountHolder: '',
     
     // Crypto data
     walletAddress: '',
@@ -92,6 +93,9 @@ const EscrowPaymentForm = ({
         break;
         
       case 'bank_transfer':
+        if (!formData.accountHolder.trim()) {
+          newErrors.accountHolder = 'Account holder name is required';
+        }
         if (!formData.accountNumber.trim()) {
           newErrors.accountNumber = 'Account number is required';
         }
@@ -158,6 +162,7 @@ const EscrowPaymentForm = ({
           paymentData.bankData = {
             accountNumber: formData.accountNumber,
             routingNumber: formData.routingNumber,
+            accountHolder: formData.accountHolder,
             accountType: formData.accountType
           };
           break;
@@ -421,6 +426,24 @@ const EscrowPaymentForm = ({
           <div>
             <h3 className="text-lg font-semibold mb-4">Bank Transfer Information</h3>
             <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Account Holder Name *
+                </label>
+                <input
+                  type="text"
+                  value={formData.accountHolder}
+                  onChange={(e) => handleInputChange('accountHolder', e.target.value)}
+                  className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    errors.accountHolder ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  placeholder="Enter account holder name"
+                />
+                {errors.accountHolder && (
+                  <p className="text-red-500 text-sm mt-1">{errors.accountHolder}</p>
+                )}
+              </div>
+              
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Account Number *

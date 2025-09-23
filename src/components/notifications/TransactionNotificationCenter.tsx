@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Bell, Filter, Search, MarkAsRead, Trash2, Settings, X } from 'lucide-react';
+import { Bell, Filter, Search, Check, Trash2, Settings, X } from 'lucide-react';
 import { Notification, NotificationFilter, NotificationStats } from '@/types';
 import { useNotifications } from '@/contexts/NotificationContext';
 import TransactionNotificationCard from './TransactionNotificationCard';
@@ -129,6 +129,8 @@ const TransactionNotificationCenter = ({
     const escrowTransactions = notifications.filter(n => n.type.startsWith('escrow_')).length;
     const disputes = notifications.filter(n => n.type.includes('dispute')).length;
     const urgent = notifications.filter(n => n.priority === 'urgent').length;
+    const payments = notifications.filter(n => n.type.includes('payment')).length;
+    const deliveries = notifications.filter(n => n.type.includes('delivery')).length;
 
     return {
       total,
@@ -137,6 +139,8 @@ const TransactionNotificationCenter = ({
       responses,
       escrowTransactions,
       disputes,
+      payments,
+      deliveries,
       urgent
     };
   };
@@ -199,7 +203,7 @@ const TransactionNotificationCenter = ({
               onClick={() => markAllAsRead()}
               className="flex-1 px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium flex items-center justify-center"
             >
-              <MarkAsRead className="h-4 w-4 mr-2" />
+              <Check className="h-4 w-4 mr-2" />
               Mark All Read
             </button>
             <button className="px-3 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">

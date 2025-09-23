@@ -101,7 +101,7 @@ const SellerRegisterPage = () => {
     'إعلانات'
   ];
 
-  const handleInputChange = (field: string, value: any) => {
+  const handleInputChange = (field: string, value: string | boolean | number | File | File[]) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 

@@ -1,9 +1,10 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import EscrowCheckoutPage from '@/components/escrow/EscrowCheckoutPage';
 
-export default function EscrowCheckoutPageRoute() {
+function EscrowCheckoutContent() {
   const searchParams = useSearchParams();
   
   // Get parameters from URL query string
@@ -17,5 +18,13 @@ export default function EscrowCheckoutPageRoute() {
       offerId={offerId}
       transactionId={transactionId}
     />
+  );
+}
+
+export default function EscrowCheckoutPageRoute() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <EscrowCheckoutContent />
+    </Suspense>
   );
 }

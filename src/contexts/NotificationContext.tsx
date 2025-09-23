@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { Notification, PurchaseRequest, NotificationStats, EscrowTransaction } from '@/types';
+import { Notification, PurchaseRequest, NotificationStats, EscrowTransaction, NotificationType } from '@/types';
 import { storage, generateId } from '@/utils/helpers';
 import { STORAGE_KEYS, NOTIFICATION_TYPES } from '@/constants';
 import { TRANSACTION_NOTIFICATION_TEMPLATES, generateTransactionNotification } from '@/utils/notificationTemplates';
@@ -63,6 +63,8 @@ export const NotificationProvider = ({ children }: NotificationProviderProps) =>
     responses: 0,
     escrowTransactions: 0,
     disputes: 0,
+    payments: 0,
+    deliveries: 0,
     urgent: 0
   });
 
@@ -109,6 +111,8 @@ export const NotificationProvider = ({ children }: NotificationProviderProps) =>
     const escrowTransactions = notifications.filter(n => n.type.startsWith('escrow_')).length;
     const disputes = notifications.filter(n => n.type.includes('dispute')).length;
     const urgent = notifications.filter(n => n.priority === 'urgent').length;
+    const payments = notifications.filter(n => n.type.includes('payment')).length;
+    const deliveries = notifications.filter(n => n.type.includes('delivery')).length;
 
     setStats({
       total,
@@ -117,6 +121,8 @@ export const NotificationProvider = ({ children }: NotificationProviderProps) =>
       responses,
       escrowTransactions,
       disputes,
+      payments,
+      deliveries,
       urgent
     });
   };
@@ -170,7 +176,7 @@ export const NotificationProvider = ({ children }: NotificationProviderProps) =>
     if (request) {
       // Create notification for buyer
       const buyerNotification: Omit<Notification, 'id'> = {
-        type: response === 'accepted' ? NOTIFICATION_TYPES.REQUEST_ACCEPTED : NOTIFICATION_TYPES.REQUEST_REJECTED,
+        type: (response === 'accepted' ? NOTIFICATION_TYPES.REQUEST_ACCEPTED : NOTIFICATION_TYPES.REQUEST_REJECTED) as NotificationType,
         title: response === 'accepted' 
           ? 'تم قبول طلب الشراء! ✅'
           : 'تم رفض طلب الشراء ❌',
@@ -179,6 +185,7 @@ export const NotificationProvider = ({ children }: NotificationProviderProps) =>
           : `تم رفض طلب شرائك للمشروع "${request.projectTitle}" من قبل ${request.sellerName}`,
         isRead: false,
         createdAt: new Date().toISOString(),
+        priority: 'medium' as const,
         buyerId: request.buyerEmail,
         sellerName: request.sellerName,
         projectId: request.projectId,
@@ -247,7 +254,7 @@ export const NotificationProvider = ({ children }: NotificationProviderProps) =>
     userType: 'buyer' | 'seller',
     additionalData?: Record<string, any>
   ) => {
-    const template = TRANSACTION_NOTIFICATION_TEMPLATES[eventType]?.[userType];
+    const template = (TRANSACTION_NOTIFICATION_TEMPLATES as any)[eventType]?.[userType];
     if (!template) {
       console.warn(`No template found for event ${eventType} and user type ${userType}`);
       return;

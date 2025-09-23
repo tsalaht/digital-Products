@@ -176,6 +176,14 @@ const TransactionTimeline = ({ transaction, userType }: TransactionTimelineProps
     }
   };
 
+  const mapEventStatus = (status: string): 'completed' | 'current' | 'pending' => {
+    if (status === 'completed') return 'completed';
+    if (status === 'current') return 'current';
+    if (status === 'pending') return 'pending';
+    // Default fallback
+    return 'pending';
+  };
+
   return (
     <div className="bg-gray-50 rounded-lg p-6">
       <h4 className="text-lg font-semibold text-gray-900 mb-6">Transaction Timeline</h4>
@@ -189,11 +197,11 @@ const TransactionTimeline = ({ transaction, userType }: TransactionTimelineProps
             <div key={event.id} className="relative flex items-start pb-8">
               {/* Connector line */}
               {!isLast && (
-                <div className={`absolute left-4 top-10 w-0.5 h-full ${getConnectorStyles(event.status)}`} />
+                <div className={`absolute left-4 top-10 w-0.5 h-full ${getConnectorStyles(mapEventStatus(event.status))}`} />
               )}
               
               {/* Icon */}
-              <div className={`relative flex items-center justify-center w-8 h-8 rounded-full border-2 ${getStatusStyles(event.status)} z-10`}>
+              <div className={`relative flex items-center justify-center w-8 h-8 rounded-full border-2 ${getStatusStyles(mapEventStatus(event.status))} z-10`}>
                 <Icon className="h-4 w-4" />
               </div>
               

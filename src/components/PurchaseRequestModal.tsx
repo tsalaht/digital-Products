@@ -5,6 +5,7 @@ import { X, DollarSign, MessageCircle, User, AlertCircle, CheckCircle } from 'lu
 import { Project } from '@/data/projects';
 import { formatCurrency, generateId, storage } from '@/utils/helpers';
 import { STORAGE_KEYS, NOTIFICATION_TYPES } from '@/constants';
+import { PurchaseRequest, Notification, NotificationType } from '@/types';
 
 interface PurchaseRequestModalProps {
   isOpen: boolean;
@@ -41,20 +42,20 @@ const PurchaseRequestModal = ({ isOpen, onClose, project }: PurchaseRequestModal
         buyerEmail: offerData.buyerEmail,
         offeredAmount: parseFloat(offerData.amount),
         message: offerData.message,
-        status: 'pending',
+        status: 'pending' as const,
         requestDate: new Date().toISOString(),
         projectPrice: project.price
       };
       
       // Store purchase request
-      const existingRequests: any[] = storage.get(STORAGE_KEYS.PURCHASE_REQUESTS) || [];
+      const existingRequests: PurchaseRequest[] = storage.get(STORAGE_KEYS.PURCHASE_REQUESTS) || [];
       existingRequests.push(purchaseRequest);
       storage.set(STORAGE_KEYS.PURCHASE_REQUESTS, existingRequests);
       
       // Create notification for seller
       const sellerNotification = {
         id: generateId(),
-        type: NOTIFICATION_TYPES.PURCHASE_REQUEST,
+        type: NOTIFICATION_TYPES.PURCHASE_REQUEST as NotificationType,
         title: 'طلب شراء جديد! 🎉',
         message: `تهانينا! تم إرسال طلب شراء من ${offerData.buyerName} لمشروعك بمبلغ $${offerData.amount}. هل تريد إتمام هذه الصفقة بسرعة؟`,
         sellerId: project.seller.name,
@@ -63,11 +64,12 @@ const PurchaseRequestModal = ({ isOpen, onClose, project }: PurchaseRequestModal
         projectTitle: project.title,
         isRead: false,
         createdAt: new Date().toISOString(),
+        priority: 'high' as const,
         requestId: purchaseRequest.id
       };
       
       // Store notification
-      const existingNotifications: any[] = storage.get(STORAGE_KEYS.NOTIFICATIONS) || [];
+      const existingNotifications: Notification[] = storage.get(STORAGE_KEYS.NOTIFICATIONS) || [];
       existingNotifications.push(sellerNotification);
       storage.set(STORAGE_KEYS.NOTIFICATIONS, existingNotifications);
       

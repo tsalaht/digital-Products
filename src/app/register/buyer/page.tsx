@@ -54,7 +54,7 @@ const BuyerRegisterPage = () => {
     '25,000 – 35,000 $'
   ];
 
-  const handleInputChange = (field: string, value: any) => {
+  const handleInputChange = (field: string, value: string | boolean | number) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 

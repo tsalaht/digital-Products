@@ -1,5 +1,4 @@
-import { Notification } from '@/types/notifications';
-import { EscrowTransaction } from '@/types/transactions';
+import { Notification, EscrowTransaction } from '@/types';
 import { formatCurrency } from './helpers';
 
 interface NotificationTemplate {

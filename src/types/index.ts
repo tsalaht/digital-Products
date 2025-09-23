@@ -300,6 +300,7 @@ export interface NotificationStats {
   disputes: number;
   payments: number;
   deliveries: number;
+  urgent: number;
 }
 
 // =============================================================================

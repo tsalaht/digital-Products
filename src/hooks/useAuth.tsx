@@ -2,9 +2,10 @@
 'use client';
 
 import { createContext, useContext, ReactNode } from 'react';
+import { User } from '@/types';
 
 interface AuthContextType {
-  user: any;
+  user: User | null;
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
   isLoading: boolean;

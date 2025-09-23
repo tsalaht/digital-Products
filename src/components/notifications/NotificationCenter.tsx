@@ -12,7 +12,7 @@ import {
   Clock,
   Filter,
   Trash2,
-  MarkAsUnread
+  MailOpen
 } from 'lucide-react';
 import { useNotifications } from '@/contexts/NotificationContext';
 import { Notification, NotificationFilter } from '@/types';

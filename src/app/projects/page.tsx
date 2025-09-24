@@ -135,10 +135,10 @@ const ProjectsPage = () => {
           {/* Filter Toggle */}
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="btn-secondary mb-4 lg:hidden w-full"
+            className="btn-light-blue mb-4 lg:hidden w-full"
           >
-            <Filter className="w-5 h-5 ml-2" />
-            {showFilters ? 'إخفاء الفلاتر' : 'عرض الفلاتر'}
+            <Filter className="w-5 h-5 ml-2 relative z-10" />
+            <span className="relative z-10">{showFilters ? 'إخفاء الفلاتر' : 'عرض الفلاتر'}</span>
           </button>
 
           {/* Filters */}
@@ -205,9 +205,9 @@ const ProjectsPage = () => {
                   setPriceRange('');
                   setSortBy('الأحدث');
                 }}
-                className="btn-secondary w-full"
+                className="btn-light-blue w-full"
               >
-                إعادة تعيين
+                <span className="relative z-10">إعادة تعيين</span>
               </button>
             </div>
           </div>
@@ -234,9 +234,9 @@ const ProjectsPage = () => {
                 setSelectedTech('');
                 setPriceRange('');
               }}
-              className="btn-primary"
+              className="btn-light-blue"
             >
-              مسح الفلاتر
+              <span className="relative z-10">مسح الفلاتر</span>
             </button>
           </div>
         )}

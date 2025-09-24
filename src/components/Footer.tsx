@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Mail, Phone, MapPin, Shield, FileText, RefreshCw, MessageSquare, Facebook, Twitter, Linkedin, Instagram, Youtube } from 'lucide-react';
+import Image from 'next/image';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -59,10 +60,16 @@ const Footer = () => {
             {/* Brand & Company Info */}
             <div className="lg:col-span-1">
               <Link href="/" className="flex items-center space-x-3 space-x-reverse group mb-6">
-                <div className="bg-gradient-to-br from-blue-500 via-purple-500 to-teal-500 text-white w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:rotate-3">
-                  م
+                <div className="w-h-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:rotate-3 overflow-hidden">
+                  <Image 
+                    src="/logo.png" 
+                    alt="Logo" 
+                    width={54} 
+                    height={54} 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">
+                <span className="text-xl font-bold text-gradient">
                   Digital Marketplace
                 </span>
               </Link>
@@ -74,19 +81,19 @@ const Footer = () => {
               {/* Contact Info */}
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors duration-200">
-                  <Mail className="w-4 h-4 text-blue-400" />
+                  <Mail className="w-4 h-4" style={{ color: '#7EE7FC' }} />
                   <a href={`mailto:${contactInfo.email}`} className="text-sm hover:underline">
                     {contactInfo.email}
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors duration-200">
-                  <Phone className="w-4 h-4 text-green-400" />
+                  <Phone className="w-4 h-4" style={{ color: '#7EE7FC' }} />
                   <a href={`tel:${contactInfo.phone}`} className="text-sm hover:underline">
                     {contactInfo.phone}
                   </a>
                 </div>
                 <div className="flex items-start gap-3 text-slate-300">
-                  <MapPin className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
+                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#7EE7FC' }} />
                   <span className="text-sm">{contactInfo.address}</span>
                 </div>
               </div>
@@ -106,7 +113,7 @@ const Footer = () => {
                         href={link.href} 
                         className="flex items-center gap-3 text-slate-300 hover:text-white transition-all duration-200 group"
                       >
-                        <Icon className="w-4 h-4 text-blue-400 group-hover:text-blue-300 transition-colors duration-200" />
+                        <Icon className="w-4 h-4 transition-colors duration-200" style={{ color: '#7EE7FC' }} />
                         <span className="group-hover:translate-x-1 transition-transform duration-200">
                           {link.label}
                         </span>
@@ -182,19 +189,19 @@ const Footer = () => {
           <div className="mt-16 pt-8 border-t border-slate-700">
             <div className="flex flex-wrap items-center justify-center gap-8 mb-8">
               <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-4 py-2">
-                <Shield className="w-5 h-5 text-green-400" />
+                <Shield className="w-5 h-5" style={{ color: '#7EE7FC' }} />
                 <span className="text-sm font-medium text-slate-200">SSL Secured</span>
               </div>
               <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-4 py-2">
-                <Shield className="w-5 h-5 text-blue-400" />
+                <Shield className="w-5 h-5" style={{ color: '#7EE7FC' }} />
                 <span className="text-sm font-medium text-slate-200">GDPR Compliant</span>
               </div>
               <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-4 py-2">
-                <Shield className="w-5 h-5 text-purple-400" />
+                <Shield className="w-5 h-5" style={{ color: '#7EE7FC' }} />
                 <span className="text-sm font-medium text-slate-200">Escrow Protected</span>
               </div>
               <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-4 py-2">
-                <Shield className="w-5 h-5 text-orange-400" />
+                <Shield className="w-5 h-5" style={{ color: '#7EE7FC' }} />
                 <span className="text-sm font-medium text-slate-200">24/7 Support</span>
               </div>
             </div>

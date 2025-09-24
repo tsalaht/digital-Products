@@ -135,7 +135,7 @@ const SubscribePage = () => {
               <button
                 onClick={handleSubscribe}
                 disabled={isProcessing}
-                className="btn-primary bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white font-bold py-4 px-12 rounded-2xl text-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="btn-light-blue text-xl px-12 py-4 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isProcessing ? (
                   <div className="flex items-center gap-3">

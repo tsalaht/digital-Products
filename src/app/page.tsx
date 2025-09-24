@@ -81,7 +81,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient py-20 relative overflow-hidden">
+      <section className=" py-20 relative overflow-hidden bg-white">
         {/* Background Decorations */}
         <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-xl animate-float"></div>
         <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-emerald-200/30 to-teal-200/30 rounded-full blur-xl animate-float" style={{ animationDelay: '1s' }}></div>
@@ -94,9 +94,9 @@ const HomePage = () => {
               منصة المشاريع الرقمية الرائدة
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-6 animate-fade-in">
+            <h1 className="md:text-6xl text-5xl my-1 font-black text-slate-900 animate-fade-in leading-18 py-10 ">
               اكتشف أفضل
-              <span className="text-gradient block mt-2 animate-slide-up">المشاريع الرقمية</span>
+              <span className="text-gradient block mt-2 animate-slide-up mb-3 md:leading-[70px] leading-normal py-5">المشاريع الرقمية</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-slate-600 mb-10 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
@@ -107,15 +107,15 @@ const HomePage = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-8 justify-center items-center animate-scale-in" style={{ animationDelay: '0.4s' }}>
-              <Link href="/projects" className="px-12 py-6 bg-gradient-to-r from-sky-400 to-blue-500 text-white font-bold rounded-full text-xl shadow-2xl hover:from-sky-500 hover:to-blue-600 hover:shadow-3xl hover:scale-110 active:scale-95 transition-all duration-300 inline-flex items-center justify-center glow-soft relative overflow-hidden">
+              <Link href="/projects" className="px-8 py-2 bg-gradient-to-r from-sky-400 to-blue-500 text-white font-bold rounded-full text-xl shadow-2xl hover:from-sky-500 hover:to-blue-600 hover:shadow-3xl hover:scale-110 active:scale-95 transition-all duration-300 inline-flex items-center justify-center glow-soft relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-white/30 via-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                <Search className="w-7 h-7 ml-4 relative z-10" />
-                <span className="relative z-10">تصفح المشاريع</span>
+                <Search className="w-5 h-5 ml-4 relative z-10" />
+                <span className="relative z-10 text-base">تصفح المشاريع</span>
               </Link>
-              <Link href="/register/seller" className="px-12 py-6 bg-white/90 backdrop-blur-sm border-3 border-sky-200 text-sky-600 font-bold rounded-full text-xl hover:bg-sky-50 hover:border-sky-300 hover:text-sky-700 transition-all duration-300 hover:shadow-xl hover:scale-110 active:scale-95 inline-flex items-center justify-center relative overflow-hidden">
+              <Link href="/register/seller" className="px-8 py-2 bg-white/90 backdrop-blur-sm border-3 border-sky-200 text-sky-600 font-bold rounded-full text-xl hover:bg-sky-50 hover:border-sky-300 hover:text-sky-700 transition-all duration-300 hover:shadow-xl hover:scale-110 active:scale-95 inline-flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-sky-100/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                <Rocket className="w-7 h-7 ml-4 relative z-10" />
-                <span className="relative z-10">ابدأ البيع الآن</span>
+                <Rocket className="w-5 h-5 ml-4 relative z-10" />
+                <span className="relative z-10 text-base">ابدأ البيع الآن</span>
               </Link>
             </div>
 
@@ -181,7 +181,7 @@ const HomePage = () => {
               <select 
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="tab-button tab-active border-none bg-transparent outline-none cursor-pointer"
+                className="tab-button tab-active border-none bg-transparent outline-none cursor-pointer select-tab"
               >
                 {categories.slice(0, 4).map(category => (
                   <option key={category} value={category}>{category}</option>
@@ -193,7 +193,7 @@ const HomePage = () => {
               <select 
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="tab-button tab-inactive border-none bg-transparent outline-none cursor-pointer"
+                className="tab-button tab-inactive border-none bg-transparent outline-none cursor-pointer select-tab"
               >
                 <option value="الأحدث">الأحدث</option>
                 <option value="الأعلى سعراً">الأعلى سعراً</option>
@@ -218,16 +218,16 @@ const HomePage = () => {
           </div>
 
           <div className="text-center mt-16">
-            <Link href="/projects" className="btn-primary btn-interactive text-lg px-8 py-4 glow-soft">
-              عرض جميع المشاريع
-              <ArrowLeft className="w-5 h-5 mr-3" />
+            <Link href="/projects" className="btn-light-blue">
+              <span className="relative z-10">عرض جميع المشاريع</span>
+              <ArrowLeft className="w-5 h-5 mr-3 relative z-10" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* Profitable Projects Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-green-50 relative overflow-hidden">
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-emerald-200/20 to-green-200/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-green-200/20 to-emerald-200/20 rounded-full blur-3xl"></div>
         
@@ -258,9 +258,9 @@ const HomePage = () => {
           </div>
 
           <div className="text-center mt-16">
-            <Link href="/profitable-projects" className="btn-success text-lg px-8 py-4 glow-success">
-              عرض جميع المشاريع المربحة
-              <ArrowLeft className="w-5 h-5 mr-3" />
+            <Link href="/profitable-projects" className="btn-light-blue">
+              <span className="relative z-10">عرض جميع المشاريع المربحة</span>
+              <ArrowLeft className="w-5 h-5 mr-3 relative z-10" />
             </Link>
           </div>
         </div>
@@ -293,10 +293,10 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-float"></div>
+      <section className="py-20 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 50%, #3BC4E8 100%)' }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10"></div>
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-white/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-float"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-full font-bold text-sm shadow-xl mb-8">
@@ -307,7 +307,7 @@ const HomePage = () => {
           <h2 className="text-4xl md:text-5xl font-black text-white mb-8">
             هل لديك مشروع رقمي للبيع؟
           </h2>
-          <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto">
             انضم إلى آلاف البائعين الذين يحققون أرباحاً من خلال منصتنا المتميزة
           </p>
           

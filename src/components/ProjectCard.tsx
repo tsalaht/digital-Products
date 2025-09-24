@@ -139,16 +139,16 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         {/* Price and Actions */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center shadow-sm">
+            <div className="w-8 h-8 bg-[#7EE7FC] rounded-lg flex items-center justify-center shadow-sm">
               <DollarSign className="w-4 h-4 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+            <span className="text-xl font-bold text-gray-800 group-hover:text-[#7EE7FC] transition-colors duration-300">
               {formatPrice(project.price)}
             </span>
           </div>
           <Link
             href={`/projects/${project.id}`}
-            className="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            className="px-4 py-2 bg-[#7EE7FC] text-black text-sm font-semibold rounded-3xl hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
           >
             عرض التفاصيل
           </Link>

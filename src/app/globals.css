@@ -13,7 +13,7 @@
   }
   
   body {
-    background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+    background: #fff;
     color: #1e293b;
     font-weight: 500;
     min-height: 100vh;
@@ -28,7 +28,12 @@
 @layer components {
   /* Enhanced Button Styles - Modern Rounded Design */
   .btn-primary {
-    @apply relative bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-500 hover:to-blue-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-2xl hover:shadow-2xl transform hover:scale-105 active:scale-95 overflow-hidden;
+    @apply relative text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-2xl hover:shadow-2xl transform hover:scale-105 active:scale-95 overflow-hidden;
+    background: linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%);
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #5DD3F0 0%, #3BC4E8 100%);
   }
   
   .btn-primary::before {
@@ -37,7 +42,7 @@
   }
   
   .btn-secondary {
-    @apply relative bg-white/90 backdrop-blur-sm hover:bg-sky-50 text-sky-600 hover:text-sky-700 border-2 border-sky-200 hover:border-sky-300 font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 overflow-hidden;
+    @apply relative bg-white/90 backdrop-blur-sm hover:bg-cyan-50 text-cyan-600 hover:text-cyan-700 border-2 border-cyan-200 hover:border-cyan-300 font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 overflow-hidden;
   }
   
   .btn-secondary::before {
@@ -50,7 +55,12 @@
   }
 
   .btn-success {
-    @apply relative bg-gradient-to-r from-emerald-400 to-green-500 hover:from-emerald-500 hover:to-green-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-2xl hover:shadow-2xl transform hover:scale-105 active:scale-95 overflow-hidden;
+    @apply relative text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-2xl hover:shadow-2xl transform hover:scale-105 active:scale-95 overflow-hidden;
+    background: linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%);
+  }
+  
+  .btn-success:hover {
+    background: linear-gradient(135deg, #5DD3F0 0%, #3BC4E8 100%);
   }
   
   .btn-success::before {
@@ -60,15 +70,25 @@
   
   /* Rounded Button Variants */
   .btn-round-primary {
-    @apply relative bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-500 hover:to-blue-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-2xl hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden inline-flex items-center justify-center;
+    @apply relative text-white font-bold py-4 px-8 rounded-full text-lg shadow-2xl hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden inline-flex items-center justify-center;
+    background: linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%);
+  }
+  
+  .btn-round-primary:hover {
+    background: linear-gradient(135deg, #5DD3F0 0%, #3BC4E8 100%);
   }
   
   .btn-round-secondary {
-    @apply relative bg-white/90 backdrop-blur-sm border-2 border-sky-200 text-sky-600 hover:bg-sky-50 hover:border-sky-300 hover:text-sky-700 font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden inline-flex items-center justify-center;
+    @apply relative bg-white/90 backdrop-blur-sm border-2 border-cyan-200 text-cyan-600 hover:bg-cyan-50 hover:border-cyan-300 hover:text-cyan-700 font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden inline-flex items-center justify-center;
   }
   
   .btn-round-success {
-    @apply relative bg-gradient-to-r from-emerald-400 to-green-500 hover:from-emerald-500 hover:to-green-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-2xl hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden inline-flex items-center justify-center;
+    @apply relative text-white font-bold py-4 px-8 rounded-full text-lg shadow-2xl hover:shadow-2xl transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden inline-flex items-center justify-center;
+    background: linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%);
+  }
+  
+  .btn-round-success:hover {
+    background: linear-gradient(135deg, #5DD3F0 0%, #3BC4E8 100%);
   }
 
   .btn-warning {
@@ -108,21 +128,60 @@
   }
   
   .tab-active {
-    @apply bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold shadow-lg transform scale-105;
+    @apply text-white font-bold shadow-lg transform scale-105;
+    background: linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%);
   }
   
   .tab-active:after {
     content: '';
-    @apply absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full;
+    @apply absolute bottom-0 left-0 right-0 h-0.5 rounded-full;
+    background: linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%);
+  }
+
+  /* Select element styling */
+  .select-tab {
+    @apply text-slate-700 bg-white;
+    /* color: #7EE7FC */
+  }
+  
+  .select-tab option {
+    @apply text-slate-700 bg-white;
+  }
+
+  /* Custom Light Blue Button */
+  .btn-light-blue {
+    @apply relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-slate-800 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 overflow-hidden;
+    background: linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%);
+  }
+  
+  .btn-light-blue:hover {
+    background: linear-gradient(135deg, #5DD3F0 0%, #3BC4E8 100%);
+    transform: translateY(-2px) scale(1.05);
+  }
+  
+  .btn-light-blue::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-white/30 via-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300;
+  }
+  
+  .btn-light-blue::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-blue-400/20 via-cyan-400/20 to-teal-400/20 opacity-0 hover:opacity-100 transition-opacity duration-300;
   }
 
   /* Text Gradient */
   .text-gradient {
-    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent;
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 50%, #3BC4E8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   .text-gradient-success {
-    @apply bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent;
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   /* Badge Styles */
@@ -139,25 +198,28 @@
   }
   
   .badge-primary {
-    @apply badge bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 border border-blue-200;
+    @apply badge text-white shadow-lg;
+    background: linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%);
   }
   
   .badge-verified {
-    @apply badge bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-lg;
+    @apply badge text-white shadow-lg;
+    background: linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%);
   }
 
   /* Input Field */
   .input-field {
-    @apply w-full px-5 py-4 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400 transition-all duration-200 bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md placeholder-slate-400;
+    @apply w-full px-5 py-4 border border-slate-300 rounded-xl focus:ring-2 focus:border-cyan-400 transition-all duration-200 bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md placeholder-slate-400;
+    --tw-ring-color: rgba(126, 231, 252, 0.5);
   }
   
   /* Navigation */
   .nav-link {
-    @apply text-slate-600 hover:text-slate-900 font-medium transition-all duration-200 px-5 py-3 rounded-xl hover:bg-white/60 backdrop-blur-sm relative;
+    @apply text-slate-600 hover:text-cyan-700 font-medium transition-all duration-200 px-5 py-3 rounded-xl hover:bg-cyan-50/60 backdrop-blur-sm relative;
   }
   
   .nav-link-active {
-    @apply nav-link text-slate-900 bg-white/80 shadow-md font-bold;
+    @apply nav-link text-cyan-800 bg-cyan-50/80 shadow-md font-bold;
   }
 
   /* Stats Card */
@@ -175,7 +237,7 @@
 
   /* Hero Section */
   .hero-gradient {
-    @apply bg-gradient-to-br from-blue-50 via-purple-50 to-teal-50;
+    background: linear-gradient(135deg, rgba(126, 231, 252, 0.1) 0%, rgba(93, 211, 240, 0.1) 50%, rgba(59, 196, 232, 0.1) 100%);
   }
 
   /* Feature Card */
@@ -269,11 +331,11 @@
 
   /* Glow Effect */
   .glow-soft {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 20px rgba(126, 231, 252, 0.4);
   }
   
   .glow-success {
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+    box-shadow: 0 0 20px rgba(126, 231, 252, 0.4);
   }
   
   .glow-warning {
@@ -339,8 +401,8 @@
 
 /* Selection */
 ::selection {
-  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-  color: #1e40af;
+  background: linear-gradient(135deg, rgba(126, 231, 252, 0.3), rgba(93, 211, 240, 0.3));
+  color: #0f172a;
 }
 
 /* Loading Animation */

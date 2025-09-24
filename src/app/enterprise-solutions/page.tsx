@@ -141,7 +141,7 @@ const EnterpriseSolutionsPage = () => {
         </div>
 
         {/* Solutions Categories */}
-        <div className="mb-8">
+        {/* <div className="mb-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">فئات الحلول المتاحة</h2>
             <p className="text-xl text-gray-600">حلول متخصصة لكل قطاع ونوع عمل</p>
@@ -172,7 +172,7 @@ const EnterpriseSolutionsPage = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Enterprise Projects - New Section */}
         <div className="mb-12">

@@ -45,7 +45,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">المشروع غير موجود</h1>
-          <Link href="/" className="btn-primary">العودة للرئيسية</Link>
+          <Link href="/" className="btn-light-blue">العودة للرئيسية</Link>
         </div>
       </div>
     );
@@ -187,13 +187,13 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                 )}
                 
                 <div className="space-y-3">
-                  <Link href={`/projects/${project.id}/purchase`} className="btn-primary w-full">
-                    <DollarSign className="w-5 h-5 ml-2" />
-                    شراء المشروع
+                  <Link href={`/projects/${project.id}/purchase`} className="btn-light-blue w-full">
+                    <DollarSign className="w-5 h-5 ml-2 relative z-10" />
+                    <span className="relative z-10">شراء المشروع</span>
                   </Link>
-                  <button className="btn-secondary w-full">
-                    <MessageCircle className="w-5 h-5 ml-2" />
-                    تواصل مع البائع
+                  <button className="btn-light-blue w-full">
+                    <MessageCircle className="w-5 h-5 ml-2 relative z-10" />
+                    <span className="relative z-10">تواصل مع البائع</span>
                   </button>
                   
                   <div className="flex gap-2">
@@ -238,10 +238,10 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                 </div>
                 <Link 
                   href={`/checkout/escrow?projectId=${project.id}&offerId=1`}
-                  className="btn-primary w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 flex items-center justify-center gap-2 transform hover:scale-105 transition-all duration-300"
+                  className="btn-light-blue w-full flex items-center justify-center gap-2"
                 >
-                  <Shield className="w-5 h-5" />
-                  شراء آمن بضمان الوسيط
+                  <Shield className="w-5 h-5 relative z-10" />
+                  <span className="relative z-10">شراء آمن بضمان الوسيط</span>
                 </Link>
                 
                 {/* Escrow Protection Notice */}
@@ -261,10 +261,10 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                 
                 <button 
                   onClick={() => setIsPurchaseModalOpen(true)}
-                  className="btn-secondary w-full mt-3 flex items-center justify-center gap-2"
+                  className="btn-light-blue w-full mt-3 flex items-center justify-center gap-2"
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  إرسال عرض مخصص
+                  <MessageCircle className="w-5 h-5 relative z-10" />
+                  <span className="relative z-10">إرسال عرض مخصص</span>
                 </button>
               </div>
             </div>

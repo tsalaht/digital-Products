@@ -5,7 +5,7 @@ import { ArrowLeft, Shield, Users, FileText, CreditCard, Globe, AlertTriangle } 
 
 const TermsAndConditions = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-teal-50" dir="rtl">
       {/* Header Section */}
       <div className="bg-white/95 backdrop-blur-lg shadow-soft border-b border-slate-200/50">
         <div className="max-w-4xl mx-auto px-6 py-12">
@@ -14,7 +14,7 @@ const TermsAndConditions = () => {
             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium mb-8 transition-all duration-200"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            العودة للرئيسية
           </Link>
           
           <div className="flex items-center gap-4 mb-6">
@@ -22,15 +22,15 @@ const TermsAndConditions = () => {
               <FileText className="w-8 h-8" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-slate-900 mb-2">Terms and Conditions</h1>
-              <p className="text-slate-600 text-lg">Digital Project Marketplace Platform Agreement</p>
+              <h1 className="text-4xl font-bold text-slate-900 mb-2">الشروط والأحكام</h1>
+              <p className="text-slate-600 text-lg">اتفاقية منصة سوق المشاريع الرقمية</p>
             </div>
           </div>
           
           <div className="bg-blue-50/80 backdrop-blur-sm rounded-xl p-6 border border-blue-200/50">
             <p className="text-blue-800 text-sm leading-relaxed">
-              <strong>Last Updated:</strong> December 12, 2024 • 
-              <strong>Effective Date:</strong> December 12, 2024
+              <strong>آخر تحديث:</strong> 12 ديسمبر 2024 • 
+              <strong>تاريخ السريان:</strong> 12 ديسمبر 2024
             </p>
           </div>
         </div>
@@ -46,11 +46,11 @@ const TermsAndConditions = () => {
               <div className="bg-gradient-to-br from-emerald-500 to-green-600 text-white w-10 h-10 rounded-xl flex items-center justify-center">
                 <FileText className="w-5 h-5" />
               </div>
-              <h2 className="text-2xl font-bold text-slate-900">Introduction</h2>
+              <h2 className="text-2xl font-bold text-slate-900">مقدمة</h2>
             </div>
             <div className="bg-slate-50/80 rounded-2xl p-6 border border-slate-200/50">
               <p className="text-slate-700 leading-relaxed">
-                Welcome to our Digital Project Marketplace Platform. By accessing and using our platform, you agree to be bound by these Terms and Conditions. Our platform serves as an intermediary between buyers and sellers of digital projects, providing secure transaction processing and project delivery services.
+                مرحباً بكم في منصة سوق المشاريع الرقمية. من خلال الوصول إلى منصتنا واستخدامها، فإنكم توافقون على الالتزام بهذه الشروط والأحكام. تعمل منصتنا كوسيط بين مشتري وبائعي المشاريع الرقمية، وتوفر معالجة آمنة للمعاملات وخدمات تسليم المشاريع.
               </p>
             </div>
           </section>

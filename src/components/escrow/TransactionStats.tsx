@@ -18,42 +18,42 @@ interface TransactionStatsProps {
 const TransactionStats = ({ stats, userType }: TransactionStatsProps) => {
   const statCards = [
     {
-      title: 'Total Transactions',
+      title: 'إجمالي المعاملات',
       value: stats.total.toString(),
       icon: DollarSign,
       color: 'bg-blue-50 text-blue-600 border-blue-200',
       iconColor: 'text-blue-600'
     },
     {
-      title: 'Active Transactions',
+      title: 'المعاملات النشطة',
       value: stats.active.toString(),
       icon: Clock,
       color: 'bg-orange-50 text-orange-600 border-orange-200',
       iconColor: 'text-orange-600'
     },
     {
-      title: 'Completed',
+      title: 'مكتملة',
       value: stats.completed.toString(),
       icon: CheckCircle,
       color: 'bg-green-50 text-green-600 border-green-200',
       iconColor: 'text-green-600'
     },
     {
-      title: 'Disputed',
+      title: 'متنازع عليها',
       value: stats.disputed.toString(),
       icon: AlertTriangle,
       color: 'bg-red-50 text-red-600 border-red-200',
       iconColor: 'text-red-600'
     },
     {
-      title: `Total ${userType === 'buyer' ? 'Spent' : 'Earned'}`,
+      title: `إجمالي ${userType === 'buyer' ? 'المصروف' : 'المكسب'}`,
       value: formatCurrency(stats.totalValue),
       icon: TrendingUp,
       color: 'bg-purple-50 text-purple-600 border-purple-200',
       iconColor: 'text-purple-600'
     },
     {
-      title: 'In Escrow',
+      title: 'في الضمان',
       value: formatCurrency(stats.escrowedValue),
       icon: Shield,
       color: 'bg-indigo-50 text-indigo-600 border-indigo-200',
@@ -63,7 +63,7 @@ const TransactionStats = ({ stats, userType }: TransactionStatsProps) => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 mb-8" dir="rtl">
       {statCards.map((card, index) => {
         const Icon = card.icon;
         
@@ -75,7 +75,7 @@ const TransactionStats = ({ stats, userType }: TransactionStatsProps) => {
             }`}
           >
             <div className="flex items-center justify-between">
-              <div>
+              <div className="text-right">
                 <p className="text-sm font-medium opacity-75 mb-1">{card.title}</p>
                 <p className="text-2xl font-bold">{card.value}</p>
               </div>
@@ -85,10 +85,10 @@ const TransactionStats = ({ stats, userType }: TransactionStatsProps) => {
             </div>
             
             {/* Progress bar for completion rate */}
-            {card.title === 'Completed' && stats.total > 0 && (
+            {card.title === 'مكتملة' && stats.total > 0 && (
               <div className="mt-3">
                 <div className="flex justify-between text-xs opacity-75 mb-1">
-                  <span>Completion Rate</span>
+                  <span>معدل الإكمال</span>
                   <span>{Math.round((stats.completed / stats.total) * 100)}%</span>
                 </div>
                 <div className="w-full bg-white bg-opacity-60 rounded-full h-2">
@@ -101,21 +101,21 @@ const TransactionStats = ({ stats, userType }: TransactionStatsProps) => {
             )}
             
             {/* Warning for disputes */}
-            {card.title === 'Disputed' && stats.disputed > 0 && (
+            {card.title === 'متنازع عليها' && stats.disputed > 0 && (
               <div className="mt-2 text-xs opacity-75">
                 <span className="inline-flex items-center">
-                  <AlertTriangle className="h-3 w-3 mr-1" />
-                  Needs attention
+                  <AlertTriangle className="h-3 w-3 ml-1" />
+                  يحتاج إلى انتباه
                 </span>
               </div>
             )}
             
             {/* Escrow protection indicator */}
-            {card.title === 'In Escrow' && stats.escrowedValue > 0 && (
+            {card.title === 'في الضمان' && stats.escrowedValue > 0 && (
               <div className="mt-2 text-xs opacity-75">
                 <span className="inline-flex items-center">
-                  <Shield className="h-3 w-3 mr-1" />
-                  Protected funds
+                  <Shield className="h-3 w-3 ml-1" />
+                  أموال محمية
                 </span>
               </div>
             )}

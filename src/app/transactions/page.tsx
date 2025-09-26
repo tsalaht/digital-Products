@@ -9,7 +9,7 @@ export default function TransactionsPage() {
   const [userId] = useState('buyer_456'); // Mock user ID
 
   return (
-    <div>
+    <div dir="rtl">
       <TransactionDashboard 
         userId={userId}
         userType={userType}

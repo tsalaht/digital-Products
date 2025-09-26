@@ -216,10 +216,10 @@ const TransactionDashboard = ({ userId, userType }: TransactionDashboardProps) =
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center" dir="rtl">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading transactions...</p>
+          <p className="text-gray-600">جاري تحميل المعاملات...</p>
         </div>
       </div>
     );
@@ -228,25 +228,25 @@ const TransactionDashboard = ({ userId, userType }: TransactionDashboardProps) =
   const stats = getTransactionStats();
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gray-50" dir="rtl">
+      <div className="container mx-auto px-4 py-4 md:py-8">
         {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                {userType === 'buyer' ? 'My Purchases' : 'My Sales'}
+        <div className="mb-6 md:mb-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            <div className="text-right">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                {userType === 'buyer' ? 'مشترياتي' : 'مبيعاتي'}
               </h1>
-              <p className="text-gray-600">
-                Manage your {userType === 'buyer' ? 'purchases' : 'sales'} and track transaction progress
+              <p className="text-sm md:text-base text-gray-600">
+                {userType === 'buyer' ? 'إدارة مشترياتك ومتابعة تقدم المعاملات' : 'إدارة مبيعاتك ومتابعة تقدم المعاملات'}
               </p>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-2">
+            <div className="flex items-center justify-end lg:justify-start">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg px-3 md:px-4 py-2">
                 <div className="flex items-center">
-                  <Shield className="h-5 w-5 text-blue-600 mr-2" />
-                  <span className="text-blue-800 font-semibold">
-                    {formatCurrency(stats.escrowedValue)} in Escrow
+                  <Shield className="h-4 w-4 md:h-5 md:w-5 text-blue-600 ml-2" />
+                  <span className="text-sm md:text-base text-blue-800 font-semibold">
+                    {formatCurrency(stats.escrowedValue)} في الضمان
                   </span>
                 </div>
               </div>
@@ -277,15 +277,15 @@ const TransactionDashboard = ({ userId, userType }: TransactionDashboardProps) =
         {/* Transactions List */}
         <div className="bg-white rounded-lg shadow-md">
           {filteredTransactions.length === 0 ? (
-            <div className="text-center py-12">
+            <div className="text-center py-8 md:py-12 px-4">
               <div className="mb-4">
-                <DollarSign className="h-12 w-12 text-gray-400 mx-auto" />
+                <DollarSign className="h-10 w-10 md:h-12 md:w-12 text-gray-400 mx-auto" />
               </div>
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No transactions found</h3>
-              <p className="text-gray-600">
+              <h3 className="text-base md:text-lg font-medium text-gray-900 mb-2">لم يتم العثور على معاملات</h3>
+              <p className="text-sm md:text-base text-gray-600">
                 {selectedFilter === 'all' 
-                  ? `You haven't ${userType === 'buyer' ? 'purchased' : 'sold'} any projects yet.`
-                  : `No transactions match the selected filter.`
+                  ? `لم تقم ${userType === 'buyer' ? 'بشراء' : 'ببيع'} أي مشاريع بعد.`
+                  : `لا توجد معاملات تطابق الفلتر المحدد.`
                 }
               </p>
             </div>
@@ -304,20 +304,20 @@ const TransactionDashboard = ({ userId, userType }: TransactionDashboardProps) =
 
         {/* Quick Actions for Buyers */}
         {userType === 'buyer' && (
-          <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-blue-800 mb-4">Quick Actions</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <button className="flex items-center justify-center px-4 py-3 bg-white border border-blue-300 rounded-lg text-blue-700 hover:bg-blue-100 transition-colors">
-                <Eye className="h-5 w-5 mr-2" />
-                Browse Projects
+          <div className="mt-6 md:mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4 md:p-6">
+            <h3 className="text-base md:text-lg font-semibold text-blue-800 mb-4 text-right">إجراءات سريعة</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+              <button className="flex items-center justify-center px-3 md:px-4 py-2 md:py-3 bg-white border border-blue-300 rounded-lg text-blue-700 hover:bg-blue-100 transition-colors text-sm md:text-base">
+                <Eye className="h-4 w-4 md:h-5 md:w-5 ml-2" />
+                تصفح المشاريع
               </button>
-              <button className="flex items-center justify-center px-4 py-3 bg-white border border-blue-300 rounded-lg text-blue-700 hover:bg-blue-100 transition-colors">
-                <MessageCircle className="h-5 w-5 mr-2" />
-                Contact Support
+              <button className="flex items-center justify-center px-3 md:px-4 py-2 md:py-3 bg-white border border-blue-300 rounded-lg text-blue-700 hover:bg-blue-100 transition-colors text-sm md:text-base">
+                <MessageCircle className="h-4 w-4 md:h-5 md:w-5 ml-2" />
+                اتصل بالدعم
               </button>
-              <button className="flex items-center justify-center px-4 py-3 bg-white border border-blue-300 rounded-lg text-blue-700 hover:bg-blue-100 transition-colors">
-                <FileText className="h-5 w-5 mr-2" />
-                Transaction Guide
+              <button className="flex items-center justify-center px-3 md:px-4 py-2 md:py-3 bg-white border border-blue-300 rounded-lg text-blue-700 hover:bg-blue-100 transition-colors text-sm md:text-base sm:col-span-2 lg:col-span-1">
+                <FileText className="h-4 w-4 md:h-5 md:w-5 ml-2" />
+                دليل المعاملات
               </button>
             </div>
           </div>
@@ -325,20 +325,20 @@ const TransactionDashboard = ({ userId, userType }: TransactionDashboardProps) =
 
         {/* Quick Actions for Sellers */}
         {userType === 'seller' && (
-          <div className="mt-8 bg-green-50 border border-green-200 rounded-lg p-6">
-            <h3 className="text-lg font-semibold text-green-800 mb-4">Seller Tools</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <button className="flex items-center justify-center px-4 py-3 bg-white border border-green-300 rounded-lg text-green-700 hover:bg-green-100 transition-colors">
-                <DollarSign className="h-5 w-5 mr-2" />
-                List New Project
+          <div className="mt-6 md:mt-8 bg-green-50 border border-green-200 rounded-lg p-4 md:p-6">
+            <h3 className="text-base md:text-lg font-semibold text-green-800 mb-4 text-right">أدوات البائع</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+              <button className="flex items-center justify-center px-3 md:px-4 py-2 md:py-3 bg-white border border-green-300 rounded-lg text-green-700 hover:bg-green-100 transition-colors text-sm md:text-base">
+                <DollarSign className="h-4 w-4 md:h-5 md:w-5 ml-2" />
+                إضافة مشروع جديد
               </button>
-              <button className="flex items-center justify-center px-4 py-3 bg-white border border-green-300 rounded-lg text-green-700 hover:bg-green-100 transition-colors">
-                <MessageCircle className="h-5 w-5 mr-2" />
-                Message Buyers
+              <button className="flex items-center justify-center px-3 md:px-4 py-2 md:py-3 bg-white border border-green-300 rounded-lg text-green-700 hover:bg-green-100 transition-colors text-sm md:text-base">
+                <MessageCircle className="h-4 w-4 md:h-5 md:w-5 ml-2" />
+                مراسلة المشترين
               </button>
-              <button className="flex items-center justify-center px-4 py-3 bg-white border border-green-300 rounded-lg text-green-700 hover:bg-green-100 transition-colors">
-                <FileText className="h-5 w-5 mr-2" />
-                Delivery Guide
+              <button className="flex items-center justify-center px-3 md:px-4 py-2 md:py-3 bg-white border border-green-300 rounded-lg text-green-700 hover:bg-green-100 transition-colors text-sm md:text-base sm:col-span-2 lg:col-span-1">
+                <FileText className="h-4 w-4 md:h-5 md:w-5 ml-2" />
+                دليل التسليم
               </button>
             </div>
           </div>

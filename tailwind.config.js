@@ -175,7 +175,8 @@ module.exports = {
   			'pulse-soft': 'pulseSoft 2s ease-in-out infinite',
   			'scale-in': 'scaleIn 0.4s ease-out',
   			glow: 'glow 2s ease-in-out infinite alternate',
-  			shimmer: 'shimmer 2.5s ease-in-out infinite'
+  			shimmer: 'shimmer 2.5s ease-in-out infinite',
+  			orbit: 'orbit calc(var(--duration)*1s) linear infinite'
   		},
   		keyframes: {
   			fadeIn: {
@@ -250,6 +251,14 @@ module.exports = {
   				},
   				'100%': {
   					transform: 'translateX(100%)'
+  				}
+  			},
+  			orbit: {
+  				'0%': {
+  					transform: 'rotate(0deg) translateY(calc(var(--radius) * 1px)) rotate(0deg)'
+  				},
+  				'100%': {
+  					transform: 'rotate(360deg) translateY(calc(var(--radius) * 1px)) rotate(-360deg)'
   				}
   			}
   		},

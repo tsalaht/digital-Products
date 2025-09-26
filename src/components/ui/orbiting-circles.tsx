@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState, memo } from 'react';
+import { cn } from "@/lib/utils"
 
 // --- Type Definitions ---
 type LogoType = 'logo1' | 'logo2' | 'logo3' | 'logo4';
@@ -32,22 +33,32 @@ interface GlowingOrbitPathProps {
   animationDelay?: number;
 }
 
+export interface OrbitingCirclesProps {
+  className?: string
+  children?: React.ReactNode
+  reverse?: boolean
+  duration?: number
+  delay?: number
+  radius?: number
+  path?: boolean
+}
+
 // --- Logo Components ---
 const logoComponents: Record<LogoType, { src: string; color: string }> = {
   logo1: {
-    src: '/logo1.jpg',
+    src: '/logo1.png',
     color: '#3B82F6' // Blue
   },
   logo2: {
-    src: '/logo2.jpg',
+    src: '/logo2.png',
     color: '#10B981' // Emerald
   },
   logo3: {
-    src: '/logo3.jpg',
+    src: '/logo3.png',
     color: '#8B5CF6' // Purple
   },
   logo4: {
-    src: '/logo4.jpg',
+    src: '/logo4.png',
     color: '#F59E0B' // Amber
   }
 };
@@ -65,13 +76,13 @@ const LogoComponent = memo(({ type }: LogoProps) => {
 });
 LogoComponent.displayName = 'LogoComponent';
 
-// --- Configuration for the Orbiting Logos ---
+// --- Configuration for the Orbiting Logos (Desktop) ---
 const skillsConfig: SkillConfig[] = [
   // Inner Orbit
   { 
     id: 'logo1',
     orbitRadius: 120, 
-    size: 80, 
+    size: 120, 
     speed: 1, 
     logoType: 'logo1', 
     phaseShift: 0, 
@@ -81,7 +92,7 @@ const skillsConfig: SkillConfig[] = [
   { 
     id: 'logo2',
     orbitRadius: 120, 
-    size: 80, 
+    size: 120, 
     speed: 1, 
     logoType: 'logo2', 
     phaseShift: Math.PI, 
@@ -92,7 +103,7 @@ const skillsConfig: SkillConfig[] = [
   { 
     id: 'logo3',
     orbitRadius: 200, 
-    size: 90, 
+    size: 140, 
     speed: -0.7, 
     logoType: 'logo3', 
     phaseShift: 0, 
@@ -102,7 +113,7 @@ const skillsConfig: SkillConfig[] = [
   { 
     id: 'logo4',
     orbitRadius: 200, 
-    size: 90, 
+    size: 140, 
     speed: -0.7, 
     logoType: 'logo4', 
     phaseShift: Math.PI, 
@@ -144,11 +155,7 @@ const OrbitingSkill = memo(({ config, angle }: OrbitingSkillProps) => {
         }}
       >
         <LogoComponent type={logoType} />
-        {isHovered && (
-          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-3 py-2 bg-slate-900/95 backdrop-blur-sm rounded-lg text-sm text-white whitespace-nowrap pointer-events-none shadow-xl">
-            {label}
-          </div>
-        )}
+      
       </div>
     </div>
   );
@@ -195,8 +202,8 @@ const GlowingOrbitPath = memo(({ radius, glowColor = 'blue', animationDelay = 0 
       <div
         className="absolute inset-0 rounded-full animate-pulse"
         style={{
-          background: `radial-gradient(circle, transparent 30%, ${colors.secondary} 70%, ${colors.primary} 100%)`,
-          boxShadow: `0 0 60px ${colors.primary}, inset 0 0 60px ${colors.secondary}`,
+          background: ``,
+          boxShadow: ``,
           animation: 'pulse 4s ease-in-out infinite',
           animationDelay: `${animationDelay}s`,
         }}
@@ -206,8 +213,8 @@ const GlowingOrbitPath = memo(({ radius, glowColor = 'blue', animationDelay = 0 
       <div
         className="absolute inset-0 rounded-full"
         style={{
-          border: `1px solid ${colors.border}`,
-          boxShadow: `inset 0 0 20px ${colors.secondary}`,
+          border: `1px solid black`,
+          boxShadow: ``,
         }}
       />
     </div>
@@ -216,9 +223,20 @@ const GlowingOrbitPath = memo(({ radius, glowColor = 'blue', animationDelay = 0 
 GlowingOrbitPath.displayName = 'GlowingOrbitPath';
 
 // --- Main App Component ---
-export default function OrbitingSkills() {
+export default function OrbitingCircles() {
   const [time, setTime] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640); // sm breakpoint
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (isPaused) return;
@@ -238,10 +256,69 @@ export default function OrbitingSkills() {
     return () => cancelAnimationFrame(animationFrameId);
   }, [isPaused]);
 
-  const orbitConfigs: Array<{ radius: number; glowColor: GlowColor; delay: number }> = [
-    { radius: 120, glowColor: 'blue', delay: 0 },
-    { radius: 200, glowColor: 'purple', delay: 1.5 }
-  ];
+  // Responsive configurations
+  const getResponsiveConfig = () => {
+    if (isMobile) {
+      return {
+        skillsConfig: [
+          { 
+            id: 'logo1',
+            orbitRadius: 60, 
+            size: 50, 
+            speed: 1, 
+            logoType: 'logo1' as LogoType, 
+            phaseShift: 0, 
+            glowColor: 'blue' as GlowColor,
+            label: 'حلول البرمجيات'
+          },
+          { 
+            id: 'logo2',
+            orbitRadius: 60, 
+            size: 50, 
+            speed: 1, 
+            logoType: 'logo2' as LogoType, 
+            phaseShift: Math.PI, 
+            glowColor: 'emerald' as GlowColor,
+            label: 'إدارة المشاريع'
+          },
+          { 
+            id: 'logo3',
+            orbitRadius: 100, 
+            size: 60, 
+            speed: -0.7, 
+            logoType: 'logo3' as LogoType, 
+            phaseShift: 0, 
+            glowColor: 'purple' as GlowColor,
+            label: 'الحلول المحاسبية'
+          },
+          { 
+            id: 'logo4',
+            orbitRadius: 100, 
+            size: 60, 
+            speed: -0.7, 
+            logoType: 'logo4' as LogoType, 
+            phaseShift: Math.PI, 
+            glowColor: 'amber' as GlowColor,
+            label: 'ذكاء اصطناعي'
+          },
+        ],
+        orbitConfigs: [
+          { radius: 60, glowColor: 'blue' as GlowColor, delay: 0 },
+          { radius: 100, glowColor: 'purple' as GlowColor, delay: 1.5 }
+        ]
+      };
+    }
+    
+    return {
+      skillsConfig,
+      orbitConfigs: [
+        { radius: 120, glowColor: 'blue' as GlowColor, delay: 0 },
+        { radius: 200, glowColor: 'purple' as GlowColor, delay: 1.5 }
+      ]
+    };
+  };
+
+  const { skillsConfig: currentSkillsConfig, orbitConfigs } = getResponsiveConfig();
 
   return (
     <main className="w-full flex items-center justify-center ">
@@ -249,29 +326,25 @@ export default function OrbitingSkills() {
       <div className="absolute inset-0 opacity-10">
         <div 
           className="absolute inset-0" 
-          style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, #374151 0%, transparent 50%),
-                             radial-gradient(circle at 75% 75%, #4B5563 0%, transparent 50%)`,
-          }}
+          // style={{
+          //   backgroundImage: `radial-gradient(circle at 25% 25%, #374151 0%, transparent 50%),
+          //                    radial-gradient(circle at 75% 75%, #4B5563 0%, transparent 50%)`,
+          // }}
         />
       </div>
 
       <div 
-        className="relative w-[calc(100vw-40px)] h-[calc(100vw-40px)] md:w-[450px] md:h-[450px] flex items-center justify-center"
+        className="relative w-[280px] h-[280px] sm:w-[450px] sm:h-[450px] flex items-center justify-center mx-auto"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
         
         {/* Central Logo with enhanced glow */}
-        <div className="w-24 h-24 bg-gradient-to-br from-slate-100 to-white rounded-full flex items-center justify-center z-10 relative shadow-2xl border-4 border-blue-200">
-          <div className="absolute inset-0 rounded-full bg-blue-500/30 blur-xl animate-pulse"></div>
-          <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="relative z-10 p-2">
-            <img 
-              src="/logo.png" 
-              alt="Main Logo"
-              className="w-full h-full object-contain"
-            />
+        <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full flex items-center justify-center z-10 relative shadow-2xl border-2 border-black">
+          <div className="absolute inset-0 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute inset-0 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="relative z-10 p-1 sm:p-2">
+            <h1 className='text-sm sm:text-2xl font-bold'>عملاءنا</h1>
           </div>
         </div>
 
@@ -286,7 +359,7 @@ export default function OrbitingSkills() {
         ))}
 
         {/* Render orbiting skill icons */}
-        {skillsConfig.map((config) => {
+        {currentSkillsConfig.map((config) => {
           const angle = time * config.speed + (config.phaseShift || 0);
           return (
             <OrbitingSkill
@@ -299,4 +372,52 @@ export default function OrbitingSkills() {
       </div>
     </main>
   );
+}
+
+// --- Original OrbitingCircles component for backward compatibility ---
+export function OrbitingCirclesComponent({
+  className,
+  children,
+  reverse,
+  duration = 20,
+  delay = 10,
+  radius = 50,
+  path = true,
+}: OrbitingCirclesProps) {
+  return (
+    <>
+      {path && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          className="pointer-events-none absolute inset-0 size-full"
+        >
+          <circle
+            className="stroke-black/10 stroke-1 dark:stroke-white/10"
+            cx="50%"
+            cy="50%"
+            r={radius}
+            fill="none"
+          />
+        </svg>
+      )}
+
+      <div
+        style={
+          {
+            "--duration": duration,
+            "--radius": radius,
+            "--delay": -delay,
+          } as React.CSSProperties
+        }
+        className={cn(
+          "absolute flex transform-gpu animate-orbit items-center justify-center rounded-full border bg-black/10 [animation-delay:calc(var(--delay)*1000ms)] dark:bg-white/10",
+          { "[animation-direction:reverse]": reverse },
+          className,
+        )}
+      >
+        {children}
+      </div>
+    </>
+  )
 }

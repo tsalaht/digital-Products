@@ -85,40 +85,40 @@ const ReviewPeriodCountdown = ({ expiresAt, userType }: ReviewPeriodCountdownPro
   const getTitle = () => {
     if (timeLeft.isExpired) {
       return userType === 'buyer' 
-        ? 'Review Period Expired - Funds Released'
-        : 'Review Period Expired - Funds Released';
+        ? 'انتهت فترة المراجعة - تم إطلاق الأموال'
+        : 'انتهت فترة المراجعة - تم إطلاق الأموال';
     }
     
     return userType === 'buyer' 
-      ? 'Review Period Remaining'
-      : 'Buyer Review Period';
+      ? 'فترة المراجعة المتبقية'
+      : 'فترة مراجعة المشتري';
   };
 
   const getMessage = () => {
     if (timeLeft.isExpired) {
       return userType === 'buyer'
-        ? 'The review period has expired. Funds have been automatically released to the seller.'
-        : 'The review period has expired. Funds have been automatically released to you.';
+        ? 'انتهت فترة المراجعة. تم إطلاق الأموال تلقائياً للبائع.'
+        : 'انتهت فترة المراجعة. تم إطلاق الأموال تلقائياً لك.';
     }
 
     if (userType === 'buyer') {
       if (urgencyLevel === 'critical') {
-        return 'Review period ending soon! Please confirm delivery or open a dispute before time expires.';
+        return 'فترة المراجعة تنتهي قريباً! يرجى تأكيد التسليم أو فتح نزاع قبل انتهاء الوقت.';
       }
-      return 'Please review the delivered project and confirm completion or open a dispute if needed.';
+      return 'يرجى مراجعة المشروع المسلم وتأكيد الإكمال أو فتح نزاع إذا لزم الأمر.';
     } else {
-      return 'The buyer is reviewing your delivered project. Funds will be released automatically if no dispute is opened.';
+      return 'المشتري يراجع مشروعك المسلّم. سيتم إطلاق الأموال تلقائياً إذا لم يتم فتح نزاع.';
     }
   };
 
   const formatTime = () => {
-    if (timeLeft.isExpired) return 'Expired';
+    if (timeLeft.isExpired) return 'منتهي الصلاحية';
 
     const parts = [];
-    if (timeLeft.days > 0) parts.push(`${timeLeft.days}d`);
-    if (timeLeft.hours > 0) parts.push(`${timeLeft.hours}h`);
-    if (timeLeft.minutes > 0) parts.push(`${timeLeft.minutes}m`);
-    if (timeLeft.days === 0 && timeLeft.hours === 0) parts.push(`${timeLeft.seconds}s`);
+    if (timeLeft.days > 0) parts.push(`${timeLeft.days} يوم`);
+    if (timeLeft.hours > 0) parts.push(`${timeLeft.hours} ساعة`);
+    if (timeLeft.minutes > 0) parts.push(`${timeLeft.minutes} دقيقة`);
+    if (timeLeft.days === 0 && timeLeft.hours === 0) parts.push(`${timeLeft.seconds} ثانية`);
 
     return parts.join(' ');
   };
@@ -126,22 +126,22 @@ const ReviewPeriodCountdown = ({ expiresAt, userType }: ReviewPeriodCountdownPro
   const Icon = getIcon();
 
   return (
-    <div className={`p-4 border rounded-lg ${getColorClasses()}`}>
+    <div className={`p-4 border rounded-lg ${getColorClasses()}`} dir="rtl">
       <div className="flex items-start">
-        <Icon className="h-5 w-5 mr-3 mt-0.5" />
+        <Icon className="h-5 w-5 ml-3 mt-0.5" />
         <div className="flex-1">
           <h4 className="font-medium mb-1">{getTitle()}</h4>
           <p className="text-sm mb-2">{getMessage()}</p>
           
           {!timeLeft.isExpired && (
             <div className="flex items-center">
-              <Clock className="h-4 w-4 mr-2" />
+              <Clock className="h-4 w-4 ml-2" />
               <span className="font-mono text-lg font-bold">
                 {formatTime()}
               </span>
               {urgencyLevel === 'critical' && (
-                <span className="ml-2 animate-pulse text-red-600 font-semibold">
-                  ⚠️ Urgent
+                <span className="mr-2 animate-pulse text-red-600 font-semibold">
+                  ⚠️ عاجل
                 </span>
               )}
             </div>
@@ -151,8 +151,8 @@ const ReviewPeriodCountdown = ({ expiresAt, userType }: ReviewPeriodCountdownPro
           {!timeLeft.isExpired && (
             <div className="mt-3">
               <div className="flex justify-between text-xs mb-1">
-                <span>Review Started</span>
-                <span>Auto-release</span>
+                <span>بداية المراجعة</span>
+                <span>إطلاق تلقائي</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <div 
@@ -175,13 +175,13 @@ const ReviewPeriodCountdown = ({ expiresAt, userType }: ReviewPeriodCountdownPro
         <div className="mt-4 pt-4 border-t border-current border-opacity-20">
           <div className="flex flex-wrap gap-2">
             <button className="px-3 py-2 bg-white bg-opacity-80 rounded-md text-sm font-medium hover:bg-opacity-100 transition-colors">
-              Confirm Delivery
+              تأكيد التسليم
             </button>
             <button className="px-3 py-2 bg-white bg-opacity-80 rounded-md text-sm font-medium hover:bg-opacity-100 transition-colors">
-              Open Dispute
+              فتح نزاع
             </button>
             <button className="px-3 py-2 bg-white bg-opacity-80 rounded-md text-sm font-medium hover:bg-opacity-100 transition-colors">
-              Request Extension
+              طلب تمديد
             </button>
           </div>
         </div>

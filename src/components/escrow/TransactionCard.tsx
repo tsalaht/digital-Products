@@ -36,9 +36,9 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           buttons.push(
             <button
               key="pay"
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm w-full sm:w-auto"
             >
-              Complete Payment
+              إتمام الدفع
             </button>
           );
         }
@@ -49,10 +49,10 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           buttons.push(
             <button
               key="deliver"
-              className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              className="px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
-              <Upload className="h-4 w-4 mr-2 inline" />
-              Deliver Project
+              <Upload className="h-4 w-4 ml-2" />
+              تسليم المشروع
             </button>
           );
         }
@@ -63,19 +63,19 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           buttons.push(
             <button
               key="update"
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm w-full sm:w-auto"
             >
-              Update Delivery
+              تحديث التسليم
             </button>
           );
         } else {
           buttons.push(
             <button
               key="contact"
-              className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              className="px-3 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
-              <MessageCircle className="h-4 w-4 mr-2 inline" />
-              Contact Seller
+              <MessageCircle className="h-4 w-4 ml-2" />
+              الاتصال بالبائع
             </button>
           );
         }
@@ -86,34 +86,34 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           buttons.push(
             <button
               key="download"
-              className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              className="px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
-              <Download className="h-4 w-4 mr-2 inline" />
-              Download Files
+              <Download className="h-4 w-4 ml-2" />
+              تحميل الملفات
             </button>,
             <button
               key="confirm"
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
-              <CheckCircle className="h-4 w-4 mr-2 inline" />
-              Confirm Delivery
+              <CheckCircle className="h-4 w-4 ml-2" />
+              تأكيد التسليم
             </button>,
             <button
               key="dispute"
-              className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+              className="px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
-              <AlertTriangle className="h-4 w-4 mr-2 inline" />
-              Open Dispute
+              <AlertTriangle className="h-4 w-4 ml-2" />
+              فتح نزاع
             </button>
           );
         } else {
           buttons.push(
             <button
               key="contact"
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
-              <MessageCircle className="h-4 w-4 mr-2 inline" />
-              Contact Buyer
+              <MessageCircle className="h-4 w-4 ml-2" />
+              الاتصال بالمشتري
             </button>
           );
         }
@@ -123,10 +123,10 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
         buttons.push(
           <button
             key="view-dispute"
-            className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
+            className="px-3 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
           >
-            <Eye className="h-4 w-4 mr-2 inline" />
-            View Dispute
+            <Eye className="h-4 w-4 ml-2" />
+            عرض النزاع
           </button>
         );
         break;
@@ -135,20 +135,20 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
         buttons.push(
           <button
             key="receipt"
-            className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            className="px-3 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
           >
-            <FileText className="h-4 w-4 mr-2 inline" />
-            View Receipt
+            <FileText className="h-4 w-4 ml-2" />
+            عرض الإيصال
           </button>
         );
         if (userType === 'buyer') {
           buttons.push(
             <button
               key="download"
-              className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              className="px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
-              <Download className="h-4 w-4 mr-2 inline" />
-              Download Files
+              <Download className="h-4 w-4 ml-2" />
+              تحميل الملفات
             </button>
           );
         }
@@ -167,32 +167,34 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
   };
 
   return (
-    <div className="p-6 hover:bg-gray-50 transition-colors">
-      <div className="flex items-start justify-between">
-        {/* Left side - Transaction info */}
+    <div className="p-4 md:p-6 hover:bg-gray-50 transition-colors" dir="rtl">
+      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+        {/* Transaction info */}
         <div className="flex-1">
-          <div className="flex items-center mb-3">
-            <h3 className="text-lg font-semibold text-gray-900 mr-4">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
+            <h3 className="text-base md:text-lg font-semibold text-gray-900">
               {transaction.projectTitle}
             </h3>
-            <TransactionStatusBadge status={transaction.status} />
-            {transaction.isInstallment && (
-              <span className="ml-2 px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">
-                Installments
-              </span>
-            )}
+            <div className="flex items-center gap-2 flex-wrap">
+              <TransactionStatusBadge status={transaction.status} />
+              {transaction.isInstallment && (
+                <span className="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">
+                  أقساط
+                </span>
+              )}
+            </div>
           </div>
 
-          <div className="flex items-center text-sm text-gray-600 mb-3">
-            <span className="mr-6">
-              {getOtherPartyRole()}: <span className="font-medium">{getOtherPartyName()}</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 text-sm text-gray-600 mb-3">
+            <span className="flex items-center">
+              {userType === 'buyer' ? 'البائع' : 'المشتري'}: <span className="font-medium mr-1">{getOtherPartyName()}</span>
             </span>
-            <span className="mr-6 flex items-center">
-              <Calendar className="h-4 w-4 mr-1" />
+            <span className="flex items-center">
+              <Calendar className="h-4 w-4 ml-1" />
               {formatDate(transaction.createdAt)}
             </span>
-            <span className="mr-6 flex items-center">
-              <DollarSign className="h-4 w-4 mr-1" />
+            <span className="flex items-center">
+              <DollarSign className="h-4 w-4 ml-1" />
               {formatCurrency(transaction.totalAmount)}
             </span>
           </div>
@@ -208,23 +210,23 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           {/* Installment info */}
           {transaction.isInstallment && transaction.installments && (
             <div className="mt-3 p-3 bg-purple-50 rounded-lg">
-              <h4 className="text-sm font-medium text-purple-800 mb-2">Installment Plan</h4>
-              <div className="space-y-1">
+              <h4 className="text-sm font-medium text-purple-800 mb-2">خطة الأقساط</h4>
+              <div className="space-y-2">
                 {transaction.installments.map((installment) => (
-                  <div key={installment.id} className="flex items-center justify-between text-sm">
+                  <div key={installment.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm">
                     <span className="text-purple-700">
-                      Installment {installment.installmentNumber}: {formatCurrency(installment.amount)}
+                      القسط {installment.installmentNumber}: {formatCurrency(installment.amount)}
                     </span>
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium self-start sm:self-auto ${
                       installment.status === 'paid' 
                         ? 'bg-green-100 text-green-800' 
                         : installment.status === 'overdue'
                         ? 'bg-red-100 text-red-800'
                         : 'bg-yellow-100 text-yellow-800'
                     }`}>
-                      {installment.status === 'paid' ? '✅ Paid' : 
-                       installment.status === 'overdue' ? '⚠️ Overdue' : 
-                       '⏳ Pending'}
+                      {installment.status === 'paid' ? '✅ مدفوع' : 
+                       installment.status === 'overdue' ? '⚠️ متأخر' : 
+                       '⏳ في الانتظار'}
                     </span>
                   </div>
                 ))}
@@ -236,13 +238,13 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           {transaction.status === 'dispute' && transaction.disputeReason && (
             <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-lg">
               <div className="flex items-start">
-                <AlertTriangle className="h-4 w-4 text-red-600 mr-2 mt-0.5" />
+                <AlertTriangle className="h-4 w-4 text-red-600 ml-2 mt-0.5" />
                 <div>
-                  <h4 className="text-sm font-medium text-red-800">Dispute Opened</h4>
+                  <h4 className="text-sm font-medium text-red-800">تم فتح نزاع</h4>
                   <p className="text-sm text-red-700 mt-1">{transaction.disputeReason}</p>
                   {transaction.disputeDate && (
                     <p className="text-xs text-red-600 mt-1">
-                      Opened on {formatDate(transaction.disputeDate)}
+                      تم فتحه في {formatDate(transaction.disputeDate)}
                     </p>
                   )}
                 </div>
@@ -253,30 +255,30 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           {/* Delivery notes */}
           {transaction.deliveryNotes && transaction.status !== 'pending_payment' && (
             <div className="mt-3 p-3 bg-blue-50 rounded-lg">
-              <h4 className="text-sm font-medium text-blue-800 mb-1">Delivery Notes</h4>
+              <h4 className="text-sm font-medium text-blue-800 mb-1">ملاحظات التسليم</h4>
               <p className="text-sm text-blue-700">{transaction.deliveryNotes}</p>
             </div>
           )}
         </div>
 
-        {/* Right side - Actions */}
-        <div className="ml-6 flex flex-col items-end space-y-2">
-          <div className="flex flex-wrap gap-2 justify-end">
+        {/* Actions */}
+        <div className="flex flex-col items-start space-y-3 lg:mr-6">
+          <div className="flex flex-wrap gap-2 justify-start w-full">
             {getActionButtons()}
           </div>
           
-          <div className="flex space-x-2">
+          <div className="flex flex-col sm:flex-row gap-2 w-full">
             <button
               onClick={() => setShowTimeline(!showTimeline)}
-              className="text-sm text-blue-600 hover:text-blue-800 underline"
+              className="text-sm text-blue-600 hover:text-blue-800 underline text-right"
             >
-              {showTimeline ? 'Hide Timeline' : 'View Timeline'}
+              {showTimeline ? 'إخفاء الجدول الزمني' : 'عرض الجدول الزمني'}
             </button>
             <button
               onClick={() => setShowDetails(!showDetails)}
-              className="text-sm text-gray-600 hover:text-gray-800 underline"
+              className="text-sm text-gray-600 hover:text-gray-800 underline text-right"
             >
-              {showDetails ? 'Less Details' : 'More Details'}
+              {showDetails ? 'تفاصيل أقل' : 'تفاصيل أكثر'}
             </button>
           </div>
         </div>
@@ -285,44 +287,44 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
       {/* Expanded Details */}
       {showDetails && (
         <div className="mt-4 pt-4 border-t border-gray-200">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-            <div>
-              <span className="font-medium text-gray-700">Transaction ID:</span>
-              <p className="text-gray-600">{transaction.id}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 text-sm">
+            <div className="space-y-1">
+              <span className="font-medium text-gray-700 block">معرف المعاملة:</span>
+              <p className="text-gray-600 text-xs break-all">{transaction.id}</p>
             </div>
-            <div>
-              <span className="font-medium text-gray-700">Payment Method:</span>
+            <div className="space-y-1">
+              <span className="font-medium text-gray-700 block">طريقة الدفع:</span>
               <p className="text-gray-600 capitalize">{transaction.paymentMethod.replace('_', ' ')}</p>
             </div>
-            <div>
-              <span className="font-medium text-gray-700">Platform Fee:</span>
+            <div className="space-y-1">
+              <span className="font-medium text-gray-700 block">رسوم المنصة:</span>
               <p className="text-gray-600">{formatCurrency(transaction.platformFee)}</p>
             </div>
-            <div>
-              <span className="font-medium text-gray-700">Review Period:</span>
-              <p className="text-gray-600">{transaction.reviewPeriodDays} days</p>
+            <div className="space-y-1">
+              <span className="font-medium text-gray-700 block">فترة المراجعة:</span>
+              <p className="text-gray-600">{transaction.reviewPeriodDays} أيام</p>
             </div>
             {transaction.paidAt && (
-              <div>
-                <span className="font-medium text-gray-700">Paid At:</span>
-                <p className="text-gray-600">{formatDate(transaction.paidAt)}</p>
+              <div className="space-y-1">
+                <span className="font-medium text-gray-700 block">تم الدفع في:</span>
+                <p className="text-gray-600 text-xs">{formatDate(transaction.paidAt)}</p>
               </div>
             )}
             {transaction.deliveredAt && (
-              <div>
-                <span className="font-medium text-gray-700">Delivered At:</span>
-                <p className="text-gray-600">{formatDate(transaction.deliveredAt)}</p>
+              <div className="space-y-1">
+                <span className="font-medium text-gray-700 block">تم التسليم في:</span>
+                <p className="text-gray-600 text-xs">{formatDate(transaction.deliveredAt)}</p>
               </div>
             )}
             {transaction.completedAt && (
-              <div>
-                <span className="font-medium text-gray-700">Completed At:</span>
-                <p className="text-gray-600">{formatDate(transaction.completedAt)}</p>
+              <div className="space-y-1">
+                <span className="font-medium text-gray-700 block">تم الإكمال في:</span>
+                <p className="text-gray-600 text-xs">{formatDate(transaction.completedAt)}</p>
               </div>
             )}
-            <div>
-              <span className="font-medium text-gray-700">Payment Reference:</span>
-              <p className="text-gray-600 font-mono text-xs">{transaction.paymentReference}</p>
+            <div className="space-y-1 sm:col-span-2 lg:col-span-1">
+              <span className="font-medium text-gray-700 block">مرجع الدفع:</span>
+              <p className="text-gray-600 font-mono text-xs break-all">{transaction.paymentReference}</p>
             </div>
           </div>
         </div>

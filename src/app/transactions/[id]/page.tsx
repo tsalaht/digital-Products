@@ -60,7 +60,7 @@ export default function TransactionDetailPage() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading transaction details...</p>
+          <p className="text-gray-600">جاري تحميل تفاصيل المعاملة...</p>
         </div>
       </div>
     );
@@ -71,13 +71,13 @@ export default function TransactionDetailPage() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <AlertTriangle className="h-12 w-12 text-red-500 mx-auto mb-4" />
-          <h1 className="text-xl font-bold text-gray-900 mb-2">Transaction Not Found</h1>
-          <p className="text-gray-600 mb-4">The transaction you're looking for doesn't exist or has been removed.</p>
+          <h1 className="text-xl font-bold text-gray-900 mb-2">المعاملة غير موجودة</h1>
+          <p className="text-gray-600 mb-4">المعاملة التي تبحث عنها غير موجودة أو تم حذفها.</p>
           <button
             onClick={() => router.push('/transactions')}
             className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
           >
-            Back to Transactions
+            العودة للمعاملات
           </button>
         </div>
       </div>
@@ -85,7 +85,7 @@ export default function TransactionDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50" dir="rtl">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -93,25 +93,25 @@ export default function TransactionDetailPage() {
             onClick={() => router.push('/transactions')}
             className="flex items-center text-gray-600 hover:text-gray-800 mb-4"
           >
-            <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Transactions
+            <ArrowLeft className="h-5 w-5 ml-2" />
+            العودة للمعاملات
           </button>
           
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                Transaction Details
+                تفاصيل المعاملة
               </h1>
               <p className="text-gray-600">
-                Transaction ID: <span className="font-mono text-sm">{transaction.id}</span>
+                معرف المعاملة: <span className="font-mono text-sm">{transaction.id}</span>
               </p>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 space-x-reverse">
               <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-2">
                 <div className="flex items-center">
-                  <Shield className="h-5 w-5 text-blue-600 mr-2" />
+                  <Shield className="h-5 w-5 text-blue-600 ml-2" />
                   <span className="text-blue-800 font-semibold">
-                    Escrow Protected
+                    محمي بالضمان
                   </span>
                 </div>
               </div>
@@ -158,76 +158,76 @@ export default function TransactionDetailPage() {
           <div className="lg:col-span-1 space-y-6">
             {/* Quick Actions */}
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">إجراءات سريعة</h3>
               <div className="space-y-3">
                 {transaction.status === 'under_review' && userType === 'buyer' && (
                   <>
                     <button className="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                      Confirm Delivery
+                      تأكيد التسليم
                     </button>
                     <button className="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
-                      Open Dispute
+                      فتح نزاع
                     </button>
                   </>
                 )}
                 
                 <button className="w-full px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
-                  Contact {userType === 'buyer' ? 'Seller' : 'Buyer'}
+                  الاتصال {userType === 'buyer' ? 'بالبائع' : 'بالمشتري'}
                 </button>
                 
                 <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                  Download Receipt
+                  تحميل الإيصال
                 </button>
               </div>
             </div>
 
             {/* Transaction Summary */}
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Transaction Summary</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">ملخص المعاملة</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Project:</span>
+                  <span className="text-gray-600">المشروع:</span>
                   <span className="font-medium">{transaction.projectTitle}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">{userType === 'buyer' ? 'Seller' : 'Buyer'}:</span>
+                  <span className="text-gray-600">{userType === 'buyer' ? 'البائع' : 'المشتري'}:</span>
                   <span className="font-medium">
                     {userType === 'buyer' ? transaction.sellerName : transaction.buyerName}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Total Amount:</span>
+                  <span className="text-gray-600">المبلغ الإجمالي:</span>
                   <span className="font-bold">${transaction.totalAmount}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Platform Fee:</span>
+                  <span className="text-gray-600">رسوم المنصة:</span>
                   <span className="font-medium">${transaction.platformFee}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Payment Method:</span>
+                  <span className="text-gray-600">طريقة الدفع:</span>
                   <span className="font-medium capitalize">
                     {transaction.paymentMethod.replace('_', ' ')}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Review Period:</span>
-                  <span className="font-medium">{transaction.reviewPeriodDays} days</span>
+                  <span className="text-gray-600">فترة المراجعة:</span>
+                  <span className="font-medium">{transaction.reviewPeriodDays} أيام</span>
                 </div>
               </div>
             </div>
 
             {/* Help & Support */}
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-blue-800 mb-3">Need Help?</h3>
+              <h3 className="text-lg font-semibold text-blue-800 mb-3">تحتاج مساعدة؟</h3>
               <div className="space-y-2 text-sm">
                 <button className="w-full text-left text-blue-700 hover:text-blue-900 underline">
-                  Transaction Guide
+                  دليل المعاملات
                 </button>
                 <button className="w-full text-left text-blue-700 hover:text-blue-900 underline">
-                  Contact Support
+                  الاتصال بالدعم
                 </button>
                 <button className="w-full text-left text-blue-700 hover:text-blue-900 underline">
-                  Report an Issue
+                  الإبلاغ عن مشكلة
                 </button>
               </div>
             </div>

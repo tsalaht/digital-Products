@@ -42,42 +42,42 @@ const ContactUs = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email Support',
+      title: 'دعم البريد الإلكتروني',
       content: 'support@marketplace.com',
-      description: 'General inquiries and support',
-      responseTime: '24 hours'
+      description: 'الاستفسارات العامة والدعم',
+      responseTime: '24 ساعة'
     },
     {
       icon: Shield,
-      title: 'Legal & Privacy',
+      title: 'القانونية والخصوصية',
       content: 'legal@marketplace.com',
-      description: 'Privacy, legal, and compliance matters',
-      responseTime: '48 hours'
+      description: 'مسائل الخصوصية والقانونية والامتثال',
+      responseTime: '48 ساعة'
     },
     {
       icon: Phone,
-      title: 'Phone Support',
-      content: '+1 (555) 123-4567',
-      description: 'Priority support for enterprise clients',
-      responseTime: 'Business hours'
+      title: 'دعم الهاتف',
+      content: '+966 50 123 4567',
+      description: 'دعم أولوية لعملاء المؤسسات',
+      responseTime: 'ساعات العمل'
     },
     {
       icon: MessageSquare,
-      title: 'Live Chat',
-      content: 'Available in dashboard',
-      description: 'Real-time support for active users',
-      responseTime: 'Instant'
+      title: 'الدردشة المباشرة',
+      content: 'متوفر في لوحة التحكم',
+      description: 'دعم فوري للمستخدمين النشطين',
+      responseTime: 'فوري'
     }
   ];
 
   const supportCategories = [
-    { value: 'general', label: 'General Inquiry' },
-    { value: 'technical', label: 'Technical Support' },
-    { value: 'billing', label: 'Billing & Payments' },
-    { value: 'refund', label: 'Refund Request' },
-    { value: 'dispute', label: 'Transaction Dispute' },
-    { value: 'partnership', label: 'Business Partnership' },
-    { value: 'legal', label: 'Legal & Compliance' }
+    { value: 'general', label: 'استفسار عام' },
+    { value: 'technical', label: 'دعم فني' },
+    { value: 'billing', label: 'الفواتير والمدفوعات' },
+    { value: 'refund', label: 'طلب استرداد' },
+    { value: 'dispute', label: 'نزاع معاملة' },
+    { value: 'partnership', label: 'شراكة تجارية' },
+    { value: 'legal', label: 'قانوني وامتثال' }
   ];
 
   return (
@@ -90,7 +90,7 @@ const ContactUs = () => {
             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium mb-8 transition-all duration-200"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            العودة للرئيسية
           </Link>
           
           <div className="flex items-center gap-4 mb-6">
@@ -98,15 +98,15 @@ const ContactUs = () => {
               <MessageSquare className="w-8 h-8" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-slate-900 mb-2">Contact Us</h1>
-              <p className="text-slate-600 text-lg">Get in touch with our expert support team</p>
+              <h1 className="text-4xl font-bold text-slate-900 mb-2">اتصل بنا</h1>
+              <p className="text-slate-600 text-lg">تواصل مع فريق الدعم المتخصص لدينا</p>
             </div>
           </div>
           
           <div className="bg-purple-50/80 backdrop-blur-sm rounded-xl p-6 border border-purple-200/50">
             <p className="text-purple-800 text-sm leading-relaxed">
-              <strong>Response Times:</strong> General inquiries within 24 hours • 
-              <strong>Priority Support:</strong> Enterprise clients within 4 hours
+              <strong>أوقات الاستجابة:</strong> الاستفسارات العامة خلال 24 ساعة • 
+              <strong>الدعم المتميز:</strong> عملاء المؤسسات خلال 4 ساعات
             </p>
           </div>
         </div>
@@ -121,7 +121,7 @@ const ContactUs = () => {
               <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white w-10 h-10 rounded-xl flex items-center justify-center">
                 <Send className="w-5 h-5" />
               </div>
-              <h2 className="text-2xl font-bold text-slate-900">Send us a Message</h2>
+              <h2 className="text-2xl font-bold text-slate-900">أرسل لنا رسالة</h2>
             </div>
             
             {isSubmitted ? (
@@ -129,12 +129,12 @@ const ContactUs = () => {
                 <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-green-900 mb-2">Message Sent!</h3>
+                <h3 className="text-2xl font-bold text-green-900 mb-2">تم إرسال الرسالة!</h3>
                 <p className="text-green-700 mb-4">
-                  Thank you for contacting us. Our team will get back to you within 24 hours.
+                  شكراً لتواصلك معنا. سيعود فريقنا إليك خلال 24 ساعة.
                 </p>
                 <p className="text-green-600 text-sm">
-                  Reference ID: #MSG-{Math.random().toString(36).substr(2, 9).toUpperCase()}
+                  رقم المرجع: #MSG-{Math.random().toString(36).substr(2, 9).toUpperCase()}
                 </p>
               </div>
             ) : (
@@ -142,7 +142,7 @@ const ContactUs = () => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-2">
-                      Full Name *
+                      الاسم الكامل *
                     </label>
                     <input
                       type="text"
@@ -152,12 +152,12 @@ const ContactUs = () => {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400 transition-all duration-200 bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md placeholder-slate-400"
-                      placeholder="Enter your full name"
+                      placeholder="أدخل اسمك الكامل"
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">
-                      Email Address *
+                      عنوان البريد الإلكتروني *
                     </label>
                     <input
                       type="email"
@@ -174,7 +174,7 @@ const ContactUs = () => {
                 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-semibold text-slate-700 mb-2">
-                    Subject Category *
+                    فئة الموضوع *
                   </label>
                   <select
                     id="subject"
@@ -194,7 +194,7 @@ const ContactUs = () => {
                 
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-2">
-                    Message *
+                    الرسالة *
                   </label>
                   <textarea
                     id="message"
@@ -204,7 +204,7 @@ const ContactUs = () => {
                     required
                     rows={6}
                     className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-400 transition-all duration-200 bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md placeholder-slate-400 resize-none"
-                    placeholder="Please describe your inquiry in detail. Include any relevant transaction IDs, error messages, or specific questions."
+                    placeholder="يرجى وصف استفسارك بالتفصيل. أدرج أي معرفات معاملات ذات صلة أو رسائل خطأ أو أسئلة محددة."
                   />
                 </div>
                 
@@ -216,20 +216,20 @@ const ContactUs = () => {
                   {isSubmitting ? (
                     <>
                       <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                      <span>Sending...</span>
+                      <span>جاري الإرسال...</span>
                     </>
                   ) : (
                     <>
                       <Send className="w-5 h-5" />
-                      <span>Send Message</span>
+                      <span>إرسال الرسالة</span>
                     </>
                   )}
                 </button>
                 
                 <div className="bg-blue-50/80 rounded-xl p-4 border border-blue-200/50">
                   <p className="text-blue-800 text-sm">
-                    <strong>Priority Support:</strong> For urgent issues affecting active transactions, 
-                    please include your transaction ID for faster resolution.
+                    <strong>الدعم المتميز:</strong> للمشاكل العاجلة التي تؤثر على المعاملات النشطة، 
+                    يرجى تضمين معرف المعاملة للحصول على حل أسرع.
                   </p>
                 </div>
               </form>
@@ -244,7 +244,7 @@ const ContactUs = () => {
                 <div className="bg-gradient-to-br from-emerald-500 to-teal-600 text-white w-10 h-10 rounded-xl flex items-center justify-center">
                   <Phone className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-900">Contact Information</h2>
+                <h2 className="text-2xl font-bold text-slate-900">معلومات الاتصال</h2>
               </div>
               
               <div className="space-y-4">

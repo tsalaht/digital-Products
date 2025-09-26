@@ -9,22 +9,22 @@ const Footer = () => {
 
   const footerLinks = {
     legal: [
-      { href: '/terms', label: 'Terms & Conditions', icon: FileText },
-      { href: '/privacy', label: 'Privacy Policy', icon: Shield },
-      { href: '/refund-policy', label: 'Refund Policy', icon: RefreshCw },
-      { href: '/contact', label: 'Contact Us', icon: MessageSquare },
+      { href: '/terms', label: 'الشروط والأحكام', icon: FileText },
+      { href: '/privacy', label: 'سياسة الخصوصية', icon: Shield },
+      { href: '/refund-policy', label: 'سياسة الاسترداد', icon: RefreshCw },
+      { href: '/contact', label: 'اتصل بنا', icon: MessageSquare },
     ],
     platform: [
-      { href: '/projects', label: 'Browse Projects' },
-      { href: '/profitable-projects', label: 'Profitable Projects' },
-      { href: '/enterprise-solutions', label: 'Enterprise Solutions' },
-      { href: '/transactions', label: 'Transactions' },
+      { href: '/projects', label: 'تصفح المشاريع' },
+      { href: '/profitable-projects', label: 'المشاريع المربحة' },
+      { href: '/enterprise-solutions', label: 'حلول الشركات' },
+      { href: '/transactions', label: 'المعاملات' },
     ],
     support: [
-      { href: '/contact', label: 'Support Center' },
-      { href: '/faq', label: 'FAQ' },
-      { href: '/security', label: 'Security Center' },
-      { href: '/api-docs', label: 'API Documentation' },
+      { href: '/contact', label: 'مركز الدعم' },
+      { href: '/faq', label: 'الأسئلة الشائعة' },
+      { href: '/security', label: 'مركز الأمان' },
+      { href: '/api-docs', label: 'وثائق API' },
     ]
   };
 
@@ -38,12 +38,12 @@ const Footer = () => {
 
   const contactInfo = {
     email: 'support@marketplace.com',
-    phone: '+1 (555) 123-4567',
-    address: '123 Innovation Drive, Tech Hub District, San Francisco, CA 94105'
+    phone: '+966 50 123 4567',
+    address: 'الرياض، المملكة العربية السعودية، حي النرجس، شارع الملك فهد'
   };
 
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden" dir="rtl">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500"></div>
@@ -54,13 +54,13 @@ const Footer = () => {
 
       <div className="relative">
         {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 md:gap-12">
             
             {/* Brand & Company Info */}
             <div className="lg:col-span-1">
-              <Link href="/" className="flex items-center space-x-3 space-x-reverse group mb-6">
-                <div className="w-h-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:rotate-3 overflow-hidden">
+              <Link href="/" className="flex items-center gap-3 group mb-6">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 group-hover:rotate-3 overflow-hidden">
                   <Image 
                     src="/logo.png" 
                     alt="Logo" 
@@ -69,25 +69,25 @@ const Footer = () => {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <span className="text-xl font-bold text-gradient">
-                  Digital Marketplace
+                <span className="text-lg md:text-xl font-bold text-gradient">
+                  سوق المشاريع الرقمية
                 </span>
               </Link>
               
-              <p className="text-slate-300 leading-relaxed mb-6">
-                The premier platform for buying and selling digital projects. Connect with talented developers and entrepreneurs in a secure, trustworthy environment.
+              <p className="text-slate-300 leading-relaxed mb-6 text-sm md:text-base">
+                المنصة الرائدة لشراء وبيع المشاريع الرقمية. تواصل مع المطورين ورجال الأعمال الموهوبين في بيئة آمنة وموثوقة.
               </p>
               
               {/* Contact Info */}
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors duration-200">
-                  <Mail className="w-4 h-4" style={{ color: '#7EE7FC' }} />
+                  <Mail className="w-4 h-4 flex-shrink-0" style={{ color: '#7EE7FC' }} />
                   <a href={`mailto:${contactInfo.email}`} className="text-sm hover:underline">
                     {contactInfo.email}
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors duration-200">
-                  <Phone className="w-4 h-4" style={{ color: '#7EE7FC' }} />
+                  <Phone className="w-4 h-4 flex-shrink-0" style={{ color: '#7EE7FC' }} />
                   <a href={`tel:${contactInfo.phone}`} className="text-sm hover:underline">
                     {contactInfo.phone}
                   </a>
@@ -101,8 +101,8 @@ const Footer = () => {
             
             {/* Legal & Policies */}
             <div>
-              <h3 className="text-lg font-bold mb-6 text-white">
-                Legal & Policies
+              <h3 className="text-base md:text-lg font-bold mb-4 md:mb-6 text-white">
+                القانونية والسياسات
               </h3>
               <ul className="space-y-3">
                 {footerLinks.legal.map((link) => {
@@ -113,8 +113,8 @@ const Footer = () => {
                         href={link.href} 
                         className="flex items-center gap-3 text-slate-300 hover:text-white transition-all duration-200 group"
                       >
-                        <Icon className="w-4 h-4 transition-colors duration-200" style={{ color: '#7EE7FC' }} />
-                        <span className="group-hover:translate-x-1 transition-transform duration-200">
+                        <Icon className="w-4 h-4 transition-colors duration-200 flex-shrink-0" style={{ color: '#7EE7FC' }} />
+                        <span className="group-hover:translate-x-1 transition-transform duration-200 text-sm">
                           {link.label}
                         </span>
                       </Link>
@@ -126,15 +126,15 @@ const Footer = () => {
             
             {/* Platform */}
             <div>
-              <h3 className="text-lg font-bold mb-6 text-white">
-                Platform
+              <h3 className="text-base md:text-lg font-bold mb-4 md:mb-6 text-white">
+                المنصة
               </h3>
               <ul className="space-y-3">
                 {footerLinks.platform.map((link) => (
                   <li key={link.href}>
                     <Link 
                       href={link.href} 
-                      className="text-slate-300 hover:text-white transition-all duration-200 hover:translate-x-1 inline-block"
+                      className="text-slate-300 hover:text-white transition-all duration-200 hover:translate-x-1 inline-block text-sm"
                     >
                       {link.label}
                     </Link>
@@ -145,15 +145,15 @@ const Footer = () => {
             
             {/* Support */}
             <div>
-              <h3 className="text-lg font-bold mb-6 text-white">
-                Support
+              <h3 className="text-base md:text-lg font-bold mb-4 md:mb-6 text-white">
+                الدعم
               </h3>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-6 md:mb-8">
                 {footerLinks.support.map((link) => (
                   <li key={link.href}>
                     <Link 
                       href={link.href} 
-                      className="text-slate-300 hover:text-white transition-all duration-200 hover:translate-x-1 inline-block"
+                      className="text-slate-300 hover:text-white transition-all duration-200 hover:translate-x-1 inline-block text-sm"
                     >
                       {link.label}
                     </Link>
@@ -164,9 +164,9 @@ const Footer = () => {
               {/* Social Links */}
               <div>
                 <h4 className="text-sm font-semibold mb-4 text-slate-200">
-                  Follow Us
+                  تابعنا
                 </h4>
-                <div className="flex gap-3">
+                <div className="flex gap-3 flex-wrap">
                   {socialLinks.map((social) => {
                     const Icon = social.icon;
                     return (
@@ -186,23 +186,23 @@ const Footer = () => {
           </div>
           
           {/* Trust Badges */}
-          <div className="mt-16 pt-8 border-t border-slate-700">
-            <div className="flex flex-wrap items-center justify-center gap-8 mb-8">
-              <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-4 py-2">
-                <Shield className="w-5 h-5" style={{ color: '#7EE7FC' }} />
-                <span className="text-sm font-medium text-slate-200">SSL Secured</span>
+          <div className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-slate-700">
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-6 md:mb-8">
+              <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2">
+                <Shield className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: '#7EE7FC' }} />
+                <span className="text-xs md:text-sm font-medium text-slate-200">محمي بـ SSL</span>
               </div>
-              <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-4 py-2">
-                <Shield className="w-5 h-5" style={{ color: '#7EE7FC' }} />
-                <span className="text-sm font-medium text-slate-200">GDPR Compliant</span>
+              <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2">
+                <Shield className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: '#7EE7FC' }} />
+                <span className="text-xs md:text-sm font-medium text-slate-200">متوافق مع GDPR</span>
               </div>
-              <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-4 py-2">
-                <Shield className="w-5 h-5" style={{ color: '#7EE7FC' }} />
-                <span className="text-sm font-medium text-slate-200">Escrow Protected</span>
+              <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2">
+                <Shield className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: '#7EE7FC' }} />
+                <span className="text-xs md:text-sm font-medium text-slate-200">محمي بالضمان</span>
               </div>
-              <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-4 py-2">
-                <Shield className="w-5 h-5" style={{ color: '#7EE7FC' }} />
-                <span className="text-sm font-medium text-slate-200">24/7 Support</span>
+              <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2">
+                <Shield className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: '#7EE7FC' }} />
+                <span className="text-xs md:text-sm font-medium text-slate-200">دعم 24/7</span>
               </div>
             </div>
           </div>
@@ -210,30 +210,30 @@ const Footer = () => {
         
         {/* Bottom Bar */}
         <div className="border-t border-slate-700 bg-slate-900/50 backdrop-blur-sm">
-          <div className="max-w-7xl mx-auto px-6 py-6">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="text-slate-400 text-sm text-center md:text-left">
+              <div className="text-slate-400 text-xs md:text-sm text-center md:text-right">
                 <p>
-                  © {currentYear} Digital Projects Marketplace Inc. All rights reserved.
+                  © {currentYear} سوق المشاريع الرقمية. جميع الحقوق محفوظة.
                 </p>
                 <p className="mt-1">
-                  Empowering digital entrepreneurs worldwide since 2024.
+                  تمكين رواد الأعمال الرقميين حول العالم منذ 2024.
                 </p>
               </div>
               
-              <div className="flex items-center gap-6 text-slate-400 text-sm">
+              <div className="flex items-center gap-4 md:gap-6 text-slate-400 text-xs md:text-sm">
                 <Link href="/terms" className="hover:text-white transition-colors duration-200">
-                  Terms
+                  الشروط
                 </Link>
                 <Link href="/privacy" className="hover:text-white transition-colors duration-200">
-                  Privacy
+                  الخصوصية
                 </Link>
                 <Link href="/contact" className="hover:text-white transition-colors duration-200">
-                  Contact
+                  اتصل بنا
                 </Link>
                 <div className="w-px h-4 bg-slate-600"></div>
                 <span className="text-xs">
-                  Made with ❤️ for entrepreneurs
+                  صُنع بـ ❤️ لرواد الأعمال
                 </span>
               </div>
             </div>

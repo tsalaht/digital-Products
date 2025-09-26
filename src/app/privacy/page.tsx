@@ -5,7 +5,7 @@ import { ArrowLeft, Shield, Database, Users, Eye, Lock, Globe, AlertTriangle } f
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-teal-50" dir="rtl">
       {/* Header Section */}
       <div className="bg-white/95 backdrop-blur-lg shadow-soft border-b border-slate-200/50">
         <div className="max-w-4xl mx-auto px-6 py-12">
@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
             className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium mb-8 transition-all duration-200"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            العودة للرئيسية
           </Link>
           
           <div className="flex items-center gap-4 mb-6">
@@ -22,16 +22,16 @@ const PrivacyPolicy = () => {
               <Shield className="w-8 h-8" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-slate-900 mb-2">Privacy Policy</h1>
-              <p className="text-slate-600 text-lg">Your Data Protection and Privacy Rights</p>
+              <h1 className="text-4xl font-bold text-slate-900 mb-2">سياسة الخصوصية</h1>
+              <p className="text-slate-600 text-lg">حماية بياناتك وحقوق الخصوصية</p>
             </div>
           </div>
           
           <div className="bg-green-50/80 backdrop-blur-sm rounded-xl p-6 border border-green-200/50">
             <p className="text-green-800 text-sm leading-relaxed">
-              <strong>Last Updated:</strong> December 12, 2024 • 
-              <strong>GDPR Compliant</strong> • 
-              <strong>CCPA Compliant</strong>
+              <strong>آخر تحديث:</strong> 12 ديسمبر 2024 • 
+              <strong>متوافق مع GDPR</strong> • 
+              <strong>متوافق مع CCPA</strong>
             </p>
           </div>
         </div>
@@ -47,7 +47,7 @@ const PrivacyPolicy = () => {
               <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white w-10 h-10 rounded-xl flex items-center justify-center">
                 <Eye className="w-5 h-5" />
               </div>
-              <h2 className="text-2xl font-bold text-slate-900">Introduction</h2>
+              <h2 className="text-2xl font-bold text-slate-900">مقدمة</h2>
             </div>
             <div className="bg-blue-50/80 rounded-2xl p-6 border border-blue-200/50">
               <p className="text-slate-700 leading-relaxed mb-4">

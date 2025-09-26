@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import ProjectCard from '@/components/ProjectCard';
 import { featuredProjects, categories } from '@/data/projects';
-import OrbitingSkills from '@/components/ui/OrbitingSkills';
+import OrbitingCircles from '@/components/ui/orbiting-circles';
 const HomePage = () => {
   const [selectedCategory, setSelectedCategory] = useState('جميع المشاريع');
   const [sortBy, setSortBy] = useState('الأحدث');
@@ -83,26 +83,24 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className=" py-20 relative overflow-hidden bg-white">
         {/* Background Decorations */}
-        <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-xl animate-float"></div>
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-br from-emerald-200/30 to-teal-200/30 rounded-full blur-xl animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/3 left-1/4 w-24 h-24 bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-lg animate-pulse"></div>
+    
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm text-blue-600 px-6 py-3 rounded-full font-bold text-sm shadow-lg mb-8 animate-bounce-gentle">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm text-blue-600 px-6 py-3 rounded-full font-bold text-sm shadow-lg  animate-bounce-gentle">
               <Sparkles className="w-5 h-5" />
               منصتك المثالية لشراء برامج السوفت وير وحلول الشركات
             </div>
             
             <h1 
-                            className="md:text-6xl text-5xl my-1 font-black text-black leading-18 py-10 flex items-center gap-2 justify-center"
+                            className="text-5xl my-1 font-black text-black leading-18 py-4 block md:flex items-center gap-2 justify-center"
               
                         >
                             اكتشف أفضل
-                            <span className="text-gradient block mt-2 mb-3 md:leading-[70px] leading-normal py-5 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">المشاريع الرقمية</span>
+                            <span className="text-gradient block  md:leading-[70px] leading-normal py-5 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">المشاريع الرقمية</span>
                         </h1>
             
-            <p className="text-xl md:text-2xl text-slate-600 mb-10 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl md:text-2xl text-slate-600 mb-4 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
               في زمن تتسارع فيه تقنيات الذكاء الاصطناعي، نوفر لك في منصتنا تجربة شراء مختلفة كليًا. هدفنا أن نُسهل على الشركات الصغيرة والمتوسطة الحصول على برامج سطح المكتب للشركات وحلول السوفت وير للشركات الصغيرة والمتوسطة التي تساعدها على إدارة أعمالها بكفاءة واحترافية، وبأسعار تنافسية ومناسبة للجميع.
             </p>
             
@@ -141,9 +139,9 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <OrbitingSkills />
+      <OrbitingCircles />
       {/* Stats Section */}
-      <section className="py-20 bg-white/50 backdrop-blur-sm">
+      <section className="py-20 bg-white ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -160,7 +158,7 @@ const HomePage = () => {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 px-6 py-3 rounded-full font-bold text-sm shadow-lg mb-6">
@@ -228,8 +226,7 @@ const HomePage = () => {
 
       {/* Profitable Projects Section */}
       <section className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-emerald-200/20 to-green-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-green-200/20 to-emerald-200/20 rounded-full blur-3xl"></div>
+    
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
@@ -297,7 +294,7 @@ const HomePage = () => {
       </section>
 
       {/* Software Solutions Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-emerald-200/20 to-teal-200/20 rounded-full blur-3xl"></div>
         

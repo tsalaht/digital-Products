@@ -49,16 +49,16 @@ const PaymentMethodSelector = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-white rounded-lg shadow-md p-6" dir="rtl">
       <div className="flex items-center mb-6">
         <button
           onClick={onBack}
-          className="flex items-center text-gray-600 hover:text-gray-800 mr-4"
+          className="flex items-center text-gray-600 hover:text-gray-800 ml-4"
         >
-          <ArrowLeft className="h-5 w-5 mr-1" />
-          Back
+          <ArrowLeft className="h-5 w-5 ml-1" />
+          العودة
         </button>
-        <h2 className="text-2xl font-bold">Choose Payment Method</h2>
+        <h2 className="text-2xl font-bold">اختر طريقة الدفع</h2>
       </div>
 
       <div className="space-y-4">
@@ -96,8 +96,8 @@ const PaymentMethodSelector = ({
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">
                       {method.name}
                       {!method.isEnabled && (
-                        <span className="ml-2 text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
-                          Coming Soon
+                        <span className="mr-2 text-sm bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
+                          قريباً
                         </span>
                       )}
                     </h3>
@@ -115,8 +115,8 @@ const PaymentMethodSelector = ({
                         <Info className="h-4 w-4 mr-1 text-gray-500" />
                         <span className="text-gray-600">
                           {method.processingFee === 0 
-                            ? 'No fees' 
-                            : `${method.processingFee}% fee`
+                            ? 'بدون رسوم' 
+                            : `رسوم ${method.processingFee}%`
                           }
                         </span>
                       </div>
@@ -141,7 +141,7 @@ const PaymentMethodSelector = ({
                       <img src="/api/placeholder/30/20" alt="Mastercard" className="w-8 h-5 object-contain" />
                       <img src="/api/placeholder/30/20" alt="Amex" className="w-8 h-5 object-contain" />
                     </div>
-                    <span className="ml-3">All major cards accepted</span>
+                    <span className="mr-3">جميع البطاقات مقبولة</span>
                   </div>
                 </div>
               )}
@@ -152,8 +152,8 @@ const PaymentMethodSelector = ({
                     <div className="flex items-start">
                       <Info className="h-4 w-4 text-blue-600 mr-2 mt-0.5" />
                       <div className="text-sm text-blue-700">
-                        <p className="font-medium mb-1">Wire Transfer Instructions</p>
-                        <p>Bank details will be provided after selection. Funds are held in escrow upon receipt.</p>
+                        <p className="font-medium mb-1">تعليمات التحويل البنكي</p>
+                        <p>سيتم توفير تفاصيل البنك بعد الاختيار. الأموال محفوظة في الضمان عند الاستلام.</p>
                       </div>
                     </div>
                   </div>
@@ -166,8 +166,8 @@ const PaymentMethodSelector = ({
                     <div className="flex items-start">
                       <AlertCircle className="h-4 w-4 text-yellow-600 mr-2 mt-0.5" />
                       <div className="text-sm text-yellow-700">
-                        <p className="font-medium mb-1">Coming Soon</p>
-                        <p>Cryptocurrency payments with BTC, ETH, and USDT support are being added soon!</p>
+                        <p className="font-medium mb-1">قريباً</p>
+                        <p>المدفوعات بالعملات المشفرة مع دعم BTC و ETH و USDT قيد الإضافة قريباً!</p>
                       </div>
                     </div>
                   </div>
@@ -183,8 +183,8 @@ const PaymentMethodSelector = ({
         <div className="flex items-start">
           <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-0.5" />
           <div className="text-sm text-green-700">
-            <h4 className="font-medium mb-1">Your Payment is Protected</h4>
-            <p>All payments are processed through secure, PCI-compliant payment processors and held in our regulated escrow account until project delivery is confirmed.</p>
+            <h4 className="font-medium mb-1">دفعتك محمية</h4>
+            <p>جميع المدفوعات تتم معالجتها من خلال معالجات دفع آمنة ومتوافقة مع PCI وتحفظ في حساب الضمان المنظم لدينا حتى تأكيد تسليم المشروع.</p>
           </div>
         </div>
       </div>
@@ -192,9 +192,9 @@ const PaymentMethodSelector = ({
       {/* Help Section */}
       <div className="mt-6 text-center">
         <p className="text-sm text-gray-600">
-          Need help choosing a payment method? 
-          <button className="ml-1 text-blue-600 hover:text-blue-800 underline">
-            Contact Support
+          تحتاج مساعدة في اختيار طريقة الدفع؟ 
+          <button className="mr-1 text-blue-600 hover:text-blue-800 underline">
+            اتصل بالدعم
           </button>
         </p>
       </div>

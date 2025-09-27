@@ -625,7 +625,7 @@ const SellerRegisterPage = () => {
                       handleInputChange('revenueType', 'subscriptions');
                       setRevenueStep(2);
                     }}
-                    className="p-8 bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-2xl hover:from-blue-100 hover:to-indigo-100 hover:border-blue-300 transition-all duration-300 group text-right"
+                    className=" bg-gradient-to-br from-blue-50 to-indigo-50 border-2 py-2 border-blue-200 rounded-2xl hover:from-blue-100 flex flex-col items-center justify-center hover:to-indigo-100 hover:border-blue-300 transition-all duration-300 group text-right"
                   >
                     <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors duration-300">
                       <CreditCard className="w-8 h-8 text-blue-600" />
@@ -647,7 +647,7 @@ const SellerRegisterPage = () => {
                       handleInputChange('revenueType', 'ads');
                       setRevenueStep(2);
                     }}
-                    className="p-8 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl hover:from-green-100 hover:to-emerald-100 hover:border-green-300 transition-all duration-300 group text-right"
+                    className=" bg-gradient-to-br from-green-50 py-2 to-emerald-50 border-2 border-green-200 rounded-2xl hover:from-green-100 hover:to-emerald-100 hover:border-green-300 transition-all duration-300 group flex flex-col items-center justify-center"
                   >
                     <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors duration-300">
                       <Megaphone className="w-8 h-8 text-green-600" />

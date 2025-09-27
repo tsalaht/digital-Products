@@ -213,7 +213,7 @@ const GlowingOrbitPath = memo(({ radius, glowColor = 'blue', animationDelay = 0 
       <div
         className="absolute inset-0 rounded-full"
         style={{
-          border: `1px solid black`,
+          border: `0.1px solid #00000010 `,
           boxShadow: ``,
         }}
       />
@@ -340,7 +340,7 @@ export default function OrbitingCircles() {
       >
         
         {/* Central Logo with enhanced glow */}
-        <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full flex items-center justify-center z-10 relative shadow-2xl border-2 border-black">
+        <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full flex items-center justify-center z-10 relative shadow-2xl border-2 border-[#00000025]">
           <div className="absolute inset-0 rounded-full blur-xl animate-pulse"></div>
           <div className="absolute inset-0 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           <div className="relative z-10 p-1 sm:p-2">

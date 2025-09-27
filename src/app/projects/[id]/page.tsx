@@ -118,14 +118,14 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
   ];
 
   return (
-    <div className="min-h-screen bg-soft-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Project Header */}
-      <div className="bg-white border-b border-soft-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-            <Link href="/" className="hover:text-primary-600">الرئيسية</Link>
+            <Link href="/" className="hover:text-blue-600 transition-colors">الرئيسية</Link>
             <ChevronLeft className="w-4 h-4" />
-            <Link href="/projects" className="hover:text-primary-600">المشاريع</Link>
+            <Link href="/projects" className="hover:text-blue-600 transition-colors">المشاريع</Link>
             <ChevronLeft className="w-4 h-4" />
             <span className="text-gray-900">{project.title}</span>
           </div>
@@ -136,24 +136,24 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
               <div className="flex items-center gap-4 mb-4">
                 <div className="flex items-center gap-2">
                   {project.verified && (
-                    <div className="badge-success flex items-center gap-1">
+                    <div className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
                       <CheckCircle className="w-4 h-4" />
                       موثق
                     </div>
                   )}
                   {project.profitable && (
-                    <div className="badge-warning flex items-center gap-1">
+                    <div className="inline-flex items-center gap-1 px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
                       <TrendingUp className="w-4 h-4" />
                       مربح
                     </div>
                   )}
-                  <span className="badge-primary">{project.category}</span>
+                  <span className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">{project.category}</span>
                 </div>
               </div>
               
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-1">
-                  <Star className="w-4 h-4 fill-warning-400 text-warning-400" />
+                  <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                   <span className="font-medium">{project.rating}</span>
                   <span className="text-gray-500">({formatNumber(project.reviews)} تقييم)</span>
                 </div>
@@ -170,114 +170,18 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
               </div>
             </div>
 
-            <div className="lg:w-80">
-              <div className="card">
-                <div className="text-3xl font-bold text-primary-600 mb-2">
-                  {formatPrice(project.price)}
-                </div>
-                {project.monthlyRevenue && (
-                  <div className="bg-success-50 border border-success-200 rounded-lg p-3 mb-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-success-800">العائد الشهري</span>
-                      <span className="text-success-700 font-bold">
-                        {formatPrice(project.monthlyRevenue)}/شهر
-                      </span>
-                    </div>
-                  </div>
-                )}
-                
-                <div className="space-y-3">
-                  <Link href={`/projects/${project.id}/purchase`} className="btn-light-blue w-full">
-                    <DollarSign className="w-5 h-5 ml-2 relative z-10" />
-                    <span className="relative z-10">شراء المشروع</span>
-                  </Link>
-                  <button className="btn-light-blue w-full">
-                    <MessageCircle className="w-5 h-5 ml-2 relative z-10" />
-                    <span className="relative z-10">تواصل مع البائع</span>
-                  </button>
-                  
-                  <div className="flex gap-2">
-                    <button className="flex-1 p-3 border border-soft-border rounded-lg hover:bg-gray-50 transition-colors duration-200">
-                      <Heart className="w-5 h-5 mx-auto text-gray-600" />
-                    </button>
-                    <button className="flex-1 p-3 border border-soft-border rounded-lg hover:bg-gray-50 transition-colors duration-200">
-                      <Share2 className="w-5 h-5 mx-auto text-gray-600" />
-                    </button>
-                    {project.demoUrl && (
-                      <Link 
-                        href={project.demoUrl}
-                        target="_blank"
-                        className="flex-1 p-3 border border-soft-border rounded-lg hover:bg-gray-50 transition-colors duration-200"
-                      >
-                        <ExternalLink className="w-5 h-5 mx-auto text-gray-600" />
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              </div>
-              
-              {/* Seller Info */}
-              <div className="card mt-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Image
-                    src={project.seller.avatar}
-                    alt={project.seller.name}
-                    width={50}
-                    height={50}
-                    className="w-12 h-12 rounded-full"
-                  />
-                  <div>
-                    <h3 className="font-bold text-gray-900">{project.seller.name}</h3>
-                    <div className="flex items-center gap-2 text-sm">
-                      <Star className="w-4 h-4 fill-warning-400 text-warning-400" />
-                      <span>{project.seller.rating}</span>
-                      <span className="text-gray-400">•</span>
-                      <span className="text-gray-600">{project.seller.totalSales} مبيعات</span>
-                    </div>
-                  </div>
-                </div>
-                <Link 
-                  href={`/checkout/escrow?projectId=${project.id}&offerId=1`}
-                  className="btn-light-blue w-full flex items-center justify-center gap-2"
-                >
-                  <Shield className="w-5 h-5 relative z-10" />
-                  <span className="relative z-10">شراء آمن بضمان الوسيط</span>
-                </Link>
-                
-                {/* Escrow Protection Notice */}
-                <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-lg">
-                  <div className="flex items-start">
-                    <Shield className="h-5 w-5 text-green-600 mr-2 mt-0.5" />
-                    <div className="text-sm text-green-700">
-                      <h4 className="font-medium mb-1">حماية 100% للمشتري</h4>
-                      <ul className="space-y-1">
-                        <li>• أموالك محفوظة حتى تأكيد الاستلام</li>
-                        <li>• فترة مراجعة 5 أيام للتحقق من المشروع</li>
-                        <li>• استرداد كامل إذا لم يطابق المواصفات</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                
-                <button 
-                  onClick={() => setIsPurchaseModalOpen(true)}
-                  className="btn-light-blue w-full mt-3 flex items-center justify-center gap-2"
-                >
-                  <MessageCircle className="w-5 h-5 relative z-10" />
-                  <span className="relative z-10">إرسال عرض مخصص</span>
-                </button>
-              </div>
-            </div>
+     
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="lg:flex gap-8">
-          <div className="lg:flex-1">
-            {/* Image Gallery */}
-            <div className="mb-8">
-              <div className="relative bg-gray-100 rounded-lg overflow-hidden mb-4">
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        {/* Image and Purchase Info Side by Side */}
+        <div className="lg:flex gap-8 mb-8">
+          {/* Image Gallery */}
+          <div className="lg:w-2/3">
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+              <div className="relative bg-gray-100 rounded-lg overflow-hidden">
                 <Image
                   src={galleryImages[currentImageIndex]}
                   alt={project.title}
@@ -289,28 +193,30 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                   <>
                     <button
                       onClick={() => setCurrentImageIndex(prev => prev > 0 ? prev - 1 : galleryImages.length - 1)}
-                      className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-soft transition-all duration-200"
+                      className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-200"
                     >
-                      <ChevronLeft className="w-5 h-5" />
+                      <ChevronLeft className="w-5 h-5 text-gray-600" />
                     </button>
                     <button
                       onClick={() => setCurrentImageIndex(prev => prev < galleryImages.length - 1 ? prev + 1 : 0)}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-soft transition-all duration-200"
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-200"
                     >
-                      <ChevronRight className="w-5 h-5" />
+                      <ChevronRight className="w-5 h-5 text-gray-600" />
                     </button>
                   </>
                 )}
               </div>
               
               {galleryImages.length > 1 && (
-                <div className="flex gap-2 overflow-x-auto">
+                <div className="flex gap-2 overflow-x-auto mt-4">
                   {galleryImages.map((image, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden ${
-                        currentImageIndex === index ? 'ring-2 ring-primary-500' : ''
+                      className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden transition-all duration-200 ${
+                        currentImageIndex === index 
+                          ? 'ring-2 ring-blue-500 shadow-md' 
+                          : 'hover:shadow-md'
                       }`}
                     >
                       <Image
@@ -325,45 +231,154 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                 </div>
               )}
             </div>
+          </div>
 
-            {/* Enhanced Tabs */}
-            <div className="mb-8">
-              <div className="tab-container">
-                {[
-                  { id: 'overview', label: 'نظرة عامة', icon: Globe },
-                  { id: 'features', label: 'الميزات', icon: Zap },
-                  { id: 'tech', label: 'التقنيات', icon: Code },
-                  { id: 'analytics', label: 'الإحصائيات', icon: BarChart3 },
-                  { id: 'reviews', label: 'التقييمات', icon: Star },
-                  { id: 'faq', label: 'الأسئلة الشائعة', icon: MessageCircle }
-                ].map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`tab-button transition-all duration-300 flex items-center gap-2 ${
-                      activeTab === tab.id
-                        ? 'tab-active scale-105 animate-pulse'
-                        : 'tab-inactive hover:scale-105'
-                    }`}
-                  >
-                    <tab.icon className="w-4 h-4 transition-all duration-300" />
-                    {tab.label}
+          {/* Purchase Info Sidebar */}
+          <div className="lg:w-1/3">
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-6">
+              <div className="text-3xl font-bold text-blue-600 mb-2">
+                {formatPrice(project.price)}
+              </div>
+              {project.monthlyRevenue && (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium text-green-800">العائد الشهري</span>
+                    <span className="text-green-700 font-bold">
+                      {formatPrice(project.monthlyRevenue)}/شهر
+                    </span>
+                  </div>
+                </div>
+              )}
+              
+              <div className="space-y-3">
+                <Link href={`/projects/${project.id}/purchase`} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
+                  <DollarSign className="w-5 h-5" />
+                  <span>شراء المشروع</span>
+                </Link>
+                <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
+                  <MessageCircle className="w-5 h-5" />
+                  <span>تواصل مع البائع</span>
+                </button>
+                
+                <div className="flex gap-2">
+                  <button className="flex-1 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                    <Heart className="w-5 h-5 mx-auto text-gray-600" />
                   </button>
-                ))}
+                  <button className="flex-1 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                    <Share2 className="w-5 h-5 mx-auto text-gray-600" />
+                  </button>
+                  {project.demoUrl && (
+                    <Link 
+                      href={project.demoUrl}
+                      target="_blank"
+                      className="flex-1 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                    >
+                      <ExternalLink className="w-5 h-5 mx-auto text-gray-600" />
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </div>
+            
+            {/* Seller Info */}
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Image
+                  src={project.seller.avatar}
+                  alt={project.seller.name}
+                  width={50}
+                  height={50}
+                  className="w-12 h-12 rounded-full"
+                />
+                <div>
+                  <h3 className="font-bold text-gray-900">{project.seller.name}</h3>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    <span>{project.seller.rating}</span>
+                    <span className="text-gray-400">•</span>
+                    <span className="text-gray-600">{project.seller.totalSales} مبيعات</span>
+                  </div>
+                </div>
+              </div>
+              <Link 
+                href={`/checkout/escrow?projectId=${project.id}&offerId=1`}
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+              >
+                <Shield className="w-5 h-5" />
+                <span>شراء آمن بضمان الوسيط</span>
+              </Link>
+              
+              {/* Escrow Protection Notice */}
+              <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-lg">
+                <div className="flex items-start">
+                  <Shield className="h-5 w-5 text-green-600 mr-2 mt-0.5" />
+                  <div className="text-sm text-green-700">
+                    <h4 className="font-medium mb-1">حماية 100% للمشتري</h4>
+                    <ul className="space-y-1">
+                      <li>• أموالك محفوظة حتى تأكيد الاستلام</li>
+                      <li>• فترة مراجعة 5 أيام للتحقق من المشروع</li>
+                      <li>• استرداد كامل إذا لم يطابق المواصفات</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <button 
+                onClick={() => setIsPurchaseModalOpen(true)}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 mt-3"
+              >
+                <MessageCircle className="w-5 h-5" />
+                <span>إرسال عرض مخصص</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content Area */}
+        <div className="lg:flex gap-8">
+          <div className="lg:flex-1">
+            {/* Tabs */}
+            <div className="mb-8">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-2">
+                <div className="flex flex-wrap gap-1">
+                  {[
+                    { id: 'overview', label: 'نظرة عامة', icon: Globe },
+                    { id: 'features', label: 'الميزات', icon: Zap },
+                    { id: 'tech', label: 'التقنيات', icon: Code },
+                    { id: 'analytics', label: 'الإحصائيات', icon: BarChart3 },
+                    { id: 'reviews', label: 'التقييمات', icon: Star },
+                    { id: 'faq', label: 'الأسئلة الشائعة', icon: MessageCircle }
+                  ].map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`px-4 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${
+                        activeTab === tab.id
+                          ? 'bg-blue-600 text-white shadow-md'
+                          : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
+                      }`}
+                    >
+                      <tab.icon className="w-4 h-4" />
+                      <span className="whitespace-nowrap">{tab.label}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* Tab Content */}
-            <div className="space-y-6">
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               {activeTab === 'overview' && (
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">وصف المشروع</h3>
                   <div className="prose max-w-none text-gray-700 leading-relaxed">
                     <p className="mb-4">{project.description}</p>
-                    <p>
-                      هذا المشروع تم تطويره باستخدام أحدث التقنيات والمعايير العالمية لضمان الأداء الأمثل والأمان.
-                      يتميز بواجهة مستخدم احترافية وتجربة استخدام سلسة تلبي احتياجات العملاء المختلفة.
-                    </p>
+                    <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                      <p className="text-gray-800">
+                        هذا المشروع تم تطويره باستخدام أحدث التقنيات والمعايير العالمية لضمان الأداء الأمثل والأمان.
+                        يتميز بواجهة مستخدم احترافية وتجربة استخدام سلسة تلبي احتياجات العملاء المختلفة.
+                      </p>
+                    </div>
                   </div>
                 </div>
               )}
@@ -373,8 +388,8 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">الميزات الرئيسية</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {project.features.map((feature, index) => (
-                      <div key={index} className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
-                        <CheckCircle className="w-5 h-5 text-success-600 flex-shrink-0" />
+                      <div key={index} className="flex items-center gap-3 p-4 bg-green-50 rounded-lg border border-green-200">
+                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
                         <span className="text-gray-800">{feature}</span>
                       </div>
                     ))}
@@ -389,7 +404,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                     {project.technologies.map((tech, index) => (
                       <span 
                         key={index}
-                        className="px-4 py-2 bg-primary-50 text-primary-700 rounded-lg font-medium"
+                        className="px-4 py-2 bg-blue-100 text-blue-800 rounded-lg font-medium"
                       >
                         {tech}
                       </span>
@@ -401,32 +416,32 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
               {activeTab === 'analytics' && project.statistics && (
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">إحصائيات الأداء</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div className="card text-center">
-                      <div className="text-3xl font-bold text-primary-600 mb-2">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div className="bg-white rounded-lg p-6 text-center shadow-md border border-gray-200">
+                      <div className="text-3xl font-bold text-blue-600 mb-2">
                         {formatNumber(project.statistics.visitors)}
                       </div>
                       <div className="text-gray-600">زائر شهرياً</div>
                     </div>
-                    <div className="card text-center">
-                      <div className="text-3xl font-bold text-success-600 mb-2">
+                    <div className="bg-white rounded-lg p-6 text-center shadow-md border border-gray-200">
+                      <div className="text-3xl font-bold text-green-600 mb-2">
                         {project.statistics.conversionRate}%
                       </div>
                       <div className="text-gray-600">معدل التحويل</div>
                     </div>
-                    <div className="card text-center">
-                      <div className="text-3xl font-bold text-warning-600 mb-2">
+                    <div className="bg-white rounded-lg p-6 text-center shadow-md border border-gray-200">
+                      <div className="text-3xl font-bold text-orange-600 mb-2">
                         {formatPrice(project.statistics.revenue[project.statistics.revenue.length - 1])}
                       </div>
                       <div className="text-gray-600">العائد الحالي</div>
                     </div>
                   </div>
                   
-                  <div className="card">
+                  <div className="bg-gray-50 rounded-lg p-6">
                     <h4 className="text-lg font-bold text-gray-900 mb-4">تطور العائدات الشهرية</h4>
                     <div className="space-y-3">
                       {project.statistics.revenue.map((revenue, index) => (
-                        <div key={index} className="flex items-center justify-between">
+                        <div key={index} className="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm">
                           <span className="text-gray-600">الشهر {index + 1}</span>
                           <span className="font-bold text-gray-900">{formatPrice(revenue)}</span>
                         </div>
@@ -447,7 +462,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                             key={i}
                             className={`w-5 h-5 ${
                               i < Math.floor(project.rating) 
-                                ? 'fill-warning-400 text-warning-400' 
+                                ? 'fill-yellow-400 text-yellow-400' 
                                 : 'text-gray-300'
                             }`}
                           />
@@ -458,9 +473,9 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                     </div>
                   </div>
                   
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     {reviews.map((review) => (
-                      <div key={review.id} className="card">
+                      <div key={review.id} className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
                         <div className="flex items-start gap-4">
                           <Image
                             src={review.avatar}
@@ -480,7 +495,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                                   key={i}
                                   className={`w-4 h-4 ${
                                     i < review.rating 
-                                      ? 'fill-warning-400 text-warning-400' 
+                                      ? 'fill-yellow-400 text-yellow-400' 
                                       : 'text-gray-300'
                                   }`}
                                 />
@@ -500,7 +515,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">الأسئلة الشائعة</h3>
                   <div className="space-y-4">
                     {faqs.map((faq, index) => (
-                      <div key={index} className="card">
+                      <div key={index} className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
                         <h4 className="font-bold text-gray-900 mb-3">{faq.question}</h4>
                         <p className="text-gray-700">{faq.answer}</p>
                       </div>
@@ -513,7 +528,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
 
           {/* Related Projects */}
           <div className="lg:w-80 mt-8 lg:mt-0">
-            <div className="card">
+            <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-4">مشاريع مشابهة</h3>
               <div className="space-y-4">
                 {featuredProjects
@@ -534,15 +549,15 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                           className="w-15 h-11 object-cover rounded"
                         />
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-medium text-gray-900 text-sm line-clamp-2 group-hover:text-primary-600">
+                          <h4 className="font-medium text-gray-900 text-sm line-clamp-2 group-hover:text-blue-600">
                             {relatedProject.title}
                           </h4>
                           <div className="flex items-center justify-between mt-2">
-                            <span className="text-primary-600 font-bold text-sm">
+                            <span className="text-blue-600 font-bold text-sm">
                               {formatPrice(relatedProject.price)}
                             </span>
                             <div className="flex items-center gap-1">
-                              <Star className="w-3 h-3 fill-warning-400 text-warning-400" />
+                              <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
                               <span className="text-xs text-gray-600">{relatedProject.rating}</span>
                             </div>
                           </div>

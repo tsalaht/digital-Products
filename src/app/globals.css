@@ -172,6 +172,7 @@
   /* Tab Styles */
   .tab-container {
     @apply flex bg-slate-100/80 backdrop-blur-sm rounded-2xl p-2 shadow-inner;
+
   }
 
   .tab-button {

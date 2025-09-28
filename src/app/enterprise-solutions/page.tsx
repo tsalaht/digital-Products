@@ -150,7 +150,7 @@ const EnterpriseSolutionsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {solutions.map((solution, index) => (
               <div key={index} className="card card-hover">
-                <div className={`w-12 h-12 rounded-lg bg-${solution.color}-100 flex items-center justify-center mb-4`}>
+                <div className={`w-12 h-12 rounded-3xl bg-${solution.color}-100 flex items-center justify-center mb-4`}>
                   <Building className={`w-6 h-6 text-${solution.color}-600`} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{solution.title}</h3>
@@ -222,7 +222,7 @@ const EnterpriseSolutionsPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start gap-3 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+              <div key={index} className="flex items-start gap-3 p-4 rounded-3xl hover:bg-gray-50 transition-colors duration-200">
                 <Award className="w-6 h-6 text-success-600 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-700">{benefit}</span>
               </div>

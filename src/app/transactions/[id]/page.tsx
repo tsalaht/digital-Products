@@ -75,7 +75,7 @@ export default function TransactionDetailPage() {
           <p className="text-gray-600 mb-4">المعاملة التي تبحث عنها غير موجودة أو تم حذفها.</p>
           <button
             onClick={() => router.push('/transactions')}
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="px-4 py-2 bg-[#7EE7FC] text-white rounded-3xl hover:bg-[#3bdeff] transition-colors"
           >
             العودة للمعاملات
           </button>
@@ -107,7 +107,7 @@ export default function TransactionDetailPage() {
               </p>
             </div>
             <div className="flex items-center space-x-4 space-x-reverse">
-              <div className="bg-blue-50 border border-blue-200 rounded-lg px-4 py-2">
+              <div className="bg-blue-50 border border-blue-200 rounded-3xl px-4 py-2">
                 <div className="flex items-center">
                   <Shield className="h-5 w-5 text-blue-600 ml-2" />
                   <span className="text-blue-800 font-semibold">
@@ -123,7 +123,7 @@ export default function TransactionDetailPage() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Transaction Card */}
-            <div className="bg-white rounded-lg shadow-md">
+            <div className="bg-white rounded-3xl shadow-md">
               <TransactionCard 
                 transaction={transaction}
                 userType={userType}
@@ -157,32 +157,32 @@ export default function TransactionDetailPage() {
           {/* Sidebar */}
           <div className="lg:col-span-1 space-y-6">
             {/* Quick Actions */}
-            <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="bg-white rounded-3xl shadow-md p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">إجراءات سريعة</h3>
               <div className="space-y-3">
                 {transaction.status === 'under_review' && userType === 'buyer' && (
                   <>
-                    <button className="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                    <button className="w-full px-4 py-2 bg-green-600 text-white rounded-3xl hover:bg-green-700 transition-colors">
                       تأكيد التسليم
                     </button>
-                    <button className="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                    <button className="w-full px-4 py-2 bg-red-600 text-white rounded-3xl hover:bg-red-700 transition-colors">
                       فتح نزاع
                     </button>
                   </>
                 )}
                 
-                <button className="w-full px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                <button className="w-full px-4 py-2 bg-gray-600 text-white rounded-3xl hover:bg-gray-700 transition-colors">
                   الاتصال {userType === 'buyer' ? 'بالبائع' : 'بالمشتري'}
                 </button>
                 
-                <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                <button className="w-full px-4 py-2 bg-[#7EE7FC] text-white rounded-3xl hover:bg-[#3bdeff] transition-colors">
                   تحميل الإيصال
                 </button>
               </div>
             </div>
 
             {/* Transaction Summary */}
-            <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="bg-white rounded-3xl shadow-md p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">ملخص المعاملة</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
@@ -217,7 +217,7 @@ export default function TransactionDetailPage() {
             </div>
 
             {/* Help & Support */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <div className="bg-blue-50 border border-blue-200 rounded-3xl p-6">
               <h3 className="text-lg font-semibold text-blue-800 mb-3">تحتاج مساعدة؟</h3>
               <div className="space-y-2 text-sm">
                 <button className="w-full text-left text-blue-700 hover:text-blue-900 underline">

@@ -49,7 +49,7 @@ const PaymentMethodSelector = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6" dir="rtl">
+    <div className="bg-white rounded-3xl shadow-md p-6" dir="rtl">
       <div className="flex items-center mb-6">
         <button
           onClick={onBack}
@@ -69,7 +69,7 @@ const PaymentMethodSelector = ({
           return (
             <div
               key={method.id}
-              className={`relative border-2 rounded-lg p-6 cursor-pointer transition-all duration-200 ${
+              className={`relative border-2 rounded-3xl p-6 cursor-pointer transition-all duration-200 ${
                 method.isEnabled
                   ? selectedMethod?.id === method.id
                     ? 'border-blue-600 bg-blue-50'
@@ -148,7 +148,7 @@ const PaymentMethodSelector = ({
 
               {method.type === 'bank_transfer' && method.isEnabled && (
                 <div className="mt-4 pt-4 border-t border-gray-200">
-                  <div className="bg-blue-50 rounded-lg p-3">
+                  <div className="bg-blue-50 rounded-3xl p-3">
                     <div className="flex items-start">
                       <Info className="h-4 w-4 text-blue-600 mr-2 mt-0.5" />
                       <div className="text-sm text-blue-700">
@@ -162,7 +162,7 @@ const PaymentMethodSelector = ({
 
               {method.type === 'crypto' && !method.isEnabled && (
                 <div className="mt-4 pt-4 border-t border-gray-200">
-                  <div className="bg-yellow-50 rounded-lg p-3">
+                  <div className="bg-yellow-50 rounded-3xl p-3">
                     <div className="flex items-start">
                       <AlertCircle className="h-4 w-4 text-yellow-600 mr-2 mt-0.5" />
                       <div className="text-sm text-yellow-700">
@@ -179,7 +179,7 @@ const PaymentMethodSelector = ({
       </div>
 
       {/* Security Notice */}
-      <div className="mt-8 bg-green-50 border border-green-200 rounded-lg p-4">
+      <div className="mt-8 bg-green-50 border border-green-200 rounded-3xl p-4">
         <div className="flex items-start">
           <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-0.5" />
           <div className="text-sm text-green-700">

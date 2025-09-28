@@ -101,13 +101,13 @@ const ProjectsPage = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-lg ${viewMode === 'grid' ? 'bg-primary-100 text-primary-600' : 'text-gray-600 hover:bg-gray-100'}`}
+                  className={`p-2 rounded-3xl ${viewMode === 'grid' ? 'bg-primary-100 text-primary-600' : 'text-gray-600 hover:bg-gray-100'}`}
                 >
                   <Grid className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-lg ${viewMode === 'list' ? 'bg-primary-100 text-primary-600' : 'text-gray-600 hover:bg-gray-100'}`}
+                  className={`p-2 rounded-3xl ${viewMode === 'list' ? 'bg-primary-100 text-primary-600' : 'text-gray-600 hover:bg-gray-100'}`}
                 >
                   <List className="w-5 h-5" />
                 </button>
@@ -125,7 +125,7 @@ const ProjectsPage = () => {
               <input
                 type="text"
                 placeholder="ابحث عن المشاريع..."
-                className="w-full pr-12 pl-4 py-3 border border-soft-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full pr-12 pl-4 py-3 border border-soft-border rounded-3xl focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -249,7 +249,7 @@ const ProjectsPage = () => {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`p-4 rounded-lg border-2 transition-all duration-200 ${
+                className={`p-4 rounded-3xl border-2 transition-all duration-200 ${
                   selectedCategory === category
                     ? 'border-primary-300 bg-primary-50 text-primary-700'
                     : 'border-gray-200 hover:border-primary-200 text-gray-700'

@@ -102,7 +102,7 @@ const TransactionNotificationCard = ({
 
   return (
     <div 
-      className={`p-6 border rounded-lg transition-all duration-200 hover:shadow-lg ${
+      className={`p-6 border rounded-3xl transition-all duration-200 hover:shadow-lg ${
         notification.isRead ? 'bg-white border-gray-200' : `${theme} border-current`
       }`}
     >
@@ -132,7 +132,7 @@ const TransactionNotificationCard = ({
             </button>
             
             {showMenu && (
-              <div className="absolute right-0 top-full mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+              <div className="absolute right-0 top-full mt-1 w-48 bg-white border border-gray-200 rounded-3xl shadow-lg z-10">
                 <div className="py-1">
                   {!notification.isRead && (
                     <button
@@ -170,7 +170,7 @@ const TransactionNotificationCard = ({
 
       {/* Transaction Details */}
       {(notification.transactionId || notification.projectTitle || notification.amount) && (
-        <div className="mb-4 p-3 bg-white bg-opacity-60 rounded-lg border border-current border-opacity-20">
+        <div className="mb-4 p-3 bg-white bg-opacity-60 rounded-3xl border border-current border-opacity-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
             {notification.projectTitle && (
               <div>
@@ -223,8 +223,8 @@ const TransactionNotificationCard = ({
         {notification.actionLabel && notification.actionUrl && (
           <button
             onClick={handleActionClick}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center ${
-              notification.actionType === 'primary' ? 'bg-blue-600 text-white hover:bg-blue-700' :
+            className={`px-4 py-2 rounded-3xl text-sm font-medium transition-colors flex items-center ${
+              notification.actionType === 'primary' ? 'bg-[#7EE7FC] text-white hover:bg-[#3bdeff]' :
               notification.actionType === 'success' ? 'bg-green-600 text-white hover:bg-green-700' :
               notification.actionType === 'danger' ? 'bg-red-600 text-white hover:bg-red-700' :
               'bg-gray-600 text-white hover:bg-gray-700'
@@ -238,7 +238,7 @@ const TransactionNotificationCard = ({
 
       {/* Urgent Banner */}
       {notification.priority === 'urgent' && (
-        <div className="mt-4 p-3 bg-red-100 border border-red-300 rounded-lg">
+        <div className="mt-4 p-3 bg-red-100 border border-red-300 rounded-3xl">
           <div className="flex items-center">
             <Bell className="h-5 w-5 text-red-600 mr-2" />
             <span className="text-sm font-medium text-red-800">

@@ -70,7 +70,7 @@ const LogoComponent = memo(({ type }: LogoProps) => {
     <img 
       src={logoData.src} 
       alt={`${type} logo`}
-      className="w-full h-full object-contain rounded-lg"
+      className="w-full h-full object-contain rounded-3xl"
     />
   ) : null;
 });

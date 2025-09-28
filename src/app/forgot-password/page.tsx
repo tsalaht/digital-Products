@@ -200,7 +200,7 @@ const ForgotPasswordPage = () => {
         <div className="mt-8 space-y-4">
           <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200/50">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-blue-100 rounded-3xl flex items-center justify-center">
                 <Clock className="w-5 h-5 text-blue-600" />
               </div>
               <div>
@@ -212,7 +212,7 @@ const ForgotPasswordPage = () => {
           
           <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200/50">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-emerald-100 rounded-3xl flex items-center justify-center">
                 <Shield className="w-5 h-5 text-emerald-600" />
               </div>
               <div>

@@ -81,7 +81,7 @@ const ContactUs = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-teal-50" dir="rtl">
       {/* Header Section */}
       <div className="bg-white/95 backdrop-blur-lg shadow-soft border-b border-slate-200/50">
         <div className="max-w-6xl mx-auto px-6 py-12">
@@ -260,7 +260,7 @@ const ContactUs = () => {
                           <h3 className="font-bold text-slate-900 mb-1">{contact.title}</h3>
                           <p className="text-slate-800 font-medium mb-1">{contact.content}</p>
                           <p className="text-slate-600 text-sm mb-2">{contact.description}</p>
-                          <div className="inline-flex items-center gap-1 bg-blue-100 text-blue-700 px-2 py-1 rounded-lg text-xs font-medium">
+                          <div className="inline-flex items-center gap-1 bg-blue-100 text-blue-700 px-2 py-1 rounded-3xl text-xs font-medium">
                             <Clock className="w-3 h-3" />
                             <span>{contact.responseTime}</span>
                           </div>
@@ -278,29 +278,29 @@ const ContactUs = () => {
                 <div className="bg-gradient-to-br from-indigo-500 to-purple-600 text-white w-10 h-10 rounded-xl flex items-center justify-center">
                   <Clock className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-900">Support Hours</h2>
+                <h2 className="text-2xl font-bold text-slate-900">ساعات الدعم</h2>
               </div>
               
               <div className="space-y-4">
                 <div className="bg-green-50/80 rounded-2xl p-4 border border-green-200/50">
-                  <h3 className="font-bold text-green-900 mb-2">Email Support</h3>
-                  <p className="text-green-700 text-sm mb-2">24/7 availability</p>
-                  <p className="text-slate-600 text-sm">Responses within 24 hours</p>
+                  <h3 className="font-bold text-green-900 mb-2">دعم البريد الإلكتروني</h3>
+                  <p className="text-green-700 text-sm mb-2">متاح على مدار الساعة</p>
+                  <p className="text-slate-600 text-sm">الرد خلال 24 ساعة</p>
                 </div>
                 
                 <div className="bg-blue-50/80 rounded-2xl p-4 border border-blue-200/50">
-                  <h3 className="font-bold text-blue-900 mb-2">Phone Support</h3>
+                  <h3 className="font-bold text-blue-900 mb-2">دعم الهاتف</h3>
                   <div className="text-blue-700 text-sm space-y-1">
-                    <p>Monday - Friday: 9:00 AM - 6:00 PM EST</p>
-                    <p>Saturday: 10:00 AM - 4:00 PM EST</p>
-                    <p>Sunday: Closed</p>
+                    <p>الاثنين - الجمعة: 9:00 ص - 6:00 م</p>
+                    <p>السبت: 10:00 ص - 4:00 م</p>
+                    <p>الأحد: مغلق</p>
                   </div>
                 </div>
                 
                 <div className="bg-purple-50/80 rounded-2xl p-4 border border-purple-200/50">
-                  <h3 className="font-bold text-purple-900 mb-2">Live Chat</h3>
-                  <p className="text-purple-700 text-sm mb-2">Available for logged-in users</p>
-                  <p className="text-slate-600 text-sm">Monday - Friday: 9:00 AM - 10:00 PM EST</p>
+                  <h3 className="font-bold text-purple-900 mb-2">الدردشة المباشرة</h3>
+                  <p className="text-purple-700 text-sm mb-2">متاح للمستخدمين المسجلين</p>
+                  <p className="text-slate-600 text-sm">الاثنين - الجمعة: 9:00 ص - 10:00 م</p>
                 </div>
               </div>
             </div>
@@ -311,22 +311,22 @@ const ContactUs = () => {
                 <div className="bg-gradient-to-br from-red-500 to-pink-600 text-white w-10 h-10 rounded-xl flex items-center justify-center">
                   <MapPin className="w-5 h-5" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-900">Office Location</h2>
+                <h2 className="text-2xl font-bold text-slate-900">موقع المكتب</h2>
               </div>
               
               <div className="bg-slate-50/80 rounded-2xl p-6 border border-slate-200/50">
-                <h3 className="font-bold text-slate-900 mb-3">Digital Projects Marketplace Inc.</h3>
+                <h3 className="font-bold text-slate-900 mb-3">شركة سوق المشاريع الرقمية</h3>
                 <div className="space-y-2 text-slate-700">
-                  <p>123 Innovation Drive</p>
-                  <p>Tech Hub District</p>
-                  <p>San Francisco, CA 94105</p>
-                  <p>United States</p>
+                  <p>شارع الابتكار 123</p>
+                  <p>منطقة المركز التقني</p>
+                  <p>الرياض، المملكة العربية السعودية</p>
+                  <p>الرمز البريدي: 12345</p>
                 </div>
                 
                 <div className="mt-4 pt-4 border-t border-slate-200">
                   <p className="text-slate-600 text-sm">
-                    <strong>Note:</strong> This address is for official business correspondence only. 
-                    For support, please use the contact methods above.
+                    <strong>ملاحظة:</strong> هذا العنوان مخصص للمراسلات التجارية الرسمية فقط. 
+                    للحصول على الدعم، يرجى استخدام طرق الاتصال المذكورة أعلاه.
                   </p>
                 </div>
               </div>
@@ -337,19 +337,19 @@ const ContactUs = () => {
         {/* Additional Support Resources */}
         <div className="mt-16">
           <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border border-slate-200/50 p-8">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">Additional Support Resources</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">موارد الدعم الإضافية</h2>
             
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-200/50 text-center">
                 <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <MessageSquare className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-bold text-blue-900 mb-2">FAQ Center</h3>
+                <h3 className="font-bold text-blue-900 mb-2">مركز الأسئلة الشائعة</h3>
                 <p className="text-blue-700 text-sm mb-4">
-                  Find answers to commonly asked questions about our platform and services.
+                  ابحث عن إجابات للأسئلة الشائعة حول منصتنا وخدماتنا.
                 </p>
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
-                  Visit FAQ
+                <button className="bg-blue-500 hover:bg-[#7EE7FC] text-white px-4 py-2 rounded-3xl font-medium transition-colors duration-200">
+                  زيارة الأسئلة الشائعة
                 </button>
               </div>
               
@@ -357,12 +357,12 @@ const ContactUs = () => {
                 <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-bold text-green-900 mb-2">Security Center</h3>
+                <h3 className="font-bold text-green-900 mb-2">مركز الأمان</h3>
                 <p className="text-green-700 text-sm mb-4">
-                  Report security issues or learn about our safety measures and best practices.
+                  أبلغ عن مشاكل الأمان أو تعلم عن إجراءات الحماية وأفضل الممارسات.
                 </p>
-                <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
-                  Security Help
+                <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-3xl font-medium transition-colors duration-200">
+                  مساعدة الأمان
                 </button>
               </div>
               
@@ -370,12 +370,12 @@ const ContactUs = () => {
                 <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Phone className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-bold text-purple-900 mb-2">Priority Support</h3>
+                <h3 className="font-bold text-purple-900 mb-2">الدعم المتميز</h3>
                 <p className="text-purple-700 text-sm mb-4">
-                  Upgrade to premium support for faster response times and dedicated assistance.
+                  ترقية إلى الدعم المتميز للحصول على أوقات استجابة أسرع ومساعدة مخصصة.
                 </p>
-                <button className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
-                  Learn More
+                <button className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-3xl font-medium transition-colors duration-200">
+                  تعلم المزيد
                 </button>
               </div>
             </div>

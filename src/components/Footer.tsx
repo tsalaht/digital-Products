@@ -43,10 +43,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden" dir="rtl">
+    <footer className=" text-black relative overflow-hidden" dir="rtl" style={{ background: 'linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 50%, #3BC4E8 100%)' }}>
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500"></div> */}
         <div className="absolute inset-0" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }}></div>
@@ -69,31 +69,31 @@ const Footer = () => {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <span className="text-lg md:text-xl font-bold text-gradient">
+                <span className="text-lg md:text-xl font-bold text-black">
                   سوق المشاريع الرقمية
                 </span>
               </Link>
               
-              <p className="text-slate-300 leading-relaxed mb-6 text-sm md:text-base">
+              <p className="text-slate-700 leading-relaxed mb-6 text-sm md:text-base">
                 المنصة الرائدة لشراء وبيع المشاريع الرقمية. تواصل مع المطورين ورجال الأعمال الموهوبين في بيئة آمنة وموثوقة.
               </p>
               
               {/* Contact Info */}
               <div className="space-y-3">
-                <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors duration-200">
-                  <Mail className="w-4 h-4 flex-shrink-0" style={{ color: '#7EE7FC' }} />
+                <div className="flex items-center gap-3 text-slate-700 hover:text-white transition-colors duration-200">
+                  <Mail className="w-4 h-4 flex-shrink-0" style={{ color: 'white' }} />
                   <a href={`mailto:${contactInfo.email}`} className="text-sm hover:underline">
                     {contactInfo.email}
                   </a>
                 </div>
-                <div className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors duration-200">
-                  <Phone className="w-4 h-4 flex-shrink-0" style={{ color: '#7EE7FC' }} />
+                <div className="flex items-center gap-3 text-slate-700 hover:text-white transition-colors duration-200">
+                  <Phone className="w-4 h-4 flex-shrink-0" style={{ color: 'white' }} />
                   <a href={`tel:${contactInfo.phone}`} className="text-sm hover:underline">
                     {contactInfo.phone}
                   </a>
                 </div>
-                <div className="flex items-start gap-3 text-slate-300">
-                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#7EE7FC' }} />
+                <div className="flex items-start gap-3 text-slate-700">
+                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'white' }} />
                   <span className="text-sm">{contactInfo.address}</span>
                 </div>
               </div>
@@ -101,7 +101,7 @@ const Footer = () => {
             
             {/* Legal & Policies */}
             <div>
-              <h3 className="text-base md:text-lg font-bold mb-4 md:mb-6 text-white">
+              <h3 className="text-base md:text-lg font-bold mb-4 md:mb-6 text-black">
                 القانونية والسياسات
               </h3>
               <ul className="space-y-3">
@@ -111,9 +111,9 @@ const Footer = () => {
                     <li key={link.href}>
                       <Link 
                         href={link.href} 
-                        className="flex items-center gap-3 text-slate-300 hover:text-white transition-all duration-200 group"
+                        className="flex items-center gap-3 text-slate-700 hover:text-white transition-all duration-200 group"
                       >
-                        <Icon className="w-4 h-4 transition-colors duration-200 flex-shrink-0" style={{ color: '#7EE7FC' }} />
+                        <Icon className="w-4 h-4 transition-colors duration-200 flex-shrink-0" style={{ color: 'black' }} />
                         <span className="group-hover:translate-x-1 transition-transform duration-200 text-sm">
                           {link.label}
                         </span>
@@ -126,7 +126,7 @@ const Footer = () => {
             
             {/* Platform */}
             <div>
-              <h3 className="text-base md:text-lg font-bold mb-4 md:mb-6 text-white">
+              <h3 className="text-base md:text-lg font-bold mb-4 md:mb-6 text-black">
                 المنصة
               </h3>
               <ul className="space-y-3">
@@ -134,7 +134,7 @@ const Footer = () => {
                   <li key={link.href}>
                     <Link 
                       href={link.href} 
-                      className="text-slate-300 hover:text-white transition-all duration-200 hover:translate-x-1 inline-block text-sm"
+                      className="text-slate-700 hover:text-white transition-all duration-200 hover:translate-x-1 inline-block text-sm"
                     >
                       {link.label}
                     </Link>
@@ -145,7 +145,7 @@ const Footer = () => {
             
             {/* Support */}
             <div>
-              <h3 className="text-base md:text-lg font-bold mb-4 md:mb-6 text-white">
+              <h3 className="text-base md:text-lg font-bold mb-4 md:mb-6 text-black">
                 الدعم
               </h3>
               <ul className="space-y-3 mb-6 md:mb-8">
@@ -153,7 +153,7 @@ const Footer = () => {
                   <li key={link.href}>
                     <Link 
                       href={link.href} 
-                      className="text-slate-300 hover:text-white transition-all duration-200 hover:translate-x-1 inline-block text-sm"
+                      className="text-slate-700 hover:text-white transition-all duration-200 hover:translate-x-1 inline-block text-sm"
                     >
                       {link.label}
                     </Link>
@@ -163,7 +163,7 @@ const Footer = () => {
               
               {/* Social Links */}
               <div>
-                <h4 className="text-sm font-semibold mb-4 text-slate-200">
+                <h4 className="text-sm font-semibold mb-4 text-slate-600">
                   تابعنا
                 </h4>
                 <div className="flex gap-3 flex-wrap">
@@ -173,7 +173,7 @@ const Footer = () => {
                       <a
                         key={social.label}
                         href={social.href}
-                        className={`w-10 h-10 bg-slate-700 hover:bg-slate-600 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-3 ${social.color}`}
+                        className={`w-10 h-10 bg-white hover:bg-slate-100 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-3 ${social.color}`}
                         aria-label={social.label}
                       >
                         <Icon className="w-5 h-5" />
@@ -186,33 +186,33 @@ const Footer = () => {
           </div>
           
           {/* Trust Badges */}
-          <div className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-slate-700">
+          <div className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-slate-100">
             <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-6 md:mb-8">
-              <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2">
+              <div className="flex items-center gap-2 bg-white backdrop-blur-sm rounded-xl px-3 md:px-4 py-2">
                 <Shield className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: '#7EE7FC' }} />
-                <span className="text-xs md:text-sm font-medium text-slate-200">محمي بـ SSL</span>
+                <span className="text-xs md:text-sm font-semibold text-balck">محمي بـ SSL</span>
               </div>
-              <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2">
+              <div className="flex items-center gap-2 bg-white backdrop-blur-sm rounded-xl px-3 md:px-4 py-2">
                 <Shield className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: '#7EE7FC' }} />
-                <span className="text-xs md:text-sm font-medium text-slate-200">متوافق مع GDPR</span>
+                <span className="text-xs md:text-sm font-semibold text-black">متوافق مع GDPR</span>
               </div>
-              <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2">
+              <div className="flex items-center gap-2 bg-white backdrop-blur-sm rounded-xl px-3 md:px-4 py-2">
                 <Shield className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: '#7EE7FC' }} />
-                <span className="text-xs md:text-sm font-medium text-slate-200">محمي بالضمان</span>
+                <span className="text-xs md:text-sm font-semibold text-black">محمي بالضمان</span>
               </div>
-              <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-xl px-3 md:px-4 py-2">
+              <div className="flex items-center gap-2 bg-white backdrop-blur-sm rounded-xl px-3 md:px-4 py-2">
                 <Shield className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: '#7EE7FC' }} />
-                <span className="text-xs md:text-sm font-medium text-slate-200">دعم 24/7</span>
+                <span className="text-xs md:text-sm font-semibold text-black">دعم 24/7</span>
               </div>
             </div>
           </div>
         </div>
         
         {/* Bottom Bar */}
-        <div className="border-t border-slate-700 bg-slate-900/50 backdrop-blur-sm">
+        <div className="border-t border-slate-100 bg-[#7EE7FC] backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="text-slate-400 text-xs md:text-sm text-center md:text-right">
+              <div className="text-black text-xs md:text-sm text-center md:text-right">
                 <p>
                   © {currentYear} سوق المشاريع الرقمية. جميع الحقوق محفوظة.
                 </p>
@@ -221,7 +221,7 @@ const Footer = () => {
                 </p>
               </div>
               
-              <div className="flex items-center gap-4 md:gap-6 text-slate-400 text-xs md:text-sm">
+              <div className="flex items-center gap-4 md:gap-6 text-black text-xs md:text-sm">
                 <Link href="/terms" className="hover:text-white transition-colors duration-200">
                   الشروط
                 </Link>

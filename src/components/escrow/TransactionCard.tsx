@@ -36,7 +36,7 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           buttons.push(
             <button
               key="pay"
-              className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm w-full sm:w-auto"
+              className="px-3 py-2 bg-[#7EE7FC] text-white rounded-3xl hover:bg-[#3bdeff] transition-colors text-sm w-full sm:w-auto"
             >
               إتمام الدفع
             </button>
@@ -49,7 +49,7 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           buttons.push(
             <button
               key="deliver"
-              className="px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
+              className="px-3 py-2 bg-green-600 text-white rounded-3xl hover:bg-green-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
               <Upload className="h-4 w-4 ml-2" />
               تسليم المشروع
@@ -63,7 +63,7 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           buttons.push(
             <button
               key="update"
-              className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm w-full sm:w-auto"
+              className="px-3 py-2 bg-[#7EE7FC] text-white rounded-3xl hover:bg-[#3bdeff] transition-colors text-sm w-full sm:w-auto"
             >
               تحديث التسليم
             </button>
@@ -72,7 +72,7 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           buttons.push(
             <button
               key="contact"
-              className="px-3 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
+              className="px-3 py-2 bg-gray-600 text-white rounded-3xl hover:bg-gray-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
               <MessageCircle className="h-4 w-4 ml-2" />
               الاتصال بالبائع
@@ -86,21 +86,21 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           buttons.push(
             <button
               key="download"
-              className="px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
+              className="px-3 py-2 bg-green-600 text-white rounded-3xl hover:bg-green-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
               <Download className="h-4 w-4 ml-2" />
               تحميل الملفات
             </button>,
             <button
               key="confirm"
-              className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
+              className="px-3 py-2 bg-[#7EE7FC] text-white rounded-3xl hover:bg-[#3bdeff] transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
               <CheckCircle className="h-4 w-4 ml-2" />
               تأكيد التسليم
             </button>,
             <button
               key="dispute"
-              className="px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
+              className="px-3 py-2 bg-red-600 text-white rounded-3xl hover:bg-red-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
               <AlertTriangle className="h-4 w-4 ml-2" />
               فتح نزاع
@@ -110,7 +110,7 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           buttons.push(
             <button
               key="contact"
-              className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
+              className="px-3 py-2 bg-[#7EE7FC] text-white rounded-3xl hover:bg-[#3bdeff] transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
               <MessageCircle className="h-4 w-4 ml-2" />
               الاتصال بالمشتري
@@ -123,7 +123,7 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
         buttons.push(
           <button
             key="view-dispute"
-            className="px-3 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
+            className="px-3 py-2 bg-orange-600 text-white rounded-3xl hover:bg-orange-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
           >
             <Eye className="h-4 w-4 ml-2" />
             عرض النزاع
@@ -135,7 +135,7 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
         buttons.push(
           <button
             key="receipt"
-            className="px-3 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
+            className="px-3 py-2 bg-gray-600 text-white rounded-3xl hover:bg-gray-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
           >
             <FileText className="h-4 w-4 ml-2" />
             عرض الإيصال
@@ -145,7 +145,7 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
           buttons.push(
             <button
               key="download"
-              className="px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
+              className="px-3 py-2 bg-green-600 text-white rounded-3xl hover:bg-green-700 transition-colors text-sm w-full sm:w-auto flex items-center justify-center"
             >
               <Download className="h-4 w-4 ml-2" />
               تحميل الملفات
@@ -209,7 +209,7 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
 
           {/* Installment info */}
           {transaction.isInstallment && transaction.installments && (
-            <div className="mt-3 p-3 bg-purple-50 rounded-lg">
+            <div className="mt-3 p-3 bg-purple-50 rounded-3xl">
               <h4 className="text-sm font-medium text-purple-800 mb-2">خطة الأقساط</h4>
               <div className="space-y-2">
                 {transaction.installments.map((installment) => (
@@ -236,7 +236,7 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
 
           {/* Dispute info */}
           {transaction.status === 'dispute' && transaction.disputeReason && (
-            <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-lg">
+            <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-3xl">
               <div className="flex items-start">
                 <AlertTriangle className="h-4 w-4 text-red-600 ml-2 mt-0.5" />
                 <div>
@@ -254,7 +254,7 @@ const TransactionCard = ({ transaction, userType }: TransactionCardProps) => {
 
           {/* Delivery notes */}
           {transaction.deliveryNotes && transaction.status !== 'pending_payment' && (
-            <div className="mt-3 p-3 bg-blue-50 rounded-lg">
+            <div className="mt-3 p-3 bg-blue-50 rounded-3xl">
               <h4 className="text-sm font-medium text-blue-800 mb-1">ملاحظات التسليم</h4>
               <p className="text-sm text-blue-700">{transaction.deliveryNotes}</p>
             </div>

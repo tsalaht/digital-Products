@@ -211,7 +211,7 @@ const EscrowPaymentForm = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-white rounded-3xl shadow-md p-6">
       <div className="flex items-center mb-6">
         <button
           onClick={onBack}
@@ -224,7 +224,7 @@ const EscrowPaymentForm = ({
       </div>
 
       {/* Selected Payment Method Info */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-3xl p-4 mb-6">
         <div className="flex items-center">
           <span className="text-2xl mr-3">{paymentMethod.type === 'credit_card' ? '💳' : paymentMethod.type === 'paypal' ? '🅿️' : paymentMethod.type === 'bank_transfer' ? '🏦' : '₿'}</span>
           <div>
@@ -500,7 +500,7 @@ const EscrowPaymentForm = ({
         {/* Payment Summary */}
         <div className="border-t pt-6">
           <h3 className="text-lg font-semibold mb-4">Payment Summary</h3>
-          <div className="bg-gray-50 rounded-lg p-4 space-y-2">
+          <div className="bg-gray-50 rounded-3xl p-4 space-y-2">
             <div className="flex justify-between">
               <span>Project Price:</span>
               <span>{formatCurrency(transaction.totalAmount)}</span>
@@ -537,7 +537,7 @@ const EscrowPaymentForm = ({
 
         {/* General Error */}
         {errors.general && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+          <div className="bg-red-50 border border-red-200 rounded-3xl p-4">
             <div className="flex items-center">
               <AlertCircle className="h-5 w-5 text-red-600 mr-2" />
               <p className="text-red-700">{errors.general}</p>
@@ -546,7 +546,7 @@ const EscrowPaymentForm = ({
         )}
 
         {/* Security Notice */}
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+        <div className="bg-green-50 border border-green-200 rounded-3xl p-4">
           <div className="flex items-start">
             <Shield className="h-5 w-5 text-green-600 mr-3 mt-0.5" />
             <div className="text-sm text-green-700">
@@ -560,7 +560,7 @@ const EscrowPaymentForm = ({
         <button
           type="submit"
           disabled={isProcessing}
-          className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+          className="w-full bg-[#7EE7FC] text-white py-3 px-6 rounded-3xl font-semibold hover:bg-[#3bdeff] disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
         >
           {isProcessing ? (
             <div className="flex items-center justify-center">

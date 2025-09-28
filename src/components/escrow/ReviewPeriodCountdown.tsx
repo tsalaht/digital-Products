@@ -126,7 +126,7 @@ const ReviewPeriodCountdown = ({ expiresAt, userType }: ReviewPeriodCountdownPro
   const Icon = getIcon();
 
   return (
-    <div className={`p-4 border rounded-lg ${getColorClasses()}`} dir="rtl">
+    <div className={`p-4 border rounded-3xl ${getColorClasses()}`} dir="rtl">
       <div className="flex items-start">
         <Icon className="h-5 w-5 ml-3 mt-0.5" />
         <div className="flex-1">

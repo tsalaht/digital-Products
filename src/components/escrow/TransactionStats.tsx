@@ -70,7 +70,7 @@ const TransactionStats = ({ stats, userType }: TransactionStatsProps) => {
         return (
           <div
             key={index}
-            className={`p-4 rounded-lg border transition-all duration-200 hover:shadow-md ${
+            className={`p-4 rounded-3xl border transition-all duration-200 hover:shadow-md ${
               card.highlight ? `${card.color} ring-2 ring-indigo-300 ring-opacity-50` : card.color
             }`}
           >
@@ -79,7 +79,7 @@ const TransactionStats = ({ stats, userType }: TransactionStatsProps) => {
                 <p className="text-sm font-medium opacity-75 mb-1">{card.title}</p>
                 <p className="text-2xl font-bold">{card.value}</p>
               </div>
-              <div className={`p-2 rounded-lg bg-white bg-opacity-80`}>
+              <div className={`p-2 rounded-3xl bg-white bg-opacity-80`}>
                 <Icon className={`h-6 w-6 ${card.iconColor}`} />
               </div>
             </div>

@@ -60,7 +60,7 @@ const Navbar = () => {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-3 space-x-reverse">
             {/* Notification Button */}
-            <button 
+            {/* <button 
               onClick={() => setIsNotificationOpen(true)}
               className="relative p-3 text-slate-600 hover:text-blue-600 transition-all duration-300 rounded-xl hover:bg-blue-50/80 backdrop-blur-sm group shadow-sm hover:shadow-md"
             >
@@ -70,7 +70,7 @@ const Navbar = () => {
                   {getUnreadCount() > 99 ? '99+' : getUnreadCount()}
                 </div>
               )}
-            </button>
+            </button> */}
             
             {/* تسجيل الدخول - Premium Design */}
             <Link 

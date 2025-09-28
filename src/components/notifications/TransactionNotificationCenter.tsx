@@ -175,11 +175,11 @@ const TransactionNotificationCenter = ({
 
           {/* Stats */}
           <div className="grid grid-cols-2 gap-3 mb-4">
-            <div className="bg-blue-50 rounded-lg p-3">
+            <div className="bg-blue-50 rounded-3xl p-3">
               <div className="text-2xl font-bold text-blue-600">{stats.unread}</div>
               <div className="text-sm text-blue-700">Unread</div>
             </div>
-            <div className="bg-orange-50 rounded-lg p-3">
+            <div className="bg-orange-50 rounded-3xl p-3">
               <div className="text-2xl font-bold text-orange-600">{stats.urgent}</div>
               <div className="text-sm text-orange-700">Urgent</div>
             </div>
@@ -192,7 +192,7 @@ const TransactionNotificationCenter = ({
               placeholder="Search notifications..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <Search className="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
           </div>
@@ -201,12 +201,12 @@ const TransactionNotificationCenter = ({
           <div className="flex space-x-2">
             <button
               onClick={() => markAllAsRead()}
-              className="flex-1 px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium flex items-center justify-center"
+              className="flex-1 px-3 py-2 bg-[#7EE7FC] text-white rounded-3xl hover:bg-[#3bdeff] transition-colors text-sm font-medium flex items-center justify-center"
             >
               <Check className="h-4 w-4 mr-2" />
               Mark All Read
             </button>
-            <button className="px-3 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+            <button className="px-3 py-2 bg-gray-200 text-gray-700 rounded-3xl hover:bg-gray-300 transition-colors">
               <Settings className="h-4 w-4" />
             </button>
           </div>
@@ -244,7 +244,7 @@ const TransactionNotificationCenter = ({
                 <button
                   key={option.key}
                   onClick={() => setSelectedFilter(option.key)}
-                  className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+                  className={`w-full text-left px-3 py-2 rounded-3xl text-sm transition-colors ${
                     selectedFilter === option.key
                       ? 'bg-blue-100 text-blue-800 border border-blue-200'
                       : 'hover:bg-gray-100 text-gray-700'

@@ -127,7 +127,7 @@ const InstallmentPaymentPlan = ({
   ] as const;
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-white rounded-3xl shadow-md p-6">
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">Choose Payment Plan</h2>
         <p className="text-gray-600">
@@ -140,7 +140,7 @@ const InstallmentPaymentPlan = ({
         {paymentPlans.map((paymentPlan) => (
           <div
             key={paymentPlan.id}
-            className={`border-2 rounded-lg p-6 cursor-pointer transition-all duration-200 ${
+            className={`border-2 rounded-3xl p-6 cursor-pointer transition-all duration-200 ${
               plan === paymentPlan.id
                 ? 'border-blue-600 bg-blue-50'
                 : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
@@ -151,7 +151,7 @@ const InstallmentPaymentPlan = ({
               <div className="flex items-center">
                 <div className={`w-5 h-5 rounded-full border-2 mr-3 flex items-center justify-center ${
                   plan === paymentPlan.id
-                    ? 'border-blue-600 bg-blue-600'
+                    ? 'border-blue-600 bg-[#7EE7FC]'
                     : 'border-gray-300'
                 }`}>
                   {plan === paymentPlan.id && <CheckCircle className="h-3 w-3 text-white" />}
@@ -182,7 +182,7 @@ const InstallmentPaymentPlan = ({
               {paymentPlan.installments.map((installment, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200"
+                  className="flex items-center justify-between p-3 bg-white rounded-3xl border border-gray-200"
                 >
                   <div className="flex items-center">
                     <div className="flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mr-3">
@@ -205,7 +205,7 @@ const InstallmentPaymentPlan = ({
 
             {/* Plan Benefits */}
             {paymentPlan.id === 'single' && (
-              <div className="mt-4 p-3 bg-green-50 rounded-lg">
+              <div className="mt-4 p-3 bg-green-50 rounded-3xl">
                 <div className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5" />
                   <div className="text-sm text-green-700">
@@ -221,7 +221,7 @@ const InstallmentPaymentPlan = ({
             )}
 
             {paymentPlan.id === 'two_installments' && (
-              <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+              <div className="mt-4 p-3 bg-blue-50 rounded-3xl">
                 <div className="flex items-start">
                   <Info className="h-5 w-5 text-blue-600 mr-2 mt-0.5" />
                   <div className="text-sm text-blue-700">
@@ -237,7 +237,7 @@ const InstallmentPaymentPlan = ({
             )}
 
             {paymentPlan.id === 'three_installments' && (
-              <div className="mt-4 p-3 bg-purple-50 rounded-lg">
+              <div className="mt-4 p-3 bg-purple-50 rounded-3xl">
                 <div className="flex items-start">
                   <DollarSign className="h-5 w-5 text-purple-600 mr-2 mt-0.5" />
                   <div className="text-sm text-purple-700">
@@ -256,7 +256,7 @@ const InstallmentPaymentPlan = ({
       </div>
 
       {/* Important Notes */}
-      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+      <div className="bg-yellow-50 border border-yellow-200 rounded-3xl p-4 mb-6">
         <div className="flex items-start">
           <AlertTriangle className="h-5 w-5 text-yellow-600 mr-3 mt-0.5" />
           <div className="text-sm text-yellow-800">
@@ -272,7 +272,7 @@ const InstallmentPaymentPlan = ({
       </div>
 
       {/* Total Summary */}
-      <div className="bg-gray-50 rounded-lg p-4">
+      <div className="bg-gray-50 rounded-3xl p-4">
         <div className="flex items-center justify-between">
           <div>
             <h4 className="font-medium text-gray-900">Total Project Cost</h4>

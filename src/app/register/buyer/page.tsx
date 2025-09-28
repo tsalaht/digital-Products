@@ -166,7 +166,7 @@ const BuyerRegisterPage = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {interestOptions.map(interest => (
-                  <label key={interest} className="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-gray-200 hover:border-primary-200 transition-colors duration-200">
+                  <label key={interest} className="flex items-center gap-3 cursor-pointer p-3 rounded-3xl border border-gray-200 hover:border-primary-200 transition-colors duration-200">
                     <input
                       type="checkbox"
                       className="w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
@@ -215,7 +215,7 @@ const BuyerRegisterPage = () => {
               الإشعارات
             </h2>
             
-            <div className="flex items-center justify-between p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <div className="flex items-center justify-between p-4 bg-blue-50 border border-blue-200 rounded-3xl">
               <div>
                 <h3 className="font-medium text-blue-900 mb-1">
                   إشعارات المشاريع المطابقة
@@ -231,7 +231,7 @@ const BuyerRegisterPage = () => {
                   checked={formData.notifications}
                   onChange={(e) => handleInputChange('notifications', e.target.checked)}
                 />
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#7EE7FC]"></div>
               </label>
             </div>
           </div>

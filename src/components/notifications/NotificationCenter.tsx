@@ -137,7 +137,7 @@ const NotificationCenter = ({ isOpen = true, onClose, showAsPage = false }: Noti
             <button
               key={stat.key}
               onClick={() => setFilter(stat.key as NotificationFilter)}
-              className={`p-2 rounded-lg transition-colors ${
+              className={`p-2 rounded-3xl transition-colors ${
                 filter === stat.key 
                   ? 'bg-blue-100 text-blue-700 border-blue-200' 
                   : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
@@ -188,7 +188,7 @@ const NotificationCenter = ({ isOpen = true, onClose, showAsPage = false }: Noti
                       <button
                         onClick={() => handleRespond(notification.requestId!, 'accepted')}
                         disabled={isResponding === notification.requestId}
-                        className="flex-1 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
+                        className="flex-1 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-3xl text-sm font-medium transition-colors disabled:opacity-50"
                       >
                         {isResponding === notification.requestId ? (
                           <div className="flex items-center justify-center gap-2">
@@ -206,7 +206,7 @@ const NotificationCenter = ({ isOpen = true, onClose, showAsPage = false }: Noti
                       <button
                         onClick={() => handleRespond(notification.requestId!, 'rejected')}
                         disabled={isResponding === notification.requestId}
-                        className="flex-1 bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
+                        className="flex-1 bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-3xl text-sm font-medium transition-colors disabled:opacity-50"
                       >
                         {isResponding === notification.requestId ? (
                           <div className="flex items-center justify-center gap-2">

@@ -185,7 +185,7 @@ const TransactionTimeline = ({ transaction, userType }: TransactionTimelineProps
   };
 
   return (
-    <div className="bg-gray-50 rounded-lg p-6">
+    <div className="bg-gray-50 rounded-3xl p-6">
       <h4 className="text-lg font-semibold text-gray-900 mb-6">Transaction Timeline</h4>
       
       <div className="relative">

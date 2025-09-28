@@ -181,7 +181,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
           {/* Image Gallery */}
           <div className="lg:w-2/3">
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-              <div className="relative bg-gray-100 rounded-lg overflow-hidden">
+              <div className="relative bg-gray-100 rounded-3xl overflow-hidden">
                 <Image
                   src={galleryImages[currentImageIndex]}
                   alt={project.title}
@@ -213,7 +213,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden transition-all duration-200 ${
+                      className={`flex-shrink-0 w-20 h-16 rounded-3xl overflow-hidden transition-all duration-200 ${
                         currentImageIndex === index 
                           ? 'ring-2 ring-blue-500 shadow-md' 
                           : 'hover:shadow-md'
@@ -240,7 +240,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                 {formatPrice(project.price)}
               </div>
               {project.monthlyRevenue && (
-                <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
+                <div className="bg-green-50 border border-green-200 rounded-3xl p-3 mb-4">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium text-green-800">العائد الشهري</span>
                     <span className="text-green-700 font-bold">
@@ -251,27 +251,27 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
               )}
               
               <div className="space-y-3">
-                <Link href={`/projects/${project.id}/purchase`} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
+                <Link href={`/projects/${project.id}/purchase`} className="w-full bg-[#7EE7FC] hover:bg-[#3bdeff] text-white font-semibold py-3 px-4 rounded-3xl transition-colors duration-200 flex items-center justify-center gap-2">
                   <DollarSign className="w-5 h-5" />
                   <span>شراء المشروع</span>
                 </Link>
-                <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
+                <Link href="/chat" className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-4 rounded-3xl transition-colors duration-200 flex items-center justify-center gap-2">
                   <MessageCircle className="w-5 h-5" />
                   <span>تواصل مع البائع</span>
-                </button>
+                </Link>
                 
                 <div className="flex gap-2">
-                  <button className="flex-1 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                  <button className="flex-1 p-3 border border-gray-200 rounded-3xl hover:bg-gray-50 transition-colors duration-200">
                     <Heart className="w-5 h-5 mx-auto text-gray-600" />
                   </button>
-                  <button className="flex-1 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                  <button className="flex-1 p-3 border border-gray-200 rounded-3xl hover:bg-gray-50 transition-colors duration-200">
                     <Share2 className="w-5 h-5 mx-auto text-gray-600" />
                   </button>
                   {project.demoUrl && (
                     <Link 
                       href={project.demoUrl}
                       target="_blank"
-                      className="flex-1 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                      className="flex-1 p-3 border border-gray-200 rounded-3xl hover:bg-gray-50 transition-colors duration-200"
                     >
                       <ExternalLink className="w-5 h-5 mx-auto text-gray-600" />
                     </Link>
@@ -302,14 +302,14 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
               </div>
               <Link 
                 href={`/checkout/escrow?projectId=${project.id}&offerId=1`}
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-3xl transition-colors duration-200 flex items-center justify-center gap-2"
               >
                 <Shield className="w-5 h-5" />
                 <span>شراء آمن بضمان الوسيط</span>
               </Link>
               
               {/* Escrow Protection Notice */}
-              <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-lg">
+              <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-3xl">
                 <div className="flex items-start">
                   <Shield className="h-5 w-5 text-green-600 mr-2 mt-0.5" />
                   <div className="text-sm text-green-700">
@@ -325,7 +325,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
               
               <button 
                 onClick={() => setIsPurchaseModalOpen(true)}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 mt-3"
+                className="w-full bg-[#7EE7FC] hover:bg-[#3bdeff] text-white font-semibold py-3 px-4 rounded-3xl transition-colors duration-200 flex items-center justify-center gap-2 mt-3"
               >
                 <MessageCircle className="w-5 h-5" />
                 <span>إرسال عرض مخصص</span>
@@ -352,9 +352,9 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                     <button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id)}
-                      className={`px-4 py-3 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${
+                      className={`px-4 py-3 rounded-3xl font-medium transition-all duration-200 flex items-center gap-2 ${
                         activeTab === tab.id
-                          ? 'bg-blue-600 text-white shadow-md'
+                          ? 'bg-[#7EE7FC] text-white shadow-md'
                           : 'text-gray-600 hover:text-gray-800 hover:bg-gray-100'
                       }`}
                     >
@@ -373,7 +373,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">وصف المشروع</h3>
                   <div className="prose max-w-none text-gray-700 leading-relaxed">
                     <p className="mb-4">{project.description}</p>
-                    <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                    <div className="bg-blue-50 rounded-3xl p-4 border border-blue-200">
                       <p className="text-gray-800">
                         هذا المشروع تم تطويره باستخدام أحدث التقنيات والمعايير العالمية لضمان الأداء الأمثل والأمان.
                         يتميز بواجهة مستخدم احترافية وتجربة استخدام سلسة تلبي احتياجات العملاء المختلفة.
@@ -388,7 +388,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">الميزات الرئيسية</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {project.features.map((feature, index) => (
-                      <div key={index} className="flex items-center gap-3 p-4 bg-green-50 rounded-lg border border-green-200">
+                      <div key={index} className="flex items-center gap-3 p-4 bg-green-50 rounded-3xl border border-green-200">
                         <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
                         <span className="text-gray-800">{feature}</span>
                       </div>
@@ -404,7 +404,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                     {project.technologies.map((tech, index) => (
                       <span 
                         key={index}
-                        className="px-4 py-2 bg-blue-100 text-blue-800 rounded-lg font-medium"
+                        className="px-4 py-2 bg-blue-100 text-blue-800 rounded-3xl font-medium"
                       >
                         {tech}
                       </span>
@@ -417,19 +417,19 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">إحصائيات الأداء</h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                    <div className="bg-white rounded-lg p-6 text-center shadow-md border border-gray-200">
+                    <div className="bg-white rounded-3xl p-6 text-center shadow-md border border-gray-200">
                       <div className="text-3xl font-bold text-blue-600 mb-2">
                         {formatNumber(project.statistics.visitors)}
                       </div>
                       <div className="text-gray-600">زائر شهرياً</div>
                     </div>
-                    <div className="bg-white rounded-lg p-6 text-center shadow-md border border-gray-200">
+                    <div className="bg-white rounded-3xl p-6 text-center shadow-md border border-gray-200">
                       <div className="text-3xl font-bold text-green-600 mb-2">
                         {project.statistics.conversionRate}%
                       </div>
                       <div className="text-gray-600">معدل التحويل</div>
                     </div>
-                    <div className="bg-white rounded-lg p-6 text-center shadow-md border border-gray-200">
+                    <div className="bg-white rounded-3xl p-6 text-center shadow-md border border-gray-200">
                       <div className="text-3xl font-bold text-orange-600 mb-2">
                         {formatPrice(project.statistics.revenue[project.statistics.revenue.length - 1])}
                       </div>
@@ -437,11 +437,11 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                     </div>
                   </div>
                   
-                  <div className="bg-gray-50 rounded-lg p-6">
+                  <div className="bg-gray-50 rounded-3xl p-6">
                     <h4 className="text-lg font-bold text-gray-900 mb-4">تطور العائدات الشهرية</h4>
                     <div className="space-y-3">
                       {project.statistics.revenue.map((revenue, index) => (
-                        <div key={index} className="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm">
+                        <div key={index} className="flex items-center justify-between p-3 bg-white rounded-3xl shadow-sm">
                           <span className="text-gray-600">الشهر {index + 1}</span>
                           <span className="font-bold text-gray-900">{formatPrice(revenue)}</span>
                         </div>
@@ -475,7 +475,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                   
                   <div className="space-y-4">
                     {reviews.map((review) => (
-                      <div key={review.id} className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                      <div key={review.id} className="bg-white rounded-3xl p-6 shadow-md border border-gray-200">
                         <div className="flex items-start gap-4">
                           <Image
                             src={review.avatar}
@@ -515,7 +515,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">الأسئلة الشائعة</h3>
                   <div className="space-y-4">
                     {faqs.map((faq, index) => (
-                      <div key={index} className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
+                      <div key={index} className="bg-white rounded-3xl p-6 shadow-md border border-gray-200">
                         <h4 className="font-bold text-gray-900 mb-3">{faq.question}</h4>
                         <p className="text-gray-700">{faq.answer}</p>
                       </div>
@@ -540,7 +540,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                       href={`/projects/${relatedProject.id}`}
                       className="block group"
                     >
-                      <div className="flex gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                      <div className="flex gap-3 p-3 rounded-3xl hover:bg-gray-50 transition-colors duration-200">
                         <Image
                           src={relatedProject.image}
                           alt={relatedProject.title}

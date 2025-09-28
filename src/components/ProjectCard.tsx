@@ -43,7 +43,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         {/* Floating Action Button */}
         <Link
           href={`/projects/${project.id}`}
-          className="absolute top-3 left-3 bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
+          className="absolute top-3 left-3 bg-[#7EE7FC] text-black p-2 rounded-full hover:bg-[#3bdeff] transition-all duration-300 shadow-md hover:shadow-lg"
         >
           <Eye className="w-4 h-4" />
         </Link>
@@ -65,7 +65,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
 
         {/* Category Badge */}
-        <span className="absolute bottom-3 right-3 bg-blue-500/90 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
+        <span className="absolute bottom-3 right-3 bg-[#7EE7FC] text-black px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
           {project.category}
         </span>
       </div>
@@ -96,12 +96,12 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               {project.seller.name}
             </p>
             <div className="flex items-center gap-2 text-xs mt-1">
-              <span className="flex items-center gap-1 bg-amber-100 px-2 py-1 rounded-lg">
+              <span className="flex items-center gap-1 bg-amber-100 px-2 py-1 rounded-3xl">
                 <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
                 <span className="text-amber-700">{project.seller.rating}</span>
               </span>
               <span className="text-gray-400">•</span>
-              <span className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded-lg">
+              <span className="flex items-center gap-1 bg-gray-100 px-2 py-1 rounded-3xl">
                 <Shield className="w-3 h-3 text-blue-500" />
                 <span>{formatNumber(project.seller.totalSales)} مبيعات</span>
               </span>
@@ -111,12 +111,12 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
         {/* Statistics */}
         <div className="flex items-center gap-2 text-xs">
-          <span className="flex items-center gap-1 bg-amber-100 px-2 py-1 rounded-lg">
+          <span className="flex items-center gap-1 bg-amber-100 px-2 py-1 rounded-3xl">
             <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
             <span className="text-amber-700">{project.rating} ({formatNumber(project.reviews)})</span>
           </span>
           {project.statistics && (
-            <span className="flex items-center gap-1 bg-blue-100 px-2 py-1 rounded-lg">
+            <span className="flex items-center gap-1 bg-blue-100 px-2 py-1 rounded-3xl">
               <Eye className="w-3 h-3 text-blue-500" />
               <span className="text-blue-700">{formatNumber(project.statistics.visitors)}</span>
             </span>
@@ -126,7 +126,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         {/* Revenue Info */}
         {project.monthlyRevenue && (
           <div className="bg-green-50 rounded-xl p-3 flex items-center gap-3">
-            <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center shadow-sm">
+            <div className="w-8 h-8 bg-green-500 rounded-3xl flex items-center justify-center shadow-sm">
               <TrendingUp className="w-4 h-4 text-white" />
             </div>
             <div>
@@ -139,7 +139,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         {/* Price and Actions */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#7EE7FC] rounded-lg flex items-center justify-center shadow-sm">
+            <div className="w-8 h-8 bg-[#7EE7FC] rounded-3xl flex items-center justify-center shadow-sm">
               <DollarSign className="w-4 h-4 text-white" />
             </div>
             <span className="text-xl font-bold text-gray-800 group-hover:text-[#7EE7FC] transition-colors duration-300">
@@ -148,7 +148,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           </div>
           <Link
             href={`/projects/${project.id}`}
-            className="px-4 py-2 bg-[#7EE7FC] text-black text-sm font-semibold rounded-3xl hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            className="px-4 py-2 bg-[#7EE7FC] text-black text-sm font-semibold rounded-3xl hover:bg-[#7EE7FC] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
           >
             عرض التفاصيل
           </Link>
@@ -159,13 +159,13 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           {project.technologies.slice(0, 3).map((tech, index) => (
             <span
               key={index}
-              className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-lg font-medium hover:bg-blue-100 hover:text-blue-700 transition-all duration-300"
+              className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-3xl font-medium hover:bg-blue-100 hover:text-blue-700 transition-all duration-300"
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 3 && (
-            <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-lg font-medium">
+            <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-3xl font-medium">
               +{project.technologies.length - 3}
             </span>
           )}

@@ -136,7 +136,7 @@ const PurchaseRequestModal = ({ isOpen, onClose, project }: PurchaseRequestModal
             <img
               src={project.image}
               alt={project.title}
-              className="w-20 h-20 object-cover rounded-lg"
+              className="w-20 h-20 object-cover rounded-3xl"
             />
             <div>
               <h3 className="text-xl font-bold text-gray-900 mb-1">{project.title}</h3>
@@ -155,7 +155,7 @@ const PurchaseRequestModal = ({ isOpen, onClose, project }: PurchaseRequestModal
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg">
+          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-3xl">
             <div className="flex">
               <AlertCircle className="w-5 h-5 text-yellow-400 ml-2 flex-shrink-0 mt-0.5" />
               <div>
@@ -178,7 +178,7 @@ const PurchaseRequestModal = ({ isOpen, onClose, project }: PurchaseRequestModal
                 <input
                   type="text"
                   required
-                  className="w-full pr-10 pl-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pr-10 pl-4 py-3 border border-gray-300 rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   value={offerData.buyerName}
                   onChange={(e) => setOfferData({...offerData, buyerName: e.target.value})}
                   placeholder="أدخل اسمك الكامل"
@@ -192,7 +192,7 @@ const PurchaseRequestModal = ({ isOpen, onClose, project }: PurchaseRequestModal
               <input
                 type="email"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 value={offerData.buyerEmail}
                 onChange={(e) => setOfferData({...offerData, buyerEmail: e.target.value})}
                 placeholder="your@email.com"
@@ -211,7 +211,7 @@ const PurchaseRequestModal = ({ isOpen, onClose, project }: PurchaseRequestModal
                 type="number"
                 required
                 min="1"
-                className="w-full pr-10 pl-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg font-bold"
+                className="w-full pr-10 pl-4 py-3 border border-gray-300 rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg font-bold"
                 value={offerData.amount}
                 onChange={(e) => setOfferData({...offerData, amount: e.target.value})}
                 placeholder="أدخل السعر المقترح"
@@ -231,7 +231,7 @@ const PurchaseRequestModal = ({ isOpen, onClose, project }: PurchaseRequestModal
               <MessageCircle className="absolute right-3 top-3 h-5 w-5 text-gray-400" />
               <textarea
                 rows={4}
-                className="w-full pr-10 pl-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                className="w-full pr-10 pl-4 py-3 border border-gray-300 rounded-3xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                 value={offerData.message}
                 onChange={(e) => setOfferData({...offerData, message: e.target.value})}
                 placeholder="اكتب رسالة للبائع توضح فيها اهتمامك بالمشروع..."

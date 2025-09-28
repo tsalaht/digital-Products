@@ -160,7 +160,7 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
             ].map(({ key, label, icon: Icon }, index) => (
               <div key={key} className="flex items-center">
                 <div className={`flex items-center justify-center w-10 h-10 rounded-full border-2 ${
-                  currentStep === key ? 'border-blue-600 bg-blue-600 text-white' :
+                  currentStep === key ? 'border-blue-600 bg-[#7EE7FC] text-white' :
                   ['overview', 'payment_method', 'payment_form', 'confirmation'].indexOf(currentStep) > index ? 
                   'border-green-600 bg-green-600 text-white' : 'border-gray-300 bg-white text-gray-500'
                 }`}>
@@ -177,11 +177,11 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
           {/* Main Content */}
           <div className="lg:col-span-2">
             {currentStep === 'overview' && (
-              <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="bg-white rounded-3xl shadow-md p-6">
                 <h2 className="text-2xl font-bold mb-6">Transaction Overview</h2>
                 
                 {/* Escrow Protection Info */}
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
+                <div className="bg-green-50 border border-green-200 rounded-3xl p-6 mb-6">
                   <div className="flex items-center mb-4">
                     <Shield className="h-6 w-6 text-green-600 mr-3" />
                     <h3 className="text-lg font-semibold text-green-800">100% Buyer Protection</h3>
@@ -217,7 +217,7 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
                       { step: 4, title: 'Funds Released', desc: 'Once confirmed, funds are automatically released to seller' }
                     ].map((item) => (
                       <div key={item.step} className="flex items-start">
-                        <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4">
+                        <div className="flex-shrink-0 w-8 h-8 bg-[#7EE7FC] text-white rounded-full flex items-center justify-center text-sm font-bold mr-4">
                           {item.step}
                         </div>
                         <div>
@@ -231,7 +231,7 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
 
                 <button
                   onClick={() => setCurrentStep('payment_method')}
-                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  className="w-full bg-[#7EE7FC] text-white py-3 px-6 rounded-3xl font-semibold hover:bg-[#3bdeff] transition-colors"
                 >
                   Proceed to Payment Method
                 </button>
@@ -260,7 +260,7 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
             )}
 
             {currentStep === 'confirmation' && (
-              <div className="bg-white rounded-lg shadow-md p-6 text-center">
+              <div className="bg-white rounded-3xl shadow-md p-6 text-center">
                 <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-4" />
                 <h2 className="text-2xl font-bold text-green-800 mb-4">Payment Secured Successfully!</h2>
                 <p className="text-gray-600 mb-6">
@@ -268,7 +268,7 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
                   The seller has been notified to begin project delivery.
                 </p>
                 
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                <div className="bg-blue-50 border border-blue-200 rounded-3xl p-4 mb-6">
                   <h3 className="font-semibold text-blue-800 mb-2">What's Next?</h3>
                   <ul className="text-sm text-blue-700 space-y-1">
                     <li>• Seller will deliver the project within agreed timeframe</li>
@@ -287,7 +287,7 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
 
           {/* Order Summary Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-md p-6 sticky top-8">
+            <div className="bg-white rounded-3xl shadow-md p-6 sticky top-8">
               <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
               
               <div className="border-b pb-4 mb-4">

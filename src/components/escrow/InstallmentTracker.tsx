@@ -106,7 +106,7 @@ const InstallmentTracker = ({
   const nextDue = getNextDueInstallment();
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-white rounded-3xl shadow-md p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-xl font-bold text-gray-900">Installment Payment Plan</h3>
@@ -120,7 +120,7 @@ const InstallmentTracker = ({
 
       {/* Progress Overview */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+        <div className="bg-green-50 border border-green-200 rounded-3xl p-4">
           <div className="flex items-center justify-between">
             <div>
               <div className="text-sm font-medium text-green-800">Paid</div>
@@ -130,7 +130,7 @@ const InstallmentTracker = ({
           </div>
         </div>
         
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+        <div className="bg-yellow-50 border border-yellow-200 rounded-3xl p-4">
           <div className="flex items-center justify-between">
             <div>
               <div className="text-sm font-medium text-yellow-800">Remaining</div>
@@ -140,7 +140,7 @@ const InstallmentTracker = ({
           </div>
         </div>
         
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <div className="bg-blue-50 border border-blue-200 rounded-3xl p-4">
           <div className="flex items-center justify-between">
             <div>
               <div className="text-sm font-medium text-blue-800">Progress</div>
@@ -169,7 +169,7 @@ const InstallmentTracker = ({
 
       {/* Next Payment Due (for buyers) */}
       {userType === 'buyer' && nextDue && (
-        <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
+        <div className="bg-orange-50 border border-orange-200 rounded-3xl p-4 mb-6">
           <div className="flex items-start justify-between">
             <div className="flex items-start">
               <AlertTriangle className="h-5 w-5 text-orange-600 mr-3 mt-0.5" />
@@ -182,7 +182,7 @@ const InstallmentTracker = ({
             </div>
             <button
               onClick={() => onPayInstallment?.(nextDue.id)}
-              className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors font-medium flex items-center"
+              className="px-4 py-2 bg-orange-600 text-white rounded-3xl hover:bg-orange-700 transition-colors font-medium flex items-center"
             >
               <CreditCard className="h-4 w-4 mr-2" />
               Pay Now
@@ -202,7 +202,7 @@ const InstallmentTracker = ({
           return (
             <div
               key={installment.id}
-              className={`border-2 rounded-lg transition-all duration-200 ${statusInfo.borderColor} ${statusInfo.bgColor}`}
+              className={`border-2 rounded-3xl transition-all duration-200 ${statusInfo.borderColor} ${statusInfo.bgColor}`}
             >
               <div
                 className="p-4 cursor-pointer"
@@ -245,7 +245,7 @@ const InstallmentTracker = ({
                           e.stopPropagation();
                           onPayInstallment?.(installment.id);
                         }}
-                        className="px-3 py-1 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors"
+                        className="px-3 py-1 bg-[#7EE7FC] text-white rounded text-sm hover:bg-[#3bdeff] transition-colors"
                       >
                         Pay
                       </button>
@@ -301,7 +301,7 @@ const InstallmentTracker = ({
 
       {/* Payment Instructions (for buyers) */}
       {userType === 'buyer' && totalRemaining > 0 && (
-        <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <div className="mt-6 bg-blue-50 border border-blue-200 rounded-3xl p-4">
           <h4 className="font-medium text-blue-800 mb-2">Payment Instructions</h4>
           <ul className="text-sm text-blue-700 space-y-1">
             <li>• Payments are processed automatically on due dates if auto-pay is enabled</li>
@@ -314,7 +314,7 @@ const InstallmentTracker = ({
 
       {/* Seller Information */}
       {userType === 'seller' && (
-        <div className="mt-6 bg-green-50 border border-green-200 rounded-lg p-4">
+        <div className="mt-6 bg-green-50 border border-green-200 rounded-3xl p-4">
           <h4 className="font-medium text-green-800 mb-2">Seller Information</h4>
           <p className="text-sm text-green-700">
             Funds from each installment are secured in escrow and will be released according to your delivery milestones and the buyer's confirmation.

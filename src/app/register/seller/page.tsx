@@ -250,7 +250,7 @@ const SellerRegisterPage = () => {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 صورة الملف الشخصي
               </label>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-primary-400 transition-colors duration-200">
+              <div className="border-2 border-dashed border-gray-300 rounded-3xl p-6 text-center hover:border-primary-400 transition-colors duration-200">
                 <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
                 <p className="text-gray-600 mb-2">اضغط لرفع صورة أو اسحبها هنا</p>
                 <input
@@ -318,7 +318,7 @@ const SellerRegisterPage = () => {
                   key={skill}
                   type="button"
                   onClick={() => handleSkillToggle(skill)}
-                  className={`p-2 rounded-lg border text-sm font-medium transition-all duration-200 ${
+                  className={`p-2 rounded-3xl border text-sm font-medium transition-all duration-200 ${
                     formData.programmingSkills.includes(skill)
                       ? 'bg-primary-100 border-primary-300 text-primary-800'
                       : 'bg-white border-gray-200 text-gray-700 hover:border-primary-200'
@@ -469,7 +469,7 @@ const SellerRegisterPage = () => {
                     اختر فيديو
                   </label>
                   {formData.projectVideo && (
-                    <div className="mt-3 p-3 bg-red-100 rounded-lg">
+                    <div className="mt-3 p-3 bg-red-100 rounded-3xl">
                       <p className="text-red-800 text-sm font-medium">
                         تم رفع: {formData.projectVideo.name}
                       </p>
@@ -562,7 +562,7 @@ const SellerRegisterPage = () => {
                       setFormData(prev => ({ ...prev, hasRevenue: true }));
                       setRevenueStep(1);
                     }}
-                    className="flex-1 p-4 bg-white border-2 border-gray-200 rounded-lg hover:border-green-400 hover:bg-green-50 transition-all duration-200 cursor-pointer"
+                    className="flex-1 p-4 bg-white border-2 border-gray-200 rounded-3xl hover:border-green-400 hover:bg-green-50 transition-all duration-200 cursor-pointer"
                   >
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                       <TrendingUp className="w-5 h-5 text-green-600" />
@@ -578,7 +578,7 @@ const SellerRegisterPage = () => {
                       setFormData(prev => ({ ...prev, hasRevenue: false }));
                       setRevenueStep(0);
                     }}
-                    className="flex-1 p-4 bg-white border-2 border-gray-200 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 cursor-pointer"
+                    className="flex-1 p-4 bg-white border-2 border-gray-200 rounded-3xl hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 cursor-pointer"
                   >
                     <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
                       <X className="w-5 h-5 text-gray-600" />
@@ -741,7 +741,7 @@ const SellerRegisterPage = () => {
                             id="financialDocuments"
                             onChange={(e) => handleFileUpload('financialDocuments', e.target.files)}
                           />
-                          <label htmlFor="financialDocuments" className="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm cursor-pointer hover:bg-blue-600 transition-colors duration-200">
+                          <label htmlFor="financialDocuments" className="px-4 py-2 bg-blue-500 text-white rounded-3xl text-sm cursor-pointer hover:bg-[#7EE7FC] transition-colors duration-200">
                             اختر ملفات
                           </label>
                         </div>
@@ -764,7 +764,7 @@ const SellerRegisterPage = () => {
                             id="paymentContracts"
                             onChange={(e) => handleFileUpload('paymentGatewayContracts', e.target.files)}
                           />
-                          <label htmlFor="paymentContracts" className="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm cursor-pointer hover:bg-blue-600 transition-colors duration-200">
+                          <label htmlFor="paymentContracts" className="px-4 py-2 bg-blue-500 text-white rounded-3xl text-sm cursor-pointer hover:bg-[#7EE7FC] transition-colors duration-200">
                             اختر ملفات
                           </label>
                         </div>
@@ -786,7 +786,7 @@ const SellerRegisterPage = () => {
                             id="identityDoc"
                             onChange={(e) => handleFileUpload('identityDocument', e.target.files)}
                           />
-                          <label htmlFor="identityDoc" className="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm cursor-pointer hover:bg-blue-600 transition-colors duration-200">
+                          <label htmlFor="identityDoc" className="px-4 py-2 bg-blue-500 text-white rounded-3xl text-sm cursor-pointer hover:bg-[#7EE7FC] transition-colors duration-200">
                             اختر ملف
                           </label>
                         </div>
@@ -808,7 +808,7 @@ const SellerRegisterPage = () => {
                             id="domainProof"
                             onChange={(e) => handleFileUpload('domainOwnershipProof', e.target.files)}
                           />
-                          <label htmlFor="domainProof" className="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm cursor-pointer hover:bg-blue-600 transition-colors duration-200">
+                          <label htmlFor="domainProof" className="px-4 py-2 bg-blue-500 text-white rounded-3xl text-sm cursor-pointer hover:bg-[#7EE7FC] transition-colors duration-200">
                             اختر ملف
                           </label>
                         </div>
@@ -850,7 +850,7 @@ const SellerRegisterPage = () => {
                         }`}
                       >
                         <div className="flex items-center gap-3 mb-3">
-                          <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                          <div className="w-12 h-12 bg-green-100 rounded-3xl flex items-center justify-center">
                             <Megaphone className="w-6 h-6 text-green-600" />
                           </div>
                           <div>
@@ -870,7 +870,7 @@ const SellerRegisterPage = () => {
                         }`}
                       >
                         <div className="flex items-center gap-3 mb-3">
-                          <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                          <div className="w-12 h-12 bg-green-100 rounded-3xl flex items-center justify-center">
                             <Megaphone className="w-6 h-6 text-green-600" />
                           </div>
                           <div>

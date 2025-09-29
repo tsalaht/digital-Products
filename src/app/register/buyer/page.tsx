@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { 
   User, 
   Mail, 
@@ -15,6 +16,7 @@ import {
 } from 'lucide-react';
 
 const BuyerRegisterPage = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -69,8 +71,44 @@ const BuyerRegisterPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate form data
+    if (!formData.name || !formData.email || !formData.phone || !formData.password || !formData.confirmPassword) {
+      alert('يرجى ملء جميع الحقول المطلوبة');
+      return;
+    }
+    
+    if (formData.password !== formData.confirmPassword) {
+      alert('كلمة المرور غير متطابقة');
+      return;
+    }
+    
+    if (formData.password.length < 8) {
+      alert('كلمة المرور يجب أن تكون 8 أحرف على الأقل');
+      return;
+    }
+    
+    if (formData.interests.length === 0) {
+      alert('يرجى اختيار مجال واحد على الأقل من اهتماماتك');
+      return;
+    }
+    
+    if (!formData.budget) {
+      alert('يرجى اختيار نطاق الميزانية');
+      return;
+    }
+    
+    if (!formData.acceptTerms) {
+      alert('يرجى الموافقة على الشروط والأحكام');
+      return;
+    }
+    
     // Handle form submission
     console.log('Form submitted:', formData);
+    
+    // Simulate successful registration and navigate to buyer profile
+    alert('تم إنشاء الحساب بنجاح!');
+    router.push('/profile/buyer');
   };
 
   return (

@@ -23,64 +23,64 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
   const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Mock payment methods (would come from backend in real implementation)
+  // طرق الدفع التجريبية (ستأتي من الخادم في التطبيق الحقيقي)
   const paymentMethods: PaymentMethod[] = [
     {
       id: 'visa_mastercard',
       type: 'credit_card',
-      name: 'Credit/Debit Card',
+      name: 'بطاقة ائتمان/خصم',
       icon: '💳',
-      description: 'Visa, Mastercard, American Express',
+      description: 'فيزا، ماستركارد، أمريكان إكسبريس',
       isEnabled: true,
       processingFee: 2.9,
-      processingTime: 'Instant',
+      processingTime: 'فوري',
       supportedCurrencies: ['USD', 'EUR', 'GBP']
     },
     {
       id: 'paypal',
       type: 'paypal',
-      name: 'PayPal',
+      name: 'باي بال',
       icon: '🅿️',
-      description: 'Pay with your PayPal account',
+      description: 'ادفع باستخدام حساب باي بال الخاص بك',
       isEnabled: true,
       processingFee: 3.4,
-      processingTime: 'Instant',
+      processingTime: 'فوري',
       supportedCurrencies: ['USD', 'EUR']
     },
     {
       id: 'bank_transfer',
       type: 'bank_transfer',
-      name: 'Bank Transfer',
+      name: 'تحويل بنكي',
       icon: '🏦',
-      description: 'Direct bank wire transfer',
+      description: 'تحويل بنكي مباشر',
       isEnabled: true,
       processingFee: 0,
-      processingTime: '1-3 business days',
+      processingTime: '1-3 أيام عمل',
       supportedCurrencies: ['USD']
     },
     {
       id: 'crypto',
       type: 'crypto',
-      name: 'Cryptocurrency',
+      name: 'عملة رقمية',
       icon: '₿',
-      description: 'Bitcoin, Ethereum, USDT',
-      isEnabled: false, // Coming soon
+      description: 'بيتكوين، إيثريوم، USDT',
+      isEnabled: false, // قريباً
       processingFee: 1.0,
-      processingTime: '10-30 minutes',
+      processingTime: '10-30 دقيقة',
       supportedCurrencies: ['BTC', 'ETH', 'USDT']
     }
   ];
 
   useEffect(() => {
-    // Mock data loading (would fetch from backend)
+    // تحميل البيانات التجريبية (ستُجلب من الخادم في التطبيق الحقيقي)
     const mockTransaction: EscrowTransaction = {
       id: transactionId || 'tx_12345',
       projectId,
-      projectTitle: 'E-commerce Mobile App',
+      projectTitle: 'تطبيق تجارة إلكترونية للهاتف المحمول',
       sellerId: 'seller_123',
-      sellerName: 'Ahmed Ali',
+      sellerName: 'أحمد علي',
       buyerId: 'buyer_456',
-      buyerName: 'Mohamed Elsayed',
+      buyerName: 'محمد السيد',
       buyerEmail: 'mohamed@example.com',
       totalAmount: 1200,
       escrowedAmount: 1200,
@@ -111,7 +111,7 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
     setTransaction(updatedTransaction);
     setCurrentStep('confirmation');
     
-    // Redirect to transaction dashboard after 3 seconds
+    // إعادة التوجيه إلى لوحة المعاملات بعد 3 ثوانٍ
     setTimeout(() => {
       router.push(`/transactions/${updatedTransaction.id}`);
     }, 3000);
@@ -129,23 +129,23 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading secure checkout...</p>
+          <p className="text-gray-600">جاري تحميل الدفع الآمن...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50" dir="rtl">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
-            <Shield className="h-8 w-8 text-green-600 mr-2" />
-            <h1 className="text-3xl font-bold text-gray-900">Secure Escrow Payment</h1>
+          
+            <h1 className="text-3xl font-bold text-gray-900">دفع الضمان الآمن</h1>
           </div>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Your payment is protected by our secure escrow system. Funds are held safely until project delivery is confirmed.
+            دفعتك محمية بنظام الضمان الآمن الخاص بنا. الأموال محفوظة بأمان حتى يتم تأكيد تسليم المشروع.
           </p>
         </div>
 
@@ -153,10 +153,10 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
         <div className="max-w-4xl mx-auto mb-8">
           <div className="flex items-center justify-between">
             {[
-              { key: 'overview', label: 'Overview', icon: DollarSign },
-              { key: 'payment_method', label: 'Payment Method', icon: Lock },
-              { key: 'payment_form', label: 'Payment Details', icon: CheckCircle },
-              { key: 'confirmation', label: 'Confirmation', icon: Shield }
+              { key: 'overview', label: 'نظرة عامة', icon: DollarSign },
+              { key: 'payment_method', label: 'طريقة الدفع', icon: Lock },
+              { key: 'payment_form', label: 'تفاصيل الدفع', icon: CheckCircle },
+              { key: 'confirmation', label: 'التأكيد', icon: Shield }
             ].map(({ key, label, icon: Icon }, index) => (
               <div key={key} className="flex items-center">
                 <div className={`flex items-center justify-center w-10 h-10 rounded-full border-2 ${
@@ -166,7 +166,7 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
                 }`}>
                   <Icon className="h-5 w-5" />
                 </div>
-                <span className="ml-2 text-sm font-medium text-gray-700">{label}</span>
+                <span className="mr-2 text-sm font-medium text-gray-700">{label}</span>
                 {index < 3 && <div className="w-8 h-px bg-gray-300 mx-4" />}
               </div>
             ))}
@@ -178,46 +178,46 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
           <div className="lg:col-span-2">
             {currentStep === 'overview' && (
               <div className="bg-white rounded-3xl shadow-md p-6">
-                <h2 className="text-2xl font-bold mb-6">Transaction Overview</h2>
+                <h2 className="text-2xl font-bold mb-6">نظرة عامة على المعاملة</h2>
                 
                 {/* Escrow Protection Info */}
-                <div className="bg-green-50 border border-green-200 rounded-3xl p-6 mb-6">
+                <div className="bg-cyan-50 border border-green-200 rounded-3xl p-6 mb-6">
                   <div className="flex items-center mb-4">
-                    <Shield className="h-6 w-6 text-green-600 mr-3" />
-                    <h3 className="text-lg font-semibold text-green-800">100% Buyer Protection</h3>
+                    <Shield className="h-6 w-6 text-cyan-600 ml-3" />
+                    <h3 className="text-lg font-semibold text-cyan-800">حماية المشتري 100%</h3>
                   </div>
-                  <ul className="space-y-2 text-green-700">
+                  <ul className="space-y-2 text-cyan-700">
                     <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 mr-2" />
-                      Your payment is held securely until project delivery
+                      <CheckCircle className="h-4 w-4 ml-2" />
+                      دفعتك محفوظة بأمان حتى تسليم المشروع
                     </li>
                     <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 mr-2" />
-                      5-day review period to verify all deliverables
+                      <CheckCircle className="h-4 w-4 ml-2" />
+                      فترة مراجعة 5 أيام للتحقق من جميع التسليمات
                     </li>
                     <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 mr-2" />
-                      Full refund if project doesn't meet specifications
+                      <CheckCircle className="h-4 w-4 ml-2" />
+                      استرداد كامل إذا لم يلبي المشروع المواصفات
                     </li>
                     <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 mr-2" />
-                      24/7 dispute resolution support
+                      <CheckCircle className="h-4 w-4 ml-2" />
+                      دعم حل النزاعات على مدار الساعة
                     </li>
                   </ul>
                 </div>
 
                 {/* Transaction Process */}
                 <div className="mb-6">
-                  <h3 className="text-lg font-semibold mb-4">How It Works</h3>
+                  <h3 className="text-lg font-semibold mb-4">كيف يعمل النظام</h3>
                   <div className="space-y-4">
                     {[
-                      { step: 1, title: 'Payment Secured', desc: 'Your payment is held in our secure escrow account' },
-                      { step: 2, title: 'Seller Delivers', desc: 'Seller uploads project files, source code, and documentation' },
-                      { step: 3, title: 'Review Period', desc: 'You have 5 days to review and test everything' },
-                      { step: 4, title: 'Funds Released', desc: 'Once confirmed, funds are automatically released to seller' }
+                      { step: 1, title: 'تأمين الدفع', desc: 'دفعتك محفوظة في حساب الضمان الآمن الخاص بنا' },
+                      { step: 2, title: 'تسليم البائع', desc: 'البائع يرفع ملفات المشروع والكود المصدري والوثائق' },
+                      { step: 3, title: 'فترة المراجعة', desc: 'لديك 5 أيام لمراجعة واختبار كل شيء' },
+                      { step: 4, title: 'إطلاق الأموال', desc: 'بمجرد التأكيد، يتم إطلاق الأموال تلقائياً للبائع' }
                     ].map((item) => (
                       <div key={item.step} className="flex items-start">
-                        <div className="flex-shrink-0 w-8 h-8 bg-[#7EE7FC] text-white rounded-full flex items-center justify-center text-sm font-bold mr-4">
+                        <div className="flex-shrink-0 w-8 h-8 bg-[#7EE7FC] text-white rounded-full flex items-center justify-center text-sm font-bold ml-4">
                           {item.step}
                         </div>
                         <div>
@@ -233,7 +233,7 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
                   onClick={() => setCurrentStep('payment_method')}
                   className="w-full bg-[#7EE7FC] text-white py-3 px-6 rounded-3xl font-semibold hover:bg-[#3bdeff] transition-colors"
                 >
-                  Proceed to Payment Method
+                  المتابعة إلى طريقة الدفع
                 </button>
               </div>
             )}
@@ -262,24 +262,24 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
             {currentStep === 'confirmation' && (
               <div className="bg-white rounded-3xl shadow-md p-6 text-center">
                 <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-4" />
-                <h2 className="text-2xl font-bold text-green-800 mb-4">Payment Secured Successfully!</h2>
+                <h2 className="text-2xl font-bold text-green-800 mb-4">تم تأمين الدفع بنجاح!</h2>
                 <p className="text-gray-600 mb-6">
-                  Your payment of {formatCurrency(transaction.totalAmount)} has been securely placed in escrow. 
-                  The seller has been notified to begin project delivery.
+                  تم وضع دفعتك البالغة {formatCurrency(transaction.totalAmount)} بأمان في الضمان. 
+                  تم إشعار البائع لبدء تسليم المشروع.
                 </p>
                 
                 <div className="bg-blue-50 border border-blue-200 rounded-3xl p-4 mb-6">
-                  <h3 className="font-semibold text-blue-800 mb-2">What's Next?</h3>
+                  <h3 className="font-semibold text-blue-800 mb-2">ماذا بعد؟</h3>
                   <ul className="text-sm text-blue-700 space-y-1">
-                    <li>• Seller will deliver the project within agreed timeframe</li>
-                    <li>• You'll receive notifications when files are uploaded</li>
-                    <li>• Review period starts once delivery is marked complete</li>
-                    <li>• Funds are released automatically after confirmation</li>
+                    <li>• سيسلم البائع المشروع في الإطار الزمني المتفق عليه</li>
+                    <li>• ستتلقى إشعارات عند رفع الملفات</li>
+                    <li>• تبدأ فترة المراجعة بمجرد وضع علامة على التسليم كمكتمل</li>
+                    <li>• يتم إطلاق الأموال تلقائياً بعد التأكيد</li>
                   </ul>
                 </div>
 
                 <p className="text-sm text-gray-500">
-                  Redirecting to transaction dashboard in 3 seconds...
+                  إعادة التوجيه إلى لوحة المعاملات خلال 3 ثوانٍ...
                 </p>
               </div>
             )}
@@ -288,35 +288,35 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
           {/* Order Summary Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-3xl shadow-md p-6 sticky top-8">
-              <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
+              <h3 className="text-lg font-semibold mb-4">ملخص الطلب</h3>
               
               <div className="border-b pb-4 mb-4">
                 <h4 className="font-medium text-gray-900">{transaction.projectTitle}</h4>
-                <p className="text-sm text-gray-600">By {transaction.sellerName}</p>
+                <p className="text-sm text-gray-600">بواسطة {transaction.sellerName}</p>
               </div>
 
               <div className="space-y-3 mb-4">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Project Price</span>
+                  <span className="text-gray-600">سعر المشروع</span>
                   <span className="font-medium">{formatCurrency(transaction.totalAmount)}</span>
                 </div>
                 
                 {selectedPaymentMethod && (
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Processing Fee ({selectedPaymentMethod.processingFee}%)</span>
+                    <span className="text-gray-600">رسوم المعالجة ({selectedPaymentMethod.processingFee}%)</span>
                     <span className="font-medium">{formatCurrency((transaction.totalAmount * selectedPaymentMethod.processingFee) / 100)}</span>
                   </div>
                 )}
                 
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Platform Protection</span>
-                  <span className="font-medium text-green-600">Free</span>
+                  <span className="text-gray-600">حماية المنصة</span>
+                  <span className="font-medium text-green-600">مجاني</span>
                 </div>
               </div>
 
               <div className="border-t pt-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-bold">Total</span>
+                  <span className="text-lg font-bold">المجموع</span>
                   <span className="text-xl font-bold text-blue-600">
                     {formatCurrency(calculateTotal())}
                   </span>
@@ -326,16 +326,16 @@ const EscrowCheckoutPage = ({ projectId, offerId, transactionId }: EscrowCheckou
               {/* Trust Indicators */}
               <div className="mt-6 pt-6 border-t">
                 <div className="flex items-center text-sm text-gray-600 mb-2">
-                  <Shield className="h-4 w-4 mr-2 text-green-600" />
-                  SSL Encrypted & Secure
+                  <Shield className="h-4 w-4 ml-2 text-green-600" />
+                  مشفر SSL وآمن
                 </div>
                 <div className="flex items-center text-sm text-gray-600 mb-2">
-                  <Clock className="h-4 w-4 mr-2 text-blue-600" />
-                  {transaction.reviewPeriodDays}-Day Money Back Guarantee
+                  <Clock className="h-4 w-4 ml-2 text-blue-600" />
+                  ضمان استرداد الأموال لمدة {transaction.reviewPeriodDays} أيام
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
-                  <AlertTriangle className="h-4 w-4 mr-2 text-yellow-600" />
-                  24/7 Dispute Support
+                  <AlertTriangle className="h-4 w-4 ml-2 text-yellow-600" />
+                  دعم حل النزاعات على مدار الساعة
                 </div>
               </div>
             </div>

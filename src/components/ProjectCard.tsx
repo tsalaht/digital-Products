@@ -125,13 +125,13 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
         {/* Revenue Info */}
         {project.monthlyRevenue && (
-          <div className="bg-green-50 rounded-xl p-3 flex items-center gap-3">
-            <div className="w-8 h-8 bg-green-500 rounded-3xl flex items-center justify-center shadow-sm">
+          <div className="bg-cyan-50 rounded-xl p-3 flex items-center gap-3">
+            <div className="w-8 h-8 bg-cyan-500 rounded-3xl flex items-center justify-center shadow-sm">
               <TrendingUp className="w-4 h-4 text-white" />
             </div>
             <div>
-              <span className="text-xs font-semibold text-green-800">عائد شهري مضمون</span>
-              <p className="text-green-700 font-bold">{formatPrice(project.monthlyRevenue)}/شهر</p>
+              <span className="text-xs font-semibold text-cyan-800">عائد شهري مضمون</span>
+              <p className="text-cyan-700 font-bold">{formatPrice(project.monthlyRevenue)}/شهر</p>
             </div>
           </div>
         )}

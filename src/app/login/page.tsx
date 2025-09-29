@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { 
   Mail, 
   Lock, 
@@ -14,8 +15,10 @@ import {
   Shield,
   Sparkles
 } from 'lucide-react';
+import Image from 'next/image';
 
 const LoginPage = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -42,8 +45,9 @@ const LoginPage = () => {
       
       // Mock validation
       if (formData.email && formData.password) {
-        // Success - redirect to dashboard/profile
+        // Success - redirect to seller dashboard
         console.log('Login successful:', formData);
+        router.push('/profile/seller');
       } else {
         setError('الرجاء التأكد من البيانات المدخلة');
       }
@@ -59,9 +63,17 @@ const LoginPage = () => {
       <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="bg-gradient-to-br from-blue-500 via-purple-500 to-teal-500 text-white w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg mx-auto mb-4">
-            م
-          </div>
+        <Link href="/" className="flex items-center justify-center ">
+            <div className=" ">
+              <Image 
+                src="/logo.png" 
+                alt="Logo" 
+                width={70} 
+                height={70} 
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </Link>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             تسجيل الدخول
           </h1>
@@ -87,11 +99,11 @@ const LoginPage = () => {
                 البريد الإلكتروني *
               </label>
               <div className="relative">
-                <Mail className="absolute right-3 top-3 h-5 w-5 text-gray-400" />
+                <Mail className="absolute right-1 top-3 h-5 w-5 text-gray-400" />
                 <input
                   type="email"
                   required
-                  className="w-full pr-10 pl-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white"
+                  className="w-full pr-12 pl-4 py-3 border  border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
                   placeholder="your@email.com"
@@ -105,7 +117,7 @@ const LoginPage = () => {
                 كلمة المرور *
               </label>
               <div className="relative">
-                <Lock className="absolute right-3 top-3 h-5 w-5 text-gray-400" />
+                <Lock className="absolute right-1 top-3 h-5 w-5 text-gray-400" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   required

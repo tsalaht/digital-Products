@@ -179,12 +179,12 @@ const SellerProfilePage = () => {
                   height={120}
                   className="w-30 h-30 rounded-2xl shadow-lg ring-4 ring-white"
                 />
-                <button className="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 text-white rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
+                <button className="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 text-white rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
                   <Camera className="w-5 h-5" />
                 </button>
               </div>
               <div className="text-center mt-4">
-                <span className="px-4 py-2 bg-gradient-to-r from-emerald-400 to-green-500 text-white rounded-full text-sm font-bold shadow-md">
+                <span className="px-4 py-2 bg-gradient-to-r from-cyan-400 to-cyan-500 text-white rounded-full text-sm font-bold shadow-md">
                   {profileData.sellerLevel}
                 </span>
                 <div className="flex items-center gap-1 mt-2">
@@ -213,28 +213,28 @@ const SellerProfilePage = () => {
 
               {/* Stats Grid */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                <div className="bg-blue-50 rounded-xl p-4 text-center">
-                  <FileText className="w-6 h-6 text-blue-600 mx-auto mb-2" />
+                <div className="bg-cyan-50 rounded-xl p-4 text-center">
+                  <FileText className="w-6 h-6 text-cyan-600 mx-auto mb-2" />
                   <div className="text-xl font-bold text-blue-900">{profileData.totalProjects}</div>
-                  <div className="text-xs text-blue-700">مشروع</div>
+                  <div className="text-xs text-cyan-700">مشروع</div>
                 </div>
                 
-                <div className="bg-emerald-50 rounded-xl p-4 text-center">
-                  <DollarSign className="w-6 h-6 text-emerald-600 mx-auto mb-2" />
-                  <div className="text-xl font-bold text-emerald-900">${profileData.totalEarnings.toLocaleString()}</div>
-                  <div className="text-xs text-emerald-700">إجمالي الأرباح</div>
+                <div className="bg-cyan-50 rounded-xl p-4 text-center">
+                  <DollarSign className="w-6 h-6 text-cyan-600 mx-auto mb-2" />
+                  <div className="text-xl font-bold text-cyan-900">${profileData.totalEarnings.toLocaleString()}</div>
+                  <div className="text-xs text-cyan-700">إجمالي الأرباح</div>
                 </div>
                 
-                <div className="bg-amber-50 rounded-xl p-4 text-center">
-                  <Star className="w-6 h-6 text-amber-600 mx-auto mb-2" />
-                  <div className="text-xl font-bold text-amber-900">{profileData.averageRating}</div>
-                  <div className="text-xs text-amber-700">متوسط التقييم</div>
+                <div className="bg-cyan-50 rounded-xl p-4 text-center">
+                  <Star className="w-6 h-6 text-cyan-600 mx-auto mb-2" />
+                  <div className="text-xl font-bold text-cyan-900">{profileData.averageRating}</div>
+                  <div className="text-xs text-cyan-700">متوسط التقييم</div>
                 </div>
                 
-                <div className="bg-purple-50 rounded-xl p-4 text-center">
-                  <CheckCircle className="w-6 h-6 text-purple-600 mx-auto mb-2" />
-                  <div className="text-xl font-bold text-purple-900">{profileData.completedOrders}</div>
-                  <div className="text-xs text-purple-700">طلب مكتمل</div>
+                <div className="bg-cyan-50 rounded-xl p-4 text-center">
+                  <CheckCircle className="w-6 h-6 text-cyan-600 mx-auto mb-2" />
+                  <div className="text-xl font-bold text-cyan-900">{profileData.completedOrders}</div>
+                  <div className="text-xs text-cyan-700">طلب مكتمل</div>
                 </div>
               </div>
 
@@ -281,7 +281,7 @@ const SellerProfilePage = () => {
                   <div className="md:col-span-2">
                     <button
                       onClick={handleSaveProfile}
-                      className="px-6 py-3 bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 text-white font-bold rounded-2xl hover:from-cyan-500 hover:via-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center"
+                      className="px-6 py-3 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 text-white font-bold rounded-2xl hover:from-cyan-500 hover:via-cyan-600 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center"
                     >
                       <Save className="w-5 h-5 ml-2" />
                       حفظ التغييرات
@@ -319,7 +319,7 @@ const SellerProfilePage = () => {
         <div className="flex flex-wrap gap-4 mb-8">
           <Link 
             href="/seller/add-project"
-            className="px-6 py-3 bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 text-white font-bold rounded-2xl hover:from-cyan-500 hover:via-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center"
+            className="px-6 py-3 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 text-white font-bold rounded-2xl hover:from-cyan-500 hover:via-cyan-600 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center"
           >
             <Plus className="w-5 h-5 ml-2" />
             إضافة مشروع جديد
@@ -344,14 +344,14 @@ const SellerProfilePage = () => {
               onClick={() => setActiveTab(tab.id)}
               className={`px-6 py-3 rounded-2xl font-bold transition-all duration-300 inline-flex items-center relative ${
                 activeTab === tab.id
-                  ? 'bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 text-white shadow-lg'
+                  ? 'bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 text-white shadow-lg'
                   : 'bg-white/80 backdrop-blur-sm border-2 border-slate-200/80 text-slate-700 hover:bg-white hover:border-slate-300'
               }`}
             >
               <tab.icon className="w-5 h-5 ml-2" />
               {tab.label}
               {tab.badge && tab.badge > 0 && (
-                <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                <div className="absolute -top-1 -right-1 bg-cyan-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                   {tab.badge > 99 ? '99+' : tab.badge}
                 </div>
               )}
@@ -369,25 +369,25 @@ const SellerProfilePage = () => {
                 <div className="card">
                   <h3 className="text-xl font-bold text-gray-900 mb-6">إحصائيات سريعة</h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="text-center p-4 bg-blue-50 rounded-xl">
-                      <Eye className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-                      <div className="text-lg font-bold text-blue-900">12.5K</div>
-                      <div className="text-xs text-blue-700">مشاهدات</div>
+                    <div className="text-center p-4 bg-cyan-50 rounded-xl">
+                      <Eye className="w-6 h-6 text-cyan-600 mx-auto mb-2" />
+                      <div className="text-lg font-bold text-cyan-900">12.5K</div>
+                      <div className="text-xs text-cyan-700">مشاهدات</div>
                     </div>
-                    <div className="text-center p-4 bg-red-50 rounded-xl">
-                      <Heart className="w-6 h-6 text-red-600 mx-auto mb-2" />
-                      <div className="text-lg font-bold text-red-900">234</div>
-                      <div className="text-xs text-red-700">إعجابات</div>
+                    <div className="text-center p-4 bg-cyan-50 rounded-xl">
+                      <Heart className="w-6 h-6 text-cyan-600 mx-auto mb-2" />
+                      <div className="text-lg font-bold text-cyan-900">234</div>
+                      <div className="text-xs text-cyan-700">إعجابات</div>
                     </div>
-                    <div className="text-center p-4 bg-emerald-50 rounded-xl">
-                      <TrendingUp className="w-6 h-6 text-emerald-600 mx-auto mb-2" />
-                      <div className="text-lg font-bold text-emerald-900">18%</div>
-                      <div className="text-xs text-emerald-700">معدل التحويل</div>
+                    <div className="text-center p-4 bg-cyan-50 rounded-xl">
+                      <TrendingUp className="w-6 h-6 text-cyan-600 mx-auto mb-2" />
+                      <div className="text-lg font-bold text-cyan-900">18%</div>
+                      <div className="text-xs text-cyan-700">معدل التحويل</div>
                     </div>
-                    <div className="text-center p-4 bg-amber-50 rounded-xl">
-                      <Users className="w-6 h-6 text-amber-600 mx-auto mb-2" />
-                      <div className="text-lg font-bold text-amber-900">89</div>
-                      <div className="text-xs text-amber-700">عميل فريد</div>
+                    <div className="text-center p-4 bg-cyan-50 rounded-xl">
+                      <Users className="w-6 h-6 text-cyan-600 mx-auto mb-2" />
+                      <div className="text-lg font-bold text-cyan-900">89</div>
+                      <div className="text-xs text-cyan-700">عميل فريد</div>
                     </div>
                   </div>
                 </div>
@@ -396,8 +396,8 @@ const SellerProfilePage = () => {
                 <div className="card">
                   <h3 className="text-xl font-bold text-gray-900 mb-6">النشاط الأخير</h3>
                   <div className="space-y-4">
-                    <div className="flex items-center gap-3 p-4 bg-green-50 rounded-xl">
-                      <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
+                    <div className="flex items-center gap-3 p-4 bg-cyan-50 rounded-xl">
+                      <CheckCircle className="w-6 h-6 text-cyan-600 flex-shrink-0" />
                       <div className="flex-1">
                         <p className="font-medium text-gray-900">تم إكمال طلب جديد</p>
                         <p className="text-sm text-gray-600">منصة التجارة الإلكترونية - $15,000</p>
@@ -405,8 +405,8 @@ const SellerProfilePage = () => {
                       <span className="text-xs text-gray-500">منذ ساعتين</span>
                     </div>
                     
-                    <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-xl">
-                      <Star className="w-6 h-6 text-amber-600 flex-shrink-0" />
+                    <div className="flex items-center gap-3 p-4 bg-cyan-50 rounded-xl">
+                      <Star className="w-6 h-6 text-cyan-600 flex-shrink-0" />
                       <div className="flex-1">
                         <p className="font-medium text-gray-900">تقييم جديد - 5 نجوم</p>
                         <p className="text-sm text-gray-600">من محمد أحمد الأحمد</p>
@@ -414,8 +414,8 @@ const SellerProfilePage = () => {
                       <span className="text-xs text-gray-500">منذ 4 ساعات</span>
                     </div>
                     
-                    <div className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl">
-                      <Upload className="w-6 h-6 text-purple-600 flex-shrink-0" />
+                    <div className="flex items-center gap-3 p-4 bg-cyan-50 rounded-xl">
+                      <Upload className="w-6 h-6 text-cyan-600 flex-shrink-0" />
                       <div className="flex-1">
                         <p className="font-medium text-gray-900">تم رفع مشروع جديد</p>
                         <p className="text-sm text-gray-600">تطبيق إدارة المهام الذكي</p>
@@ -431,12 +431,12 @@ const SellerProfilePage = () => {
                 <div className="card">
                   <h3 className="text-xl font-bold text-gray-900 mb-6">ملخص الأرباح</h3>
                   <div className="space-y-4">
-                    <div className="bg-emerald-50 rounded-xl p-4">
+                    <div className="bg-cyan-50 rounded-xl p-4">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm text-emerald-700">هذا الشهر</span>
-                        <span className="text-xs bg-emerald-200 text-emerald-800 px-2 py-1 rounded-full">{earningsData.growth}</span>
+                        <span className="text-sm text-cyan-700">هذا الشهر</span>
+                        <span className="text-xs bg-cyan-200 text-cyan-800 px-2 py-1 rounded-full">{earningsData.growth}</span>
                       </div>
-                      <div className="text-2xl font-bold text-emerald-900">${earningsData.thisMonth.toLocaleString()}</div>
+                      <div className="text-2xl font-bold text-cyan-900">${earningsData.thisMonth.toLocaleString()}</div>
                     </div>
                     
                     <div className="bg-gray-50 rounded-xl p-4">
@@ -444,9 +444,9 @@ const SellerProfilePage = () => {
                       <div className="text-xl font-bold text-gray-900">${earningsData.lastMonth.toLocaleString()}</div>
                     </div>
                     
-                    <div className="bg-amber-50 rounded-xl p-4">
-                      <div className="text-sm text-amber-700 mb-2">في الانتظار</div>
-                      <div className="text-xl font-bold text-amber-900">${earningsData.pending.toLocaleString()}</div>
+                    <div className="bg-cyan-50 rounded-xl p-4">
+                      <div className="text-sm text-cyan-700 mb-2">في الانتظار</div>
+                      <div className="text-xl font-bold text-cyan-900">${earningsData.pending.toLocaleString()}</div>
                     </div>
                     
                     <div className="bg-blue-50 rounded-xl p-4">

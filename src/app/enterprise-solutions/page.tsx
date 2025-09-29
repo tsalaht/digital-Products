@@ -93,15 +93,15 @@ const EnterpriseSolutionsPage = () => {
     <div className="min-h-screen bg-soft-gray py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 mb-8">
+        <div className="bg-gradient-to-br from-cyan-50 to-cyan-50 rounded-2xl p-8 mb-8">
           <div className="text-center">
-            <div className="bg-blue-100 text-blue-800 px-6 py-3 rounded-full inline-flex items-center mb-6">
+            <div className="bg-blue-100 text-cyan-800 px-6 py-3 rounded-full inline-flex items-center mb-6">
               <Building className="w-6 h-6 ml-2" />
               حلول المؤسسات والشركات
             </div>
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               أنظمة وبرامج 
-              <span className="text-blue-600 block">حلول للشركات</span>
+              <span className="text-cyan-600 block">حلول للشركات</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               اكتشف مجموعة شاملة من الحلول البرمجية المصممة خصيصاً للشركات والمؤسسات.
@@ -109,7 +109,7 @@ const EnterpriseSolutionsPage = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 text-white font-bold rounded-2xl hover:from-cyan-500 hover:via-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-lg inline-flex items-center justify-center">
+              <button className="px-8 py-4 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 text-white font-bold rounded-2xl hover:from-cyan-500 hover:via-cyan-600 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-lg inline-flex items-center justify-center">
                 <Building className="w-5 h-5 ml-2" />
                 استكشف الحلول
               </button>
@@ -231,7 +231,7 @@ const EnterpriseSolutionsPage = () => {
         </div>
 
         {/* Statistics */}
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white mb-8">
+        <div className="bg-gradient-to-r from-cyan-600 to-cyan-600 rounded-xl p-8 text-white mb-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-4">إحصائيات النجاح</h2>
             <p className="text-blue-100">أرقام تعكس نجاح حلولنا المؤسسية</p>

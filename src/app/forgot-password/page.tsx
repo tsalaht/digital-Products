@@ -125,7 +125,7 @@ const ForgotPasswordPage = () => {
       <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="bg-gradient-to-br from-purple-500 via-pink-500 to-red-400 text-white w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg mx-auto mb-4">
+          <div className="bg-gradient-to-br from-cyan-500 via-cyan-500 to-cyan-400 text-white w-16 h-16 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-lg mx-auto mb-4">
             <Key className="w-8 h-8" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -153,11 +153,11 @@ const ForgotPasswordPage = () => {
                 البريد الإلكتروني المرتبط بحسابك *
               </label>
               <div className="relative">
-                <Mail className="absolute right-3 top-3 h-5 w-5 text-gray-400" />
+                {/* <Mail className="absolute right-3 top-3 h-5 w-5 text-gray-400" /> */}
                 <input
                   type="email"
                   required
-                  className="w-full pr-10 pl-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200 bg-white"
+                  className="w-full pr-10 pl-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all duration-200 bg-white"
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
@@ -175,10 +175,10 @@ const ForgotPasswordPage = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className={`w-full px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-red-400 text-white font-bold rounded-2xl transition-all duration-300 shadow-lg inline-flex items-center justify-center ${
+              className={`w-full px-6 py-3 bg-gradient-to-r from-cyan-500 via-cyan-500 to-cyan-400 text-white font-bold rounded-2xl transition-all duration-300 shadow-lg inline-flex items-center justify-center ${
                 isLoading 
                   ? 'opacity-75 cursor-not-allowed' 
-                  : 'hover:from-purple-600 hover:via-pink-600 hover:to-red-500 hover:shadow-xl hover:-translate-y-0.5'
+                  : 'hover:from-cyan-600 hover:via-cyan-600 hover:to-cyan-500 hover:shadow-xl hover:-translate-y-0.5'
               }`}
             >
               {isLoading ? (

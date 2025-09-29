@@ -251,11 +251,11 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
               )}
               
               <div className="space-y-3">
-                <Link href={`/projects/${project.id}/purchase`} className="w-full bg-[#7EE7FC] hover:bg-[#3bdeff] text-white font-semibold py-3 px-4 rounded-3xl transition-colors duration-200 flex items-center justify-center gap-2">
+                <Link href={`/projects/${project.id}/purchase`} className="w-full bg-gradient-to-r from-slate-50 to-white border-2 border-cyan-200 text-cyan-700 font-bold rounded-full hover:from-cyan-50 hover:to-cyan-100 hover:border-cyan-300 hover:text-cyan-800 transition-all  duration-300 hover:shadow-xl hover:scale-105 active:scale-95   py-3 px-4 r flex items-center justify-center gap-2">
                   <DollarSign className="w-5 h-5" />
                   <span>شراء المشروع</span>
                 </Link>
-                <Link href="/chat" className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-4 rounded-3xl transition-colors duration-200 flex items-center justify-center gap-2">
+                <Link href="/chat" className="w-full text-white font-bold rounded-full transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-95 flex items-center justify-center gap-2 py-3 px-4"  style={{ background: 'linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%)' }}>
                   <MessageCircle className="w-5 h-5" />
                   <span>تواصل مع البائع</span>
                 </Link>
@@ -302,17 +302,17 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
               </div>
               <Link 
                 href={`/checkout/escrow?projectId=${project.id}&offerId=1`}
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-3xl transition-colors duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 px-4 rounded-3xl transition-colors duration-200 flex items-center justify-center gap-2"
               >
                 <Shield className="w-5 h-5" />
                 <span>شراء آمن بضمان الوسيط</span>
               </Link>
               
               {/* Escrow Protection Notice */}
-              <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-3xl">
+              <div className="mt-3 p-3 bg-cyan-50 border border-cyan-200 rounded-3xl">
                 <div className="flex items-start">
-                  <Shield className="h-5 w-5 text-green-600 mr-2 mt-0.5" />
-                  <div className="text-sm text-green-700">
+                  <Shield className="h-5 w-5 text-cyan-600 mr-2 mt-0.5" />
+                  <div className="text-sm text-cyan-700">
                     <h4 className="font-medium mb-1">حماية 100% للمشتري</h4>
                     <ul className="space-y-1">
                       <li>• أموالك محفوظة حتى تأكيد الاستلام</li>

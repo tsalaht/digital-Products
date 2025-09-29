@@ -205,7 +205,7 @@
 
   /* Tab Styles */
   .tab-container {
-    @apply flex bg-slate-100/80 backdrop-blur-sm rounded-2xl p-2 shadow-inner;
+    @apply flex ;
 
   }
 
@@ -281,25 +281,25 @@
   }
 
   .badge-success {
-    @apply badge text-primary-darker border;
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium shadow-sm text-primary-darker border;
     background: linear-gradient(135deg, hsl(var(--primary-lighter)), hsl(var(--primary-light)));
     border-color: hsl(var(--primary));
   }
 
   .badge-warning {
-    @apply badge border;
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium shadow-sm border;
     background: linear-gradient(135deg, hsl(var(--warning) / 0.2), hsl(var(--warning) / 0.3));
     color: hsl(var(--warning));
     border-color: hsl(var(--warning) / 0.4);
   }
 
   .badge-primary {
-    @apply badge text-white shadow-lg;
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white shadow-lg;
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
   }
 
   .badge-verified {
-    @apply badge text-white shadow-lg;
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white shadow-lg;
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
   }
 
@@ -341,10 +341,17 @@
   select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-    background-position: right 0.5rem center;
+    background-position: left 0.5rem center;
     background-repeat: no-repeat;
     background-size: 1.5em 1.5em;
-    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+
+  /* RTL specific select styling */
+  [dir="rtl"] select {
+    background-position: left 0.5rem center;
+    padding-left: 2.5rem;
+    padding-right: 1rem;
   }
 
   /* Global form element styling */
@@ -363,6 +370,8 @@
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     transition: all 0.2s ease-in-out;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   input[type="text"]:focus,
@@ -414,16 +423,23 @@
     @apply w-full px-4 py-3 border border-border rounded-3xl bg-background text-foreground transition-all duration-200;
     appearance: none;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
-    background-position: right 0.75rem center;
+    background-position: left 0.75rem center;
     background-repeat: no-repeat;
     background-size: 1.25em 1.25em;
-    padding-right: 2.5rem;
+    padding-left: 2.5rem;
   }
 
   .form-select:focus {
     outline: none;
     border-color: hsl(var(--primary));
     box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+  }
+
+  /* RTL specific form-select styling */
+  [dir="rtl"] .form-select {
+    background-position: left 0.75rem center;
+    padding-left: 2.5rem;
+    padding-right: 1rem;
   }
 
   .form-textarea {
@@ -456,7 +472,7 @@
 
   /* Stats Card */
   .stats-card {
-    @apply bg-gradient-to-br from-white/90 to-slate-50/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200/50 text-center cursor-pointer;
+    @apply   rounded-2xl p-6  hover:shadow-xl transition-all duration-300   text-center cursor-pointer;
   }
 
   .stats-card:hover {

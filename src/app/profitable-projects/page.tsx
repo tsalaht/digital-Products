@@ -69,15 +69,15 @@ const ProfitableProjectsPage = () => {
     <div className="min-h-screen bg-soft-gray py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-success-50 to-green-50 rounded-2xl p-8 mb-8">
+        <div className="bg-gradient-to-br from-cyan-50 to-cyan-50 rounded-2xl p-8 mb-8">
           <div className="text-center">
-            <div className="bg-success-100 text-success-800 px-6 py-3 rounded-full inline-flex items-center mb-6">
+            <div className="bg-cyan-100 text-cyan-800 px-6 py-3 rounded-full inline-flex items-center mb-6">
               <TrendingUp className="w-6 h-6 ml-2" />
               مشاريع مربحة ومضمونة
             </div>
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               استثمر في مشاريع تحقق 
-              <span className="text-success-600 block">عوائد شهرية مضمونة</span>
+              <span className="text-cyan-600 block">عوائد شهرية مضمونة</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               اكتشف مجموعة مختارة من المشاريع الرقمية التي تحقق أرباحاً شهرية ثابتة ومضمونة.
@@ -86,7 +86,7 @@ const ProfitableProjectsPage = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <div className="bg-white rounded-3xl p-6 shadow-soft">
-                <div className="text-3xl font-bold text-success-600 mb-2">
+                <div className="text-3xl font-bold text-cyan-600 mb-2">
                   ${Math.round(averageRevenue).toLocaleString()}
                 </div>
                 <div className="text-gray-600">متوسط العائد الشهري</div>
@@ -115,8 +115,8 @@ const ProfitableProjectsPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="bg-success-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-success-600" />
+              <div className="bg-cyan-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-cyan-600" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">عوائد موثقة</h3>
               <p className="text-gray-600">جميع المشاريع لها إثباتات دخل موثقة ومراجعة</p>
@@ -187,43 +187,43 @@ const ProfitableProjectsPage = () => {
         {/* Revenue Analysis */}
         <div className="bg-white rounded-xl shadow-soft p-8 mb-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-            <BarChart3 className="w-6 h-6 text-primary-600" />
+
             تحليل العوائد
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-gradient-to-br from-success-50 to-success-100 p-6 rounded-3xl">
-              <div className="text-2xl font-bold text-success-700 mb-1">
+            <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-3xl">
+              <div className="text-2xl font-bold text-cyan-700 mb-1">
                 ${totalRevenue.toLocaleString()}
               </div>
-              <div className="text-success-600 text-sm">إجمالي العوائد الشهرية</div>
+              <div className="text-cyan-600 text-sm">إجمالي العوائد الشهرية</div>
             </div>
             
-            <div className="bg-gradient-to-br from-primary-50 to-primary-100 p-6 rounded-3xl">
-              <div className="text-2xl font-bold text-primary-700 mb-1">
+            <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-3xl">
+              <div className="text-2xl font-bold text-cyan-700 mb-1">
                 ${Math.round(averageRevenue).toLocaleString()}
               </div>
-              <div className="text-primary-600 text-sm">متوسط العائد الشهري</div>
+              <div className="text-cyan-600 text-sm">متوسط العائد الشهري</div>
             </div>
             
-            <div className="bg-gradient-to-br from-warning-50 to-warning-100 p-6 rounded-3xl">
-              <div className="text-2xl font-bold text-warning-700 mb-1">
+            <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-3xl">
+              <div className="text-2xl font-bold text-cyan-700 mb-1">
                 {Math.round(averageROI)}%
               </div>
-              <div className="text-warning-600 text-sm">متوسط عائد الاستثمار</div>
+              <div className="text-cyan-600 text-sm">متوسط عائد الاستثمار</div>
             </div>
             
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-3xl">
-              <div className="text-2xl font-bold text-purple-700 mb-1">
+            <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-3xl">
+              <div className="text-2xl font-bold text-cyan-700 mb-1">
                 {Math.round(averageRevenue * 12 / (filteredProjects.reduce((sum, p) => sum + p.price, 0) / filteredProjects.length) * 100)}%
               </div>
-              <div className="text-purple-600 text-sm">عائد سنوي متوقع</div>
+              <div className="text-cyan-600 text-sm">عائد سنوي متوقع</div>
             </div>
           </div>
         </div>
 
         {/* Investment Guide */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8">
+        <div className="bg-gradient-to-r from-cyan-50 to-cyan-50 rounded-xl p-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">دليل الاستثمار الذكي</h2>
             <p className="text-gray-600">نصائح مهمة قبل شراء مشروع مربح</p>

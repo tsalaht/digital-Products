@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   TrendingUp, 
   Users, 
@@ -45,33 +46,33 @@ const HomePage = () => {
   };
 
   const stats = [
-    { icon: Users, label: 'مشروع نشط', value: '2,847', color: 'from-blue-500 to-purple-500' },
-    { icon: DollarSign, label: 'إجمالي المبيعات', value: '$12.5M', color: 'from-emerald-500 to-green-500' },
-    { icon: Award, label: 'بائع موثق', value: '450+', color: 'from-amber-500 to-orange-500' },
-    { icon: CheckCircle, label: 'مشروع مكتمل', value: '1,923', color: 'from-purple-500 to-pink-500' }
+    { icon: Users, label: 'مشروع نشط', value: '2,847',  color: 'from-white  to-white' },
+    { icon: DollarSign, label: 'إجمالي المبيعات', value: '$12.5M', color: 'from-white  to-white' },
+    { icon: 'trust.png', label: 'بائع موثق', value: '450+',  color: 'from-white  to-white' },
+    { icon: 'complet.png', label: 'مشروع مكتمل', value: '1,923',  color: 'from-white  to-white'}
   ];
 
   const features = [
     {
-      icon: DollarSign,
+      icon: 'soft.png',
       title: 'شراء برامج سوفت وير بأسعار رخيصة',
       description: 'نقدم حلول برمجية احترافية للشركات والأفراد بأسعار تنافسية دون التضحية بالجودة',
       color: 'from-blue-500 to-cyan-500'
     },
     {
-      icon: Star,
+      icon: 'apps.jpg',
       title: 'برامج سطح المكتب سهلة الاستخدام',
       description: 'جميع برامجنا مصممة بواجهة UI/UX سلسة لتسهيل التثبيت والعمل اليومي للشركات الصغيرة والمتوسطة',
       color: 'from-emerald-500 to-green-500'
     },
     {
-      icon: Shield,
+      icon: "support.png",
       title: 'دعم فني مجاني لمدة 10 أيام',
       description: 'مع كل برنامج، نوفر دعمًا فنيًا مباشرًا لضمان تشغيل البرنامج بدون أي مشاكل',
       color: 'from-amber-500 to-yellow-500'
     },
     {
-      icon: Zap,
+      icon: 'vid.png',
       title: 'فيديوهات تعليمية كاملة',
       description: 'بعد الشراء، ستتلقى فيديوهات توضح خطوة بخطوة طريقة تثبيت وتشغيل البرنامج والعمل عليه بالكامل',
       color: 'from-purple-500 to-pink-500'
@@ -87,7 +88,7 @@ const HomePage = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm text-blue-600 px-6 py-3 rounded-full font-bold text-sm shadow-lg  animate-bounce-gentle">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm text-cyan-600 px-6 py-3 rounded-full font-bold text-sm shadow-lg  animate-bounce-gentle">
               <Sparkles className="w-5 h-5" />
               منصتك المثالية لشراء برامج السوفت وير وحلول الشركات
             </div>
@@ -97,7 +98,7 @@ const HomePage = () => {
               
                         >
                             اكتشف أفضل
-                            <span className="text-gradient block  md:leading-[70px] leading-normal py-5 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">المشاريع الرقمية</span>
+                            <span className="text-gradient block  md:leading-[70px] leading-normal py-5 bg-gradient-to-r from-cyan-400 to-cyan-400 bg-clip-text text-transparent">المشاريع الرقمية</span>
                         </h1>
             
             <p className="text-xl md:text-2xl text-slate-600 mb-4 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
@@ -105,12 +106,12 @@ const HomePage = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-8 justify-center items-center animate-scale-in" style={{ animationDelay: '0.4s' }}>
-              <Link href="/projects" className="px-8 py-2 bg-gradient-to-r from-sky-400 to-blue-500 text-white font-bold rounded-full text-xl shadow-2xl hover:from-sky-500 hover:to-blue-600 hover:shadow-3xl hover:scale-110 active:scale-95 transition-all duration-300 inline-flex items-center justify-center glow-soft relative overflow-hidden">
+              <Link href="/projects" className="px-8 py-2 bg-gradient-to-r from-sky-400 to-cyan-500 text-white font-bold rounded-full text-xl shadow-2xl hover:from-cyan-500 hover:to-cyan-600 hover:shadow-3xl hover:scale-110 active:scale-95 transition-all duration-300 inline-flex items-center justify-center glow-soft relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-white/30 via-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                 <Search className="w-5 h-5 ml-4 relative z-10" />
                 <span className="relative z-10 text-base">تصفح المشاريع</span>
               </Link>
-              <Link href="/register/seller" className="px-8 py-2 bg-white/90 backdrop-blur-sm border-3 border-sky-200 text-sky-600 font-bold rounded-full text-xl hover:bg-sky-50 hover:border-sky-300 hover:text-sky-700 transition-all duration-300 hover:shadow-xl hover:scale-110 active:scale-95 inline-flex items-center justify-center relative overflow-hidden">
+              <Link href="/register/seller" className="px-8 py-2 bg-white/90 backdrop-blur-sm border-3 border-cyan-200 text-cyan-600 font-bold rounded-full text-xl hover:bg-cyan-50 hover:border-cyan-300 hover:text-cyan-700 transition-all duration-300 hover:shadow-xl hover:scale-110 active:scale-95 inline-flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-sky-100/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                 <Rocket className="w-5 h-5 ml-4 relative z-10" />
                 <span className="relative z-10 text-base">ابدأ البيع الآن</span>
@@ -147,7 +148,17 @@ const HomePage = () => {
             {stats.map((stat, index) => (
               <div key={index} className="stats-card">
                 <div className={`stats-icon bg-gradient-to-br ${stat.color} shadow-lg`}>
-                  <stat.icon className="w-8 h-8 text-white" />
+                  {typeof stat.icon === 'string' ? (
+                    <Image 
+                      src={`/${stat.icon}`} 
+                      alt={stat.label}
+                      width={80}
+                      height={80}
+               
+                    />
+                  ) : (
+                    <stat.icon className="w-8 h-8 text-cyan-500" />
+                  )}
                 </div>
                 <div className="text-3xl font-black text-slate-900 mb-2">{stat.value}</div>
                 <div className="text-slate-600 font-medium">{stat.label}</div>
@@ -161,7 +172,7 @@ const HomePage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 px-6 py-3 rounded-full font-bold text-sm shadow-lg mb-6">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-100 to-purple-100 text-cyan-700 px-6 py-3 rounded-full font-bold text-sm shadow-lg mb-6">
               <Star className="w-5 h-5" />
               مشاريع مختارة بعناية
             </div>
@@ -179,7 +190,7 @@ const HomePage = () => {
               <select 
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="tab-button tab-active border-none bg-transparent outline-none cursor-pointer select-tab"
+                className="tab-button tab-active border-none bg-transparent outline-none cursor-pointer select-tab pr-8 pl-4 py-2"
               >
                 {categories.slice(0, 4).map(category => (
                   <option key={category} value={category}>{category}</option>
@@ -191,7 +202,7 @@ const HomePage = () => {
               <select 
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="tab-button tab-inactive border-none bg-transparent outline-none cursor-pointer select-tab"
+                className="tab-button tab-inactive border bg-transparent outline-none cursor-pointer select-tab pr-8 pl-4 py-2"
               >
                 <option value="الأحدث">الأحدث</option>
                 <option value="الأعلى سعراً">الأعلى سعراً</option>
@@ -230,8 +241,8 @@ const HomePage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-xl mb-6 animate-pulse">
-              <TrendingUp className="w-5 h-5" />
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-cyan-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-xl mb-6 animate-pulse">
+    
               مشاريع مربحة ومضمونة
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
@@ -282,8 +293,14 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <div key={index} className="feature-card">
-                <div className={`feature-icon bg-gradient-to-br ${feature.color} shadow-xl`}>
-                  <feature.icon className="w-10 h-10 text-white" />
+                <div>
+                  <Image 
+                    src={`/${feature.icon}`} 
+                    alt={feature.title}
+                    width={200}
+                    height={200}
+         
+                  />
                 </div>
                 <h3 className="text-xl font-black text-slate-900 mb-4">{feature.title}</h3>
                 <p className="text-slate-600 leading-relaxed">{feature.description}</p>
@@ -300,8 +317,8 @@ const HomePage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-xl mb-6 animate-pulse">
-              <Target className="w-5 h-5" />
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-cyan-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-xl mb-6 animate-pulse">
+        
               🛠 برامجنا وحلولنا
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
@@ -317,7 +334,7 @@ const HomePage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
                 <TrendingUp className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-black text-slate-900 mb-4">حلول ذكاء اصطناعي للشركات</h3>
@@ -325,7 +342,7 @@ const HomePage = () => {
             </div>
 
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-500 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-black text-slate-900 mb-4">برامج إدارة المشاريع</h3>
@@ -333,7 +350,7 @@ const HomePage = () => {
             </div>
 
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
                 <Shield className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-black text-slate-900 mb-4">الحلول المحاسبية</h3>
@@ -342,9 +359,9 @@ const HomePage = () => {
           </div>
 
           <div className="text-center bg-white/60 backdrop-blur-sm rounded-3xl p-12 shadow-2xl">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-xl mb-6">
-              <Star className="w-5 h-5" />
-              🌟 رسالتنا
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-cyan-500 text-white px-6 py-3 rounded-full font-bold text-sm shadow-xl mb-6">
+           
+              رسالتنا
             </div>
             <h3 className="text-3xl font-black text-slate-900 mb-6">رسالتنا</h3>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">

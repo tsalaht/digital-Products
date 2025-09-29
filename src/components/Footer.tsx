@@ -209,7 +209,7 @@ const Footer = () => {
         </div>
         
         {/* Bottom Bar */}
-        <div className="border-t border-slate-100 bg-[#7EE7FC] backdrop-blur-sm">
+        <div className="border-t border-slate-100  backdrop-blur-sm"  style={{ background: 'linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 50%, #3BC4E8 100%)' }}>
           <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="text-black text-xs md:text-sm text-center md:text-right">

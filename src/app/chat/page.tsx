@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -44,7 +44,8 @@ interface ChatUser {
   isVerified: boolean;
 }
 
-const ChatPage = () => {
+// Component that uses useSearchParams - needs to be wrapped in Suspense
+const ChatContent = () => {
   const searchParams = useSearchParams();
   const [selectedChat, setSelectedChat] = useState<number | null>(null);
   const [message, setMessage] = useState('');
@@ -490,6 +491,65 @@ const ChatPage = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+// Loading component for Suspense fallback
+const ChatLoading = () => (
+  <div className="h-screen bg-gray-50 flex flex-col">
+    <div className="bg-white border-b border-gray-200 flex-shrink-0">
+      <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="flex items-center gap-4">
+          <div className="p-2 bg-gray-100 rounded-3xl">
+            <ArrowLeft className="w-5 h-5 text-gray-400" />
+          </div>
+          <div className="flex items-center gap-3">
+            <MessageCircle className="w-6 h-6 text-gray-300" />
+            <h1 className="text-2xl font-bold text-gray-300">المحادثات</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="flex-1 max-w-7xl mx-auto px-4 py-6 overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-full">
+        <div className="lg:col-span-1">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 h-full">
+            <div className="p-4 border-b border-gray-200">
+              <div className="h-12 bg-gray-200 rounded-3xl animate-pulse"></div>
+            </div>
+            <div className="p-4 space-y-4">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div key={i} className="flex items-center gap-3 p-2">
+                  <div className="w-12 h-12 bg-gray-200 rounded-full animate-pulse"></div>
+                  <div className="flex-1">
+                    <div className="h-4 bg-gray-200 rounded animate-pulse mb-2"></div>
+                    <div className="h-3 bg-gray-200 rounded animate-pulse w-2/3"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="lg:col-span-3">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 h-full flex items-center justify-center">
+            <div className="text-center">
+              <MessageCircle className="w-16 h-16 text-gray-300 mx-auto mb-4 animate-pulse" />
+              <h3 className="text-xl font-semibold text-gray-400 mb-2">جاري التحميل...</h3>
+              <p className="text-gray-400">يرجى الانتظار</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// Main page component with Suspense boundary
+const ChatPage = () => {
+  return (
+    <Suspense fallback={<ChatLoading />}>
+      <ChatContent />
+    </Suspense>
   );
 };
 

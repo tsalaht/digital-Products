@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { 
@@ -44,6 +45,7 @@ interface ChatUser {
 }
 
 const ChatPage = () => {
+  const searchParams = useSearchParams();
   const [selectedChat, setSelectedChat] = useState<number | null>(null);
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
@@ -51,6 +53,15 @@ const ChatPage = () => {
   const [isAtBottom, setIsAtBottom] = useState(true);
   const [showScrollButton, setShowScrollButton] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [projectContext, setProjectContext] = useState<{
+    projectId: string | null;
+    projectTitle: string | null;
+    sellerName: string | null;
+  }>({
+    projectId: null,
+    projectTitle: null,
+    sellerName: null
+  });
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
 
@@ -120,15 +131,50 @@ const ChatPage = () => {
 
   useEffect(() => {
     setIsClient(true);
-  }, []);
+    
+    // Handle URL parameters for direct seller chat
+    const sellerId = searchParams.get('sellerId');
+    const sellerName = searchParams.get('sellerName');
+    const projectId = searchParams.get('projectId');
+    const projectTitle = searchParams.get('projectTitle');
+    
+    if (sellerId && sellerName) {
+      setProjectContext({
+        projectId,
+        projectTitle,
+        sellerName
+      });
+      
+      // Find and select the seller
+      const seller = chatUsers.find(user => user.name === sellerName);
+      if (seller) {
+        setSelectedChat(seller.id);
+      }
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     if (selectedChat) {
-      setMessages(mockMessages);
+      // Create contextual messages if coming from a project
+      if (projectContext.projectTitle && projectContext.sellerName) {
+        const contextualMessages: Message[] = [
+          {
+            id: 1,
+            text: `مرحباً! شكراً لاهتمامك بمشروع "${projectContext.projectTitle}". هل لديك أي استفسارات حول المشروع؟`,
+            sender: 'seller',
+            timestamp: new Date(Date.now() - 3600000),
+            status: 'read',
+            type: 'text'
+          }
+        ];
+        setMessages(contextualMessages);
+      } else {
+        setMessages(mockMessages);
+      }
       setIsAtBottom(true);
       setShowScrollButton(false);
     }
-  }, [selectedChat]);
+  }, [selectedChat, projectContext]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -206,9 +252,9 @@ const ChatPage = () => {
   const selectedUser = selectedChat ? chatUsers.find(user => user.id === selectedChat) : null;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="h-screen bg-gray-50 flex flex-col">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white border-b border-gray-200 flex-shrink-0">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center gap-4">
             <Link href="/" className="p-2 hover:bg-gray-100 rounded-3xl transition-colors">
@@ -222,8 +268,8 @@ const ChatPage = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-[calc(100vh-200px)] lg:h-[calc(100vh-200px)]">
+      <div className="flex-1 max-w-7xl mx-auto px-4 py-6 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-full">
           {/* Chat List */}
           <div className={`${selectedChat ? 'hidden lg:block' : 'block'} lg:col-span-1`}>
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 h-full">
@@ -297,9 +343,9 @@ const ChatPage = () => {
           {/* Chat Area */}
           <div className={`${selectedChat ? 'block' : 'hidden lg:block'} lg:col-span-3`}>
             {selectedChat ? (
-              <div className="bg-white rounded-xl shadow-lg border border-gray-200 h-full flex flex-col min-h-[400px]">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 h-full flex flex-col relative">
                 {/* Chat Header */}
-                <div className="p-4 border-b border-gray-200 bg-gray-50">
+                <div className="p-4 border-b border-gray-200 bg-gray-50 flex-shrink-0">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       {/* Mobile back button */}
@@ -324,6 +370,11 @@ const ChatPage = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold text-gray-900">{selectedUser?.name}</h3>
+                        {projectContext.projectTitle && (
+                          <p className="text-sm text-blue-600 font-medium">
+                            حول مشروع: {projectContext.projectTitle}
+                          </p>
+                        )}
                         <div className="flex items-center gap-2 text-sm text-gray-500">
                           <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
                           <span>{selectedUser?.rating}</span>
@@ -350,7 +401,11 @@ const ChatPage = () => {
                 <div 
                   ref={messagesContainerRef}
                   onScroll={handleScroll}
-                  className="flex-1 overflow-y-auto p-4 space-y-4 relative"
+                  className="overflow-y-auto p-4 space-y-4 relative"
+                  style={{ 
+                    height: 'calc(100vh - 200px)',
+                    maxHeight: 'calc(100vh - 200px)'
+                  }}
                 >
                   {isClient && showScrollButton && (
                     <button
@@ -394,7 +449,7 @@ const ChatPage = () => {
                 </div>
 
                 {/* Message Input */}
-                <div className="p-4 border-t border-gray-200 bg-gray-50">
+                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-gray-50">
                   <div className="flex items-center gap-3">
                     <button className="p-2 hover:bg-gray-200 rounded-3xl transition-colors">
                       <Paperclip className="w-5 h-5 text-gray-600" />

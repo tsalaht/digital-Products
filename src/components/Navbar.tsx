@@ -18,8 +18,6 @@ const Navbar = () => {
     { href: '/projects', label: 'تصفح المشاريع', icon: Grid },
     { href: '/profitable-projects', label: 'مشاريع تحقق عوائد شهرية', icon: TrendingUp },
     { href: '/enterprise-solutions', label: 'انظمه وبرامج حلول للشركات', icon: Building2 },
-    { href: '/transactions', label: 'المعاملات', icon: Receipt },
-  
   ];
 
   return (

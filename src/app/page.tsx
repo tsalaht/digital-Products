@@ -47,14 +47,14 @@ const HomePage = () => {
 
   const stats = [
     { icon: Users, label: 'مشروع نشط', value: '2,847',  color: 'from-white  to-white' },
-    { icon: DollarSign, label: 'إجمالي المبيعات', value: '$12.5M', color: 'from-white  to-white' },
-    { icon: 'trust.png', label: 'بائع موثق', value: '450+',  color: 'from-white  to-white' },
+    { icon: 'fin.png', label: 'إجمالي المبيعات', value: '$12.5M', color: 'from-white  to-white' },
+    { icon: 'trust.jpg', label: 'بائع موثق', value: '450+',  color: 'from-white  to-white' },
     { icon: 'complet.png', label: 'مشروع مكتمل', value: '1,923',  color: 'from-white  to-white'}
   ];
 
   const features = [
     {
-      icon: 'soft.png',
+      icon: 'soft.jpg',
       title: 'شراء برامج سوفت وير بأسعار رخيصة',
       description: 'نقدم حلول برمجية احترافية للشركات والأفراد بأسعار تنافسية دون التضحية بالجودة',
       color: 'from-blue-500 to-cyan-500'
@@ -66,13 +66,13 @@ const HomePage = () => {
       color: 'from-emerald-500 to-green-500'
     },
     {
-      icon: "support.png",
+      icon: "support.jpg",
       title: 'دعم فني مجاني لمدة 10 أيام',
       description: 'مع كل برنامج، نوفر دعمًا فنيًا مباشرًا لضمان تشغيل البرنامج بدون أي مشاكل',
       color: 'from-amber-500 to-yellow-500'
     },
     {
-      icon: 'vid.png',
+      icon: 'vid.jpg',
       title: 'فيديوهات تعليمية كاملة',
       description: 'بعد الشراء، ستتلقى فيديوهات توضح خطوة بخطوة طريقة تثبيت وتشغيل البرنامج والعمل عليه بالكامل',
       color: 'from-purple-500 to-pink-500'
@@ -333,25 +333,25 @@ const HomePage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
-                <TrendingUp className="w-8 h-8 text-white" />
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center">
+            <div className="w-40 h-40 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+         <Image src="/inter.jpg" alt="الحلول المحاسبية" width={200} height={200} />
               </div>
               <h3 className="text-xl font-black text-slate-900 mb-4">حلول ذكاء اصطناعي للشركات</h3>
               <p className="text-slate-600 leading-relaxed">تساعد برامجنا على تحسين إدارة المشاريع، متابعة الأعمال، والمحاسبة بشكل ذكي وفعال.</p>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
-                <Users className="w-8 h-8 text-white" />
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center">
+            <div className="w-40 h-40 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+         <Image src="/think.jpg" alt="الحلول المحاسبية" width={200} height={200} />
               </div>
               <h3 className="text-xl font-black text-slate-900 mb-4">برامج إدارة المشاريع</h3>
               <p className="text-slate-600 leading-relaxed">حلول متخصصة للشركات الصغيرة والمتوسطة لإدارة مشاريعها بكفاءة واحترافية.</p>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
-                <Shield className="w-8 h-8 text-white" />
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center">
+              <div className="w-40 h-40 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+         <Image src="/sol.jpg" alt="الحلول المحاسبية" width={200} height={200} />
               </div>
               <h3 className="text-xl font-black text-slate-900 mb-4">الحلول المحاسبية</h3>
               <p className="text-slate-600 leading-relaxed">برامج محاسبية متقدمة لإدارة الماليات والمحاسبة بسهولة ودقة عالية.</p>

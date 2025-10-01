@@ -175,11 +175,11 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-full  px-14 py-8">
         {/* Image and Purchase Info Side by Side */}
         <div className="lg:flex gap-8 mb-8">
           {/* Image Gallery */}
-          <div className="lg:w-2/3">
+          <div className="lg:w-3/4">
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
               <div className="relative bg-gray-100 rounded-3xl overflow-hidden">
                 <Image
@@ -187,7 +187,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                   alt={project.title}
                   width={800}
                   height={450}
-                  className="w-full h-64 md:h-96 object-cover"
+                  className="w-full h-80 md:h-[500px] object-cover"
                 />
                 {galleryImages.length > 1 && (
                   <>
@@ -234,7 +234,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
           </div>
 
           {/* Purchase Info Sidebar */}
-          <div className="lg:w-1/3">
+          <div className="lg:w-1/4">
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-6">
               <div className="text-3xl font-bold text-blue-600 mb-2">
                 {formatPrice(project.price)}
@@ -255,7 +255,11 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
                   <DollarSign className="w-5 h-5" />
                   <span>شراء المشروع</span>
                 </Link>
-                <Link href="/chat" className="w-full text-white font-bold rounded-full transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-95 flex items-center justify-center gap-2 py-3 px-4"  style={{ background: 'linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%)' }}>
+                <Link 
+                  href={`/chat?sellerId=${project.seller.name}&sellerName=${encodeURIComponent(project.seller.name)}&projectId=${project.id}&projectTitle=${encodeURIComponent(project.title)}`} 
+                  className="w-full text-white font-bold rounded-full transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-95 flex items-center justify-center gap-2 py-3 px-4"  
+                  style={{ background: 'linear-gradient(135deg, #7EE7FC 0%, #5DD3F0 100%)' }}
+                >
                   <MessageCircle className="w-5 h-5" />
                   <span>تواصل مع البائع</span>
                 </Link>
@@ -339,7 +343,7 @@ const ProjectDetailPage = ({ params }: ProjectDetailPageProps) => {
           <div className="lg:flex-1">
             {/* Tabs */}
             <div className="mb-8">
-              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-2">
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-3">
                 <div className="flex flex-wrap gap-1">
                   {[
                     { id: 'overview', label: 'نظرة عامة', icon: Globe },

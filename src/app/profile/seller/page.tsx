@@ -41,10 +41,13 @@ import {
 } from 'lucide-react';
 import { useNotifications } from '@/contexts/NotificationContext';
 import NotificationCenter from '@/components/notifications/NotificationCenter';
+import BankAccountModal from '@/components/BankAccountModal';
 
 const SellerProfilePage = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const [isEditing, setIsEditing] = useState(false);
+  const [showBankModal, setShowBankModal] = useState(false);
+  const [hasBankAccount, setHasBankAccount] = useState(false);
   const { stats, getUnreadCount } = useNotifications();
   const [profileData, setProfileData] = useState({
     name: 'أحمد محمد السيد',
@@ -152,6 +155,22 @@ const SellerProfilePage = () => {
   const handleSaveProfile = () => {
     setIsEditing(false);
     console.log('Profile saved:', profileData);
+  };
+
+  const handleWithdrawalClick = () => {
+    if (!hasBankAccount) {
+      setShowBankModal(true);
+    } else {
+      // Handle withdrawal request
+      console.log('Processing withdrawal request...');
+    }
+  };
+
+  const handleBankAccountSuccess = () => {
+    setHasBankAccount(true);
+    setShowBankModal(false);
+    // Show success notification
+    console.log('Bank account connected successfully!');
   };
 
   const tabs = [
@@ -351,7 +370,7 @@ const SellerProfilePage = () => {
               <tab.icon className="w-5 h-5 ml-2" />
               {tab.label}
               {tab.badge && tab.badge > 0 && (
-                <div className="absolute -top-1 -right-1 bg-cyan-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                <div className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                   {tab.badge > 99 ? '99+' : tab.badge}
                 </div>
               )}
@@ -452,8 +471,11 @@ const SellerProfilePage = () => {
                     <div className="bg-blue-50 rounded-xl p-4">
                       <div className="text-sm text-blue-700 mb-2">متاح للسحب</div>
                       <div className="text-xl font-bold text-blue-900">${earningsData.available.toLocaleString()}</div>
-                      <button className="w-full mt-3 px-4 py-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 text-white font-bold rounded-xl hover:from-cyan-500 hover:via-blue-600 hover:to-blue-700 transition-all duration-300 text-sm">
-                        طلب سحب
+                      <button 
+                        onClick={handleWithdrawalClick}
+                        className="w-full mt-3 px-4 py-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 text-white font-bold rounded-xl hover:from-cyan-500 hover:via-blue-600 hover:to-blue-700 transition-all duration-300 text-sm"
+                      >
+                        {hasBankAccount ? 'طلب سحب' : 'ربط الحساب البنكي'}
                       </button>
                     </div>
                   </div>
@@ -689,10 +711,28 @@ const SellerProfilePage = () => {
                       <div className="text-sm text-amber-700">في الانتظار</div>
                     </div>
                   </div>
+
+                  {/* Bank Account Status */}
+                  {!hasBankAccount && (
+                    <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
+                      <div className="flex items-center gap-3">
+                        <AlertCircle className="w-5 h-5 text-orange-600 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-medium text-orange-900">حساب بنكي غير مرتبط</h4>
+                          <p className="text-sm text-orange-700">
+                            يجب ربط حسابك البنكي أولاً لسحب الأرباح
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                   
-                  <button className="w-full px-6 py-3 bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 text-white font-bold rounded-2xl hover:from-cyan-500 hover:via-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center justify-center">
+                  <button 
+                    onClick={handleWithdrawalClick}
+                    className="w-full px-6 py-3 bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-600 text-white font-bold rounded-2xl hover:from-cyan-500 hover:via-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center justify-center"
+                  >
                     <Download className="w-5 h-5 ml-2" />
-                    طلب سحب الأرباح
+                    {hasBankAccount ? 'طلب سحب الأرباح' : 'ربط الحساب البنكي'}
                   </button>
                 </div>
               </div>
@@ -870,6 +910,13 @@ const SellerProfilePage = () => {
           )}
         </div>
       </div>
+
+      {/* Bank Account Modal */}
+      <BankAccountModal
+        isOpen={showBankModal}
+        onClose={() => setShowBankModal(false)}
+        onSuccess={handleBankAccountSuccess}
+      />
     </div>
   );
 };

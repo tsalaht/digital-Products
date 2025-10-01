@@ -267,7 +267,7 @@ const ProjectsPage = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-12 bg-gradient-to-r from-primary-600 to-primary-500 rounded-xl p-8 text-white">
+        <div className="mt-12 bg-gradient-to-r from-cyan-600 to-cyan-500 rounded-xl p-8 text-white">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-4">إحصائيات المنصة</h2>
             <p className="text-primary-100">أرقام تعكس نجاح وثقة عملائنا</p>

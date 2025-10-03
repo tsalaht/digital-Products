@@ -786,37 +786,37 @@ const SellerProfilePage = () => {
                 </h3>
                 
                 <div className="space-y-4">
-                  <button className="w-full text-right p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors duration-200 flex items-center justify-between">
+                  <Link href="/profile/seller/personal-data" className="w-full text-right p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors duration-200 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <Edit className="w-5 h-5 text-gray-600" />
                       <span className="font-medium">تعديل البيانات الشخصية</span>
                     </div>
                     <ArrowLeft className="w-4 h-4 text-gray-400 rotate-180" />
-                  </button>
+                  </Link>
                   
-                  <button className="w-full text-right p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors duration-200 flex items-center justify-between">
+                  <Link href="/profile/seller/change-password" className="w-full text-right p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors duration-200 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <Lock className="w-5 h-5 text-gray-600" />
                       <span className="font-medium">تغيير كلمة المرور</span>
                     </div>
                     <ArrowLeft className="w-4 h-4 text-gray-400 rotate-180" />
-                  </button>
+                  </Link>
                   
-                  <button className="w-full text-right p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors duration-200 flex items-center justify-between">
+                  <Link href="/profile/seller/payment-settings" className="w-full text-right p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors duration-200 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <CreditCard className="w-5 h-5 text-gray-600" />
                       <span className="font-medium">إعدادات الدفع والسحب</span>
                     </div>
                     <ArrowLeft className="w-4 h-4 text-gray-400 rotate-180" />
-                  </button>
+                  </Link>
                   
-                  <button className="w-full text-right p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors duration-200 flex items-center justify-between">
+                  <Link href="/profile/seller/security-privacy" className="w-full text-right p-4 bg-gray-50 hover:bg-gray-100 rounded-xl transition-colors duration-200 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <Shield className="w-5 h-5 text-gray-600" />
                       <span className="font-medium">إعدادات الأمان والخصوصية</span>
                     </div>
                     <ArrowLeft className="w-4 h-4 text-gray-400 rotate-180" />
-                  </button>
+                  </Link>
                 </div>
               </div>
 

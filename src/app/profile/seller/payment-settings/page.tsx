@@ -18,8 +18,171 @@ import {
   Download,
   Eye,
   EyeOff,
-  Save
+  Save,
+  Globe
 } from 'lucide-react';
+
+// Arabic countries with their IBAN formats and major banks
+const arabicCountries = [
+  {
+    code: 'SA',
+    name: 'المملكة العربية السعودية',
+    nameEn: 'Saudi Arabia',
+    ibanLength: 24,
+    ibanFormat: 'SA## #### #### #### #### ####',
+    banks: [
+      'البنك الأهلي السعودي',
+      'بنك الراجحي',
+      'البنك السعودي للاستثمار',
+      'بنك الجزيرة',
+      'البنك السعودي الفرنسي',
+      'البنك السعودي الهولندي',
+      'بنك الرياض',
+      'البنك السعودي البريطاني'
+    ]
+  },
+  {
+    code: 'AE',
+    name: 'دولة الإمارات العربية المتحدة',
+    nameEn: 'United Arab Emirates',
+    ibanLength: 23,
+    ibanFormat: 'AE## #### #### #### #### ###',
+    banks: [
+      'بنك الإمارات دبي الوطني',
+      'بنك أبوظبي الأول',
+      'بنك دبي الإسلامي',
+      'بنك الإمارات الإسلامي',
+      'مصرف أبوظبي الإسلامي',
+      'بنك الإمارات للتنمية',
+      'بنك الإمارات الوطني',
+      'مصرف الإمارات المركزي'
+    ]
+  },
+  {
+    code: 'EG',
+    name: 'جمهورية مصر العربية',
+    nameEn: 'Egypt',
+    ibanLength: 27,
+    ibanFormat: 'EG## #### #### #### #### #### ###',
+    banks: [
+      'البنك الأهلي المصري',
+      'بنك مصر',
+      'البنك التجاري الدولي',
+      'البنك العربي الأفريقي',
+      'بنك الإسكندرية',
+      'البنك الأهلي الكويتي',
+      'بنك القاهرة',
+      'البنك العربي'
+    ]
+  },
+  {
+    code: 'KW',
+    name: 'دولة الكويت',
+    nameEn: 'Kuwait',
+    ibanLength: 30,
+    ibanFormat: 'KW## #### #### #### #### #### #### ####',
+    banks: [
+      'البنك الأهلي الكويتي',
+      'بنك الكويت الوطني',
+      'بنك الكويت والشرق الأوسط',
+      'البنك التجاري الكويتي',
+      'بنك بوبيان',
+      'البنك الأهلي المتحد',
+      'بنك الكويت المركزي'
+    ]
+  },
+  {
+    code: 'QA',
+    name: 'دولة قطر',
+    nameEn: 'Qatar',
+    ibanLength: 29,
+    ibanFormat: 'QA## #### #### #### #### #### #### ###',
+    banks: [
+      'البنك الأهلي القطري',
+      'بنك قطر الوطني',
+      'البنك التجاري',
+      'بنك قطر الإسلامي',
+      'مصرف قطر المركزي',
+      'البنك الأهلي المتحد',
+      'بنك الدوحة'
+    ]
+  },
+  {
+    code: 'BH',
+    name: 'مملكة البحرين',
+    nameEn: 'Bahrain',
+    ibanLength: 22,
+    ibanFormat: 'BH## #### #### #### #### ##',
+    banks: [
+      'البنك الأهلي البحريني',
+      'بنك البحرين والكويت',
+      'البنك العربي الأفريقي',
+      'بنك البحرين الإسلامي',
+      'مصرف البحرين المركزي',
+      'البنك التجاري البحريني'
+    ]
+  },
+  {
+    code: 'OM',
+    name: 'سلطنة عُمان',
+    nameEn: 'Oman',
+    ibanLength: 23,
+    ibanFormat: 'OM## #### #### #### #### ###',
+    banks: [
+      'البنك الوطني العُماني',
+      'بنك مسقط',
+      'البنك الأهلي العُماني',
+      'بنك عُمان العربي',
+      'البنك التجاري العُماني',
+      'مصرف عُمان المركزي'
+    ]
+  },
+  {
+    code: 'JO',
+    name: 'المملكة الأردنية الهاشمية',
+    nameEn: 'Jordan',
+    ibanLength: 30,
+    ibanFormat: 'JO## #### #### #### #### #### #### ####',
+    banks: [
+      'البنك الأهلي الأردني',
+      'بنك الأردن',
+      'البنك العربي',
+      'بنك القاهرة عمان',
+      'البنك الإسلامي الأردني',
+      'البنك الأهلي المتحد',
+      'مصرف الأردن المركزي'
+    ]
+  },
+  {
+    code: 'LB',
+    name: 'الجمهورية اللبنانية',
+    nameEn: 'Lebanon',
+    ibanLength: 28,
+    ibanFormat: 'LB## #### #### #### #### #### #### ##',
+    banks: [
+      'البنك الأهلي اللبناني',
+      'بنك لبنان والمهجر',
+      'البنك العربي',
+      'البنك التجاري اللبناني',
+      'بنك بيروت',
+      'مصرف لبنان المركزي'
+    ]
+  },
+  {
+    code: 'MA',
+    name: 'المملكة المغربية',
+    nameEn: 'Morocco',
+    ibanLength: 28,
+    ibanFormat: 'MA## #### #### #### #### #### #### ##',
+    banks: [
+      'البنك المغربي للتجارة الخارجية',
+      'البنك الشعبي',
+      'البنك التجاري المغربي',
+      'البنك الأهلي المغربي',
+      'مصرف المغرب المركزي'
+    ]
+  }
+];
 
 const PaymentSettingsPage = () => {
   const [activeTab, setActiveTab] = useState('bank-accounts');
@@ -38,6 +201,8 @@ const PaymentSettingsPage = () => {
       accountNumber: '1234567890',
       accountHolder: 'أحمد محمد السيد',
       iban: 'SA1234567890123456789012',
+      country: 'SA',
+      countryName: 'المملكة العربية السعودية',
       isDefault: true,
       isVerified: true
     },
@@ -47,6 +212,8 @@ const PaymentSettingsPage = () => {
       accountNumber: '0987654321',
       accountHolder: 'أحمد محمد السيد',
       iban: 'SA0987654321098765432109',
+      country: 'SA',
+      countryName: 'المملكة العربية السعودية',
       isDefault: false,
       isVerified: true
     }
@@ -74,6 +241,7 @@ const PaymentSettingsPage = () => {
 
   // New Bank Account Form
   const [newBankAccount, setNewBankAccount] = useState({
+    country: '',
     bankName: '',
     accountNumber: '',
     accountHolder: '',
@@ -88,23 +256,80 @@ const PaymentSettingsPage = () => {
     cvv: ''
   });
 
+  // Helper functions
+  const getSelectedCountry = () => {
+    return arabicCountries.find(country => country.code === newBankAccount.country);
+  };
+
+  const validateIBAN = (iban: string, countryCode: string) => {
+    const country = arabicCountries.find(c => c.code === countryCode);
+    if (!country) return false;
+    
+    // Remove spaces and convert to uppercase
+    const cleanIban = iban.replace(/\s/g, '').toUpperCase();
+    
+    // Check length
+    if (cleanIban.length !== country.ibanLength) return false;
+    
+    // Check country code
+    if (!cleanIban.startsWith(countryCode)) return false;
+    
+    // Basic format validation (numbers and letters)
+    const ibanRegex = /^[A-Z]{2}[0-9]{2}[A-Z0-9]+$/;
+    return ibanRegex.test(cleanIban);
+  };
+
+  const formatIBAN = (iban: string) => {
+    const cleanIban = iban.replace(/\s/g, '').toUpperCase();
+    const country = arabicCountries.find(c => c.code === newBankAccount.country);
+    if (!country) return cleanIban;
+    
+    // Format based on country's IBAN format
+    const format = country.ibanFormat;
+    let formatted = cleanIban;
+    let index = 0;
+    
+    for (let i = 0; i < format.length && index < cleanIban.length; i++) {
+      if (format[i] === '#') {
+        formatted = formatted.substring(0, i) + cleanIban[index] + formatted.substring(i + 1);
+        index++;
+      }
+    }
+    
+    return formatted;
+  };
+
+  const getAvailableBanks = () => {
+    const selectedCountry = getSelectedCountry();
+    return selectedCountry ? selectedCountry.banks : [];
+  };
+
   const handleAddBankAccount = async () => {
     setIsLoading(true);
     setError('');
     
     try {
+      // Validate IBAN
+      if (!validateIBAN(newBankAccount.iban, newBankAccount.country)) {
+        setError('رقم IBAN غير صحيح للدولة المحددة');
+        setIsLoading(false);
+        return;
+      }
+
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000));
       
+      const selectedCountry = getSelectedCountry();
       const newAccount = {
         id: Date.now(),
         ...newBankAccount,
+        countryName: selectedCountry?.name || '',
         isDefault: bankAccounts.length === 0,
         isVerified: false
       };
       
       setBankAccounts(prev => [...prev, newAccount]);
-      setNewBankAccount({ bankName: '', accountNumber: '', accountHolder: '', iban: '' });
+      setNewBankAccount({ country: '', bankName: '', accountNumber: '', accountHolder: '', iban: '' });
       setShowAddBank(false);
       setSuccess('تم إضافة الحساب البنكي بنجاح');
       
@@ -267,6 +492,10 @@ const PaymentSettingsPage = () => {
                         <div>
                           <h4 className="font-bold text-gray-900">{account.bankName}</h4>
                           <p className="text-sm text-gray-600">{account.accountHolder}</p>
+                          <div className="flex items-center gap-2 mt-1">
+                            <Globe className="w-4 h-4 text-gray-500" />
+                            <span className="text-xs text-gray-500">{account.countryName}</span>
+                          </div>
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
@@ -487,14 +716,46 @@ const PaymentSettingsPage = () => {
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">اسم البنك</label>
-                  <input
-                    type="text"
-                    value={newBankAccount.bankName}
-                    onChange={(e) => setNewBankAccount(prev => ({ ...prev, bankName: e.target.value }))}
+                  <label className="block text-sm font-medium text-gray-700 mb-2">الدولة</label>
+                  <select
+                    value={newBankAccount.country}
+                    onChange={(e) => setNewBankAccount(prev => ({ ...prev, country: e.target.value, bankName: '', iban: '' }))}
                     className="input-field"
-                    placeholder="اسم البنك"
-                  />
+                  >
+                    <option value="">اختر الدولة</option>
+                    {arabicCountries.map(country => (
+                      <option key={country.code} value={country.code}>
+                        {country.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">اسم البنك</label>
+                  {newBankAccount.country ? (
+                    <select
+                      value={newBankAccount.bankName}
+                      onChange={(e) => setNewBankAccount(prev => ({ ...prev, bankName: e.target.value }))}
+                      className="input-field"
+                    >
+                      <option value="">اختر البنك</option>
+                      {getAvailableBanks().map(bank => (
+                        <option key={bank} value={bank}>
+                          {bank}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <input
+                      type="text"
+                      value={newBankAccount.bankName}
+                      onChange={(e) => setNewBankAccount(prev => ({ ...prev, bankName: e.target.value }))}
+                      className="input-field"
+                      placeholder="اختر الدولة أولاً"
+                      disabled
+                    />
+                  )}
                 </div>
                 
                 <div>
@@ -520,14 +781,40 @@ const PaymentSettingsPage = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">IBAN</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    IBAN
+                    {newBankAccount.country && (
+                      <span className="text-xs text-gray-500 mr-2">
+                        ({getSelectedCountry()?.ibanFormat})
+                      </span>
+                    )}
+                  </label>
                   <input
                     type="text"
                     value={newBankAccount.iban}
-                    onChange={(e) => setNewBankAccount(prev => ({ ...prev, iban: e.target.value }))}
+                    onChange={(e) => {
+                      const formatted = formatIBAN(e.target.value);
+                      setNewBankAccount(prev => ({ ...prev, iban: formatted }));
+                    }}
                     className="input-field"
-                    placeholder="SA1234567890123456789012"
+                    placeholder={newBankAccount.country ? getSelectedCountry()?.ibanFormat : "اختر الدولة أولاً"}
+                    disabled={!newBankAccount.country}
                   />
+                  {newBankAccount.country && newBankAccount.iban && (
+                    <div className="mt-1">
+                      {validateIBAN(newBankAccount.iban, newBankAccount.country) ? (
+                        <span className="text-xs text-green-600 flex items-center gap-1">
+                          <CheckCircle className="w-3 h-3" />
+                          صيغة IBAN صحيحة
+                        </span>
+                      ) : (
+                        <span className="text-xs text-red-600 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3" />
+                          صيغة IBAN غير صحيحة
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
 

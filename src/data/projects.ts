@@ -11,6 +11,7 @@ export interface Project {
   verified: boolean;
   profitable: boolean;
   seller: {
+    id: string;
     name: string;
     avatar: string;
     rating: number;
@@ -40,6 +41,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "ahmed-mohammed",
       name: "أحمد محمد السيد",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
       rating: 4.8,
@@ -74,6 +76,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "fatima-ahmed",
       name: "فاطمة أحمد علي",
       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
       rating: 4.9,
@@ -108,6 +111,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "khalid-abdulrahman",
       name: "خالد عبدالرحمن",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
       rating: 4.7,
@@ -142,6 +146,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "dr-mariam-alzahrani",
       name: "د. مريم الزهراني",
       avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop&crop=face",
       rating: 4.9,
@@ -176,6 +181,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "omar-salem",
       name: "عمر سالم الأحمد",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
       rating: 4.5,
@@ -210,6 +216,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "nora-abdullah",
       name: "نورا عبدالله",
       avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop&crop=face",
       rating: 4.8,
@@ -244,6 +251,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "mohammed-alrashed",
       name: "محمد الراشد",
       avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face",
       rating: 4.6,
@@ -280,6 +288,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "mohammed-ali-hassan",
       name: "محمد علي الحسن",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
       rating: 4.9,
@@ -315,6 +324,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "sarah-ahmed-almalki",
       name: "سارة أحمد المالكي",
       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
       rating: 4.7,
@@ -350,6 +360,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "khalid-mohammed-alotaibi",
       name: "خالد محمد العتيبي",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
       rating: 4.8,
@@ -385,6 +396,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "fatima-abdullah-alqahtani",
       name: "فاطمة عبدالله القحطاني",
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
       rating: 4.9,
@@ -420,6 +432,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "omar-saad-aldosari",
       name: "عمر سعد الدوسري",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
       rating: 4.6,
@@ -455,6 +468,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "yasser-mohammed-alshehri",
       name: "ياسر محمد الشهري",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
       rating: 4.7,
@@ -490,6 +504,7 @@ export const featuredProjects: Project[] = [
     verified: true,
     profitable: true,
     seller: {
+      id: "nora-abdulrahman-alasiri",
       name: "نورا عبدالرحمن العسيري",
       avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop&crop=face",
       rating: 4.8,

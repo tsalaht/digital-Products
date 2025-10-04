@@ -92,9 +92,12 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             className="w-10 h-10 rounded-full ring-2 ring-white shadow-sm"
           />
           <div>
-            <p className="text-sm font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+            <Link 
+              href={`/profile/seller/${project.seller.id}`}
+              className="text-sm font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300 hover:text-blue-600 cursor-pointer"
+            >
               {project.seller.name}
-            </p>
+            </Link>
             <div className="flex items-center gap-2 text-xs mt-1">
               <span className="flex items-center gap-1 bg-amber-100 px-2 py-1 rounded-3xl">
                 <Star className="w-3 h-3 fill-amber-400 text-amber-400" />

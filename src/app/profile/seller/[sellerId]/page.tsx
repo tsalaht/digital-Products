@@ -44,7 +44,14 @@ import {
   Monitor,
   Server,
   User,
-  Cloud
+  Cloud,
+  Plus,
+  Upload,
+  Video,
+  Play,
+  Youtube,
+  X,
+  FileText
 } from 'lucide-react';
 
 interface Seller {
@@ -120,6 +127,18 @@ const SellerProfilePage = ({ params }: { params: { sellerId: string } }) => {
   const [activeTab, setActiveTab] = useState('overview');
   const [isLoading, setIsLoading] = useState(true);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [showCreateProject, setShowCreateProject] = useState(false);
+  const [projectForm, setProjectForm] = useState({
+    title: '',
+    shortDescription: '',
+    detailedDescription: '',
+    type: '',
+    price: '',
+    url: '',
+    images: [] as File[],
+    video: null as File | null,
+    youtubeUrl: ''
+  });
 
   // Mock data - in real app, fetch from API
   useEffect(() => {
@@ -284,6 +303,49 @@ const SellerProfilePage = ({ params }: { params: { sellerId: string } }) => {
     return skillIcons[skill] || Code;
   };
 
+  const projectTypes = [
+    'تطبيقات ويب',
+    'تطبيقات جوال',
+    'مواقع إلكترونية',
+    'أنظمة إدارية',
+    'تطبيقات سطح المكتب',
+    'ألعاب',
+    'تطبيقات ذكية'
+  ];
+
+  const handleProjectInputChange = (field: string, value: string | File | File[]) => {
+    setProjectForm(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleProjectFileUpload = (field: string, files: FileList | null) => {
+    if (files) {
+      if (field === 'video') {
+        handleProjectInputChange(field, files[0]);
+      } else {
+        handleProjectInputChange(field, Array.from(files));
+      }
+    }
+  };
+
+  const handleCreateProject = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you would typically send the project data to your API
+    console.log('Creating project:', projectForm);
+    // Reset form and close modal
+    setProjectForm({
+      title: '',
+      shortDescription: '',
+      detailedDescription: '',
+      type: '',
+      price: '',
+      url: '',
+      images: [],
+      video: null,
+      youtubeUrl: ''
+    });
+    setShowCreateProject(false);
+  };
+
   const tabs = [
     { id: 'overview', label: 'نظرة عامة', icon: Eye },
     { id: 'projects', label: 'المشاريع', icon: Grid },
@@ -381,7 +443,7 @@ const SellerProfilePage = ({ params }: { params: { sellerId: string } }) => {
                 </div>
                 <div className="flex items-center gap-1">
                   <Calendar className="w-4 h-4" />
-                  <span>عضو منذ {new Date(seller.joinDate).getFullYear()}</span>
+                  <span>عضو منذ {seller.joinDate.split('-')[0]}</span>
                 </div>
               </div>
             </div>
@@ -615,6 +677,18 @@ const SellerProfilePage = ({ params }: { params: { sellerId: string } }) => {
                 <h3 className="text-xl font-bold text-gray-900">المشاريع ({seller.recentProjects.length})</h3>
                 <div className="flex items-center gap-3">
                   <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setShowCreateProject(true);
+                    }}
+                    className="px-4 py-2 bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2"
+                  >
+                    <Plus className="w-5 h-5" />
+                    إضافة مشروع جديد
+                  </button>
+                  <button
                     onClick={() => setViewMode('grid')}
                     className={`p-2 rounded-lg ${viewMode === 'grid' ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'}`}
                   >
@@ -775,7 +849,7 @@ const SellerProfilePage = ({ params }: { params: { sellerId: string } }) => {
                       </div>
                       <div className="flex items-center gap-3">
                         <Calendar className="w-4 h-4 text-gray-500" />
-                        <span className="text-gray-700">عضو منذ {new Date(seller.joinDate).getFullYear()}</span>
+                        <span className="text-gray-700">عضو منذ {seller.joinDate.split('-')[0]}</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <Users className="w-4 h-4 text-gray-500" />
@@ -811,6 +885,232 @@ const SellerProfilePage = ({ params }: { params: { sellerId: string } }) => {
           )}
         </div>
       </div>
+
+      {/* Create Project Modal */}
+      {showCreateProject && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6 border-b border-gray-200">
+              <div className="flex items-center justify-between">
+                <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+                  <Plus className="w-6 h-6 text-green-600" />
+                  إضافة مشروع جديد
+                </h2>
+                <button
+                  onClick={() => setShowCreateProject(false)}
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  <X className="w-6 h-6 text-gray-500" />
+                </button>
+              </div>
+            </div>
+
+            <form onSubmit={handleCreateProject} className="p-6 space-y-6">
+              {/* Project Title */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  عنوان المشروع *
+                </label>
+                <input
+                  type="text"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
+                  value={projectForm.title}
+                  onChange={(e) => handleProjectInputChange('title', e.target.value)}
+                  placeholder="أدخل عنوان المشروع"
+                />
+              </div>
+
+              {/* Short Description */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  وصف مختصر *
+                </label>
+                <textarea
+                  required
+                  rows={3}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
+                  value={projectForm.shortDescription}
+                  onChange={(e) => handleProjectInputChange('shortDescription', e.target.value)}
+                  placeholder="وصف مختصر للمشروع في سطرين"
+                />
+              </div>
+
+              {/* Detailed Description */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  وصف تفصيلي *
+                </label>
+                <textarea
+                  required
+                  rows={6}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
+                  value={projectForm.detailedDescription}
+                  onChange={(e) => handleProjectInputChange('detailedDescription', e.target.value)}
+                  placeholder="اكتب وصفاً تفصيلياً عن المشروع وميزاته..."
+                />
+              </div>
+
+              {/* Project Type and Price */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    نوع المشروع *
+                  </label>
+                  <select
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
+                    value={projectForm.type}
+                    onChange={(e) => handleProjectInputChange('type', e.target.value)}
+                  >
+                    <option value="">اختر نوع المشروع</option>
+                    {projectTypes.map(type => (
+                      <option key={type} value={type}>{type}</option>
+                    ))}
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    السعر بالدولار *
+                  </label>
+                  <div className="relative">
+                    <DollarSign className="absolute right-3 top-3 h-5 w-5 text-gray-400" />
+                    <input
+                      type="number"
+                      required
+                      min="100"
+                      className="w-full pr-10 pl-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
+                      value={projectForm.price}
+                      onChange={(e) => handleProjectInputChange('price', e.target.value)}
+                      placeholder="0"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Project URL */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  رابط المشروع (اختياري)
+                </label>
+                <input
+                  type="url"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
+                  value={projectForm.url}
+                  onChange={(e) => handleProjectInputChange('url', e.target.value)}
+                  placeholder="https://example.com"
+                />
+              </div>
+
+              {/* Project Images */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  صور المشروع
+                </label>
+                <div className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-green-400 transition-colors duration-200">
+                  <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                  <p className="text-gray-600 mb-2">اضغط لرفع صور أو اسحبها هنا</p>
+                  <input
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    className="hidden"
+                    id="projectImages"
+                    onChange={(e) => handleProjectFileUpload('images', e.target.files)}
+                  />
+                  <label htmlFor="projectImages" className="px-6 py-3 bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 transition-all duration-300 cursor-pointer inline-flex items-center">
+                    <Upload className="w-5 h-5 ml-2" />
+                    اختر صور
+                  </label>
+                </div>
+              </div>
+
+              {/* Project Video */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Video Upload */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    فيديو تعريفي (اختياري)
+                  </label>
+                  <div className="border-2 border-dashed border-red-200 rounded-xl p-6 text-center hover:border-red-400 transition-all duration-300 bg-gradient-to-br from-red-50 to-pink-50">
+                    <div className="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <Play className="w-6 h-6 text-red-600" />
+                    </div>
+                    <h3 className="font-bold text-red-900 mb-2">ارفع فيديو من جهازك</h3>
+                    <p className="text-red-700 mb-3 text-sm">
+                      حجم الملف الأقصى: 100 ميجا<br/>
+                      الصيغ المدعومة: MP4, MOV, AVI
+                    </p>
+                    <input
+                      type="file"
+                      accept="video/*"
+                      className="hidden"
+                      id="projectVideo"
+                      onChange={(e) => handleProjectFileUpload('video', e.target.files)}
+                    />
+                    <label htmlFor="projectVideo" className="px-4 py-2 bg-red-500 text-white font-bold rounded-xl hover:bg-red-600 transition-all duration-300 cursor-pointer inline-flex items-center text-sm">
+                      <Upload className="w-4 h-4 ml-1" />
+                      اختر فيديو
+                    </label>
+                    {projectForm.video && (
+                      <div className="mt-3 p-2 bg-red-100 rounded-lg">
+                        <p className="text-red-800 text-sm font-medium">
+                          تم رفع: {projectForm.video.name}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* YouTube Link */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    رابط فيديو YouTube (اختياري)
+                  </label>
+                  <div className="border-2 border-dashed border-red-200 rounded-xl p-6 text-center bg-gradient-to-br from-red-50 to-pink-50">
+                    <div className="bg-red-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <Youtube className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="font-bold text-red-900 mb-2">ربط فيديو YouTube</h3>
+                    <p className="text-red-700 mb-3 text-sm">
+                      ضع رابط فيديو YouTube الخاص بمشروعك
+                    </p>
+                    <div className="relative">
+                      <Youtube className="absolute right-3 top-3 h-5 w-5 text-red-500" />
+                      <input
+                        type="url"
+                        className="w-full pr-10 pl-4 py-3 border border-red-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200 bg-white/70 backdrop-blur-sm"
+                        value={projectForm.youtubeUrl}
+                        onChange={(e) => handleProjectInputChange('youtubeUrl', e.target.value)}
+                        placeholder="https://www.youtube.com/watch?v=..."
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Submit Buttons */}
+              <div className="flex gap-4 pt-6 border-t border-gray-200">
+                <button
+                  type="submit"
+                  className="flex-1 px-6 py-3 bg-green-600 text-white font-bold rounded-xl hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                >
+                  <CheckCircle className="w-5 h-5" />
+                  إنشاء المشروع
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowCreateProject(false)}
+                  className="px-6 py-3 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition-all duration-300"
+                >
+                  إلغاء
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

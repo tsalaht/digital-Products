@@ -12,29 +12,23 @@ import {
   Upload, 
   DollarSign,
   TrendingUp,
-  FileText,
   Code,
   ArrowLeft,
   ChevronDown,
   CheckCircle,
   AlertCircle,
-  Plus,
   X,
-  Video,
-  Play,
-  Youtube,
   CreditCard,
   Megaphone,
   Shield,
   FileCheck,
-  ExternalLink,
   Calendar,
   UserCheck,
   Building,
   Key
 } from 'lucide-react';
 import { storage } from '@/utils/helpers';
-import { STORAGE_KEYS, COUNTRIES, PROGRAMMING_SKILLS, PROJECT_TYPES } from '@/constants';
+import { STORAGE_KEYS, COUNTRIES, PROGRAMMING_SKILLS } from '@/constants';
 
 const SellerRegisterPage = () => {
   const router = useRouter();
@@ -52,18 +46,6 @@ const SellerRegisterPage = () => {
     // Skills
     programmingSkills: [] as string[],
     
-    // Project Info
-    projectTitle: '',
-    projectShortDescription: '',
-    projectDetailedDescription: '',
-    projectType: '',
-    projectPrice: '',
-    projectUrl: '',
-    projectImages: [] as File[],
-    
-    // Video Info
-    projectVideo: null as File | null,
-    youtubeUrl: '',
     
     // Revenue Info
     hasRevenue: null as boolean | null, // null = not answered, true = has revenue, false = no revenue
@@ -93,8 +75,6 @@ const SellerRegisterPage = () => {
   const countries = COUNTRIES;
 
   const programmingSkillsOptions = PROGRAMMING_SKILLS;
-
-  const projectTypes = PROJECT_TYPES;
 
   const revenueTypes = [
     'اشتراكات',
@@ -330,209 +310,7 @@ const SellerRegisterPage = () => {
             </div>
           </div>
 
-          {/* Project Information */}
-          <div className="card">
-            <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <FileText className="w-6 h-6 text-primary-600" />
-              تفاصيل المشروع
-            </h2>
-            
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  عنوان المشروع *
-                </label>
-                <input
-                  type="text"
-                  required
-                  className="input-field"
-                  value={formData.projectTitle}
-                  onChange={(e) => handleInputChange('projectTitle', e.target.value)}
-                  placeholder="أدخل عنوان المشروع"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  وصف مختصر *
-                </label>
-                <textarea
-                  required
-                  rows={3}
-                  className="input-field"
-                  value={formData.projectShortDescription}
-                  onChange={(e) => handleInputChange('projectShortDescription', e.target.value)}
-                  placeholder="وصف مختصر للمشروع في سطرين"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  وصف تفصيلي *
-                </label>
-                <textarea
-                  required
-                  rows={6}
-                  className="input-field"
-                  value={formData.projectDetailedDescription}
-                  onChange={(e) => handleInputChange('projectDetailedDescription', e.target.value)}
-                  placeholder="اكتب وصفاً تفصيلياً عن المشروع وميزاته..."
-                />
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    نوع المشروع *
-                  </label>
-                  <div className="relative">
-                    <select
-                      required
-                      className="input-field appearance-none"
-                      value={formData.projectType}
-                      onChange={(e) => handleInputChange('projectType', e.target.value)}
-                    >
-                      <option value="">اختر نوع المشروع</option>
-                      {projectTypes.map(type => (
-                        <option key={type} value={type}>{type}</option>
-                      ))}
-                    </select>
-                    <ChevronDown className="absolute left-3 top-3 h-5 w-5 text-gray-400 pointer-events-none" />
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    السعر بالدولار *
-                  </label>
-                  <div className="relative">
-                    <DollarSign className="absolute right-3 top-3 h-5 w-5 text-gray-400" />
-                    <input
-                      type="number"
-                      required
-                      min="100"
-                      className="input-field pr-10"
-                      value={formData.projectPrice}
-                      onChange={(e) => handleInputChange('projectPrice', e.target.value)}
-                      placeholder="0"
-                    />
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  رابط المشروع (اختياري)
-                </label>
-                <input
-                  type="url"
-                  className="input-field"
-                  value={formData.projectUrl}
-                  onChange={(e) => handleInputChange('projectUrl', e.target.value)}
-                  placeholder="https://example.com"
-                />
-              </div>
-            </div>
-          </div>
 
-          {/* Project Video Section */}
-          <div className="card">
-            <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <Video className="w-6 h-6 text-red-600" />
-              فيديو تعريفي للمشروع
-            </h2>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Video Upload */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
-                  رفع فيديو تعريفي (اختياري)
-                </label>
-                <div className="border-2 border-dashed border-red-200 rounded-2xl p-8 text-center hover:border-red-400 transition-all duration-300 bg-gradient-to-br from-red-50 to-pink-50">
-                  <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Play className="w-8 h-8 text-red-600" />
-                  </div>
-                  <h3 className="font-bold text-red-900 mb-2">ارفع فيديو من جهازك</h3>
-                  <p className="text-red-700 mb-4 text-sm">
-                    حجم الملف الأقصى: 100 ميجا<br/>
-                    الصيغ المدعومة: MP4, MOV, AVI
-                  </p>
-                  <input
-                    type="file"
-                    accept="video/*"
-                    className="hidden"
-                    id="projectVideo"
-                    onChange={(e) => handleFileUpload('projectVideo', e.target.files)}
-                  />
-                  <label htmlFor="projectVideo" className="px-6 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold rounded-xl hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer inline-flex items-center">
-                    <Upload className="w-5 h-5 ml-2" />
-                    اختر فيديو
-                  </label>
-                  {formData.projectVideo && (
-                    <div className="mt-3 p-3 bg-red-100 rounded-3xl">
-                      <p className="text-red-800 text-sm font-medium">
-                        تم رفع: {formData.projectVideo.name}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* YouTube Link */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
-                  رابط فيديو YouTube (اختياري)
-                </label>
-                <div className="border-2 border-dashed border-red-200 rounded-2xl p-8 text-center bg-gradient-to-br from-red-50 to-pink-50">
-                  <div className="bg-red-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Youtube className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="font-bold text-red-900 mb-2">ربط فيديو YouTube</h3>
-                  <p className="text-red-700 mb-4 text-sm">
-                    ضع رابط فيديو YouTube الخاص بمشروعك
-                  </p>
-                  <div className="relative">
-                    <Youtube className="absolute right-3 top-3 h-5 w-5 text-red-500" />
-                    <input
-                      type="url"
-                      className="w-full pr-10 pl-4 py-3 border border-red-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200 bg-white/70 backdrop-blur-sm"
-                      value={formData.youtubeUrl}
-                      onChange={(e) => handleInputChange('youtubeUrl', e.target.value)}
-                      placeholder="https://www.youtube.com/watch?v=..."
-                    />
-                  </div>
-                  {formData.youtubeUrl && (
-                    <div className="mt-3 flex items-center justify-center gap-2">
-                      <ExternalLink className="w-4 h-4 text-red-600" />
-                      <a 
-                        href={formData.youtubeUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="text-red-600 hover:text-red-700 font-medium text-sm"
-                      >
-                        معاينة الفيديو
-                      </a>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
-              <div className="flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                <div>
-                  <h4 className="font-medium text-blue-900 mb-1">نصائح للفيديو التعريفي:</h4>
-                  <ul className="text-blue-800 text-sm space-y-1">
-                    <li>• مدة الفيديو يُفضل أن تكون من 1-3 دقائق</li>
-                    <li>• اعرض الميزات الرئيسية للمشروع</li>
-                    <li>• استخدم صوت واضح وجودة فيديو جيدة</li>
-                    <li>• اعرض واجهة المشروع والتفاعل معها</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* Advanced Revenue Verification */}
           <div className="card">

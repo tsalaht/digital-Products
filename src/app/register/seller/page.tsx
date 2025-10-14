@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 import { storage } from '@/utils/helpers';
 import { STORAGE_KEYS, COUNTRIES, PROGRAMMING_SKILLS } from '@/constants';
+import { authApi } from '@/utils/api';
 
 const SellerRegisterPage = () => {
   const router = useRouter();
@@ -104,16 +105,29 @@ const SellerRegisterPage = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Store form data temporarily
-    storage.set(STORAGE_KEYS.SELLER_REGISTRATION, formData);
+    if (formData.password !== formData.confirmPassword) {
+      alert('تأكيد كلمة المرور غير متطابق');
+      return;
+    }
     
-    // Redirect to subscription page
-    router.push('/subscribe');
-    
-    console.log('Form submitted:', formData);
+    try {
+      await authApi.registerSeller({
+        full_name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        password: formData.password,
+        programming_skills: formData.programmingSkills,
+        self_description: formData.description,
+        country: formData.country,
+        profile_picture: formData.profileImage
+      });
+      router.push('/profile/seller');
+    } catch (err: any) {
+      alert(err?.message || 'فشل إنشاء الحساب');
+    }
   };
 
   return (

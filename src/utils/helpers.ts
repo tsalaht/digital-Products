@@ -163,6 +163,15 @@ export const storage = {
   }
 };
 
+export const authStorage = {
+  getToken: (): string | null => storage.get<string>('auth_token'),
+  setToken: (token: string): boolean => storage.set('auth_token', token),
+  clear: (): void => {
+    storage.remove('auth_token');
+    storage.remove('user_data');
+  }
+};
+
 /**
  * URL validation
  */

@@ -16,9 +16,11 @@ import {
   Sparkles
 } from 'lucide-react';
 import Image from 'next/image';
+import { useAuth } from '@/hooks/useAuth';
 
 const LoginPage = () => {
   const router = useRouter();
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -39,20 +41,15 @@ const LoginPage = () => {
     setIsLoading(true);
     setError('');
 
-    // Simulate login process
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Mock validation
-      if (formData.email && formData.password) {
-        // Success - redirect to seller dashboard
-        console.log('Login successful:', formData);
-        router.push('/profile/seller');
+      const loggedUser = await login(formData.email, formData.password);
+      if (loggedUser?.role === 'buyer' || loggedUser?.user_type === 'buyer') {
+        router.push('/profile/buyer');
       } else {
-        setError('الرجاء التأكد من البيانات المدخلة');
+        router.push('/profile/seller');
       }
-    } catch (err) {
-      setError('حدث خطأ أثناء تسجيل الدخول');
+    } catch (err: any) {
+      setError(err?.message || 'حدث خطأ أثناء تسجيل الدخول');
     } finally {
       setIsLoading(false);
     }

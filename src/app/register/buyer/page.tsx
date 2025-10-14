@@ -14,6 +14,8 @@ import {
   ChevronDown,
   CheckCircle
 } from 'lucide-react';
+import { authApi } from '@/utils/api';
+import { COUNTRIES } from '@/constants';
 
 const BuyerRegisterPage = () => {
   const router = useRouter();
@@ -22,6 +24,7 @@ const BuyerRegisterPage = () => {
     email: '',
     phone: '',
     interests: [] as string[],
+    country: '',
     budget: '',
     notifications: true,
     password: '',
@@ -69,11 +72,11 @@ const BuyerRegisterPage = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate form data
-    if (!formData.name || !formData.email || !formData.phone || !formData.password || !formData.confirmPassword) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.country || !formData.password || !formData.confirmPassword) {
       alert('يرجى ملء جميع الحقول المطلوبة');
       return;
     }
@@ -93,22 +96,24 @@ const BuyerRegisterPage = () => {
       return;
     }
     
-    if (!formData.budget) {
-      alert('يرجى اختيار نطاق الميزانية');
-      return;
-    }
-    
     if (!formData.acceptTerms) {
       alert('يرجى الموافقة على الشروط والأحكام');
       return;
     }
-    
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    
-    // Simulate successful registration and navigate to buyer profile
-    alert('تم إنشاء الحساب بنجاح!');
-    router.push('/profile/buyer');
+    try {
+      await authApi.registerCustomer({
+        full_name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        password: formData.password,
+        programming_interests: formData.interests,
+        country: formData.country,
+        profile_picture: null
+      });
+      router.push('/profile/buyer');
+    } catch (err: any) {
+      alert(err?.message || 'فشل إنشاء الحساب');
+    }
   };
 
   return (
@@ -184,6 +189,26 @@ const BuyerRegisterPage = () => {
                   />
                 </div>
               </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  البلد *
+                </label>
+                <div className="relative">
+                  <select
+                    required
+                    className="input-field appearance-none"
+                    value={formData.country}
+                    onChange={(e) => handleInputChange('country', e.target.value)}
+                  >
+                    <option value="">اختر البلد</option>
+                    {COUNTRIES.map(country => (
+                      <option key={country} value={country}>{country}</option>
+                    ))}
+                  </select>
+                  <ChevronDown className="absolute left-3 top-3 h-5 w-5 text-gray-400 pointer-events-none" />
+                </div>
+              </div>
             </div>
           </div>
 
@@ -218,63 +243,6 @@ const BuyerRegisterPage = () => {
             </div>
           </div>
 
-          {/* Budget */}
-          <div className="card">
-            <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <DollarSign className="w-6 h-6 text-warning-600" />
-              الميزانية المتوقعة
-            </h2>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
-                حدد الميزانية المتوقعة بالدولار (بحد أقصى 35,000$) *
-              </label>
-              <div className="relative">
-                <select
-                  required
-                  className="input-field appearance-none"
-                  value={formData.budget}
-                  onChange={(e) => handleInputChange('budget', e.target.value)}
-                >
-                  <option value="">اختر نطاق الميزانية</option>
-                  {budgetOptions.map(budget => (
-                    <option key={budget} value={budget}>{budget}</option>
-                  ))}
-                </select>
-                <ChevronDown className="absolute left-3 top-3 h-5 w-5 text-gray-400 pointer-events-none" />
-              </div>
-            </div>
-          </div>
-
-          {/* Notifications */}
-          <div className="card">
-            <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <Bell className="w-6 h-6 text-blue-600" />
-              الإشعارات
-            </h2>
-            
-
-            {/* heree */}
-            <div className="flex items-center justify-between p-4 bg-blue-50 border border-blue-200 rounded-3xl">
-              <div>
-                <h3 className="font-medium text-blue-900 mb-1">
-                  إشعارات المشاريع المطابقة
-                </h3>
-                <p className="text-blue-700 text-sm">
-                  احصل على إشعارات عند توفر مشاريع مطابقة لاهتماماتك
-                </p>
-              </div>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="sr-only peer"
-                  checked={formData.notifications}
-                  onChange={(e) => handleInputChange('notifications', e.target.checked)}
-                />
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#7EE7FC]"></div>
-              </label>
-            </div>
-          </div>
 
           {/* Account Security */}
           <div className="card">
